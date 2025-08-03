@@ -6,7 +6,7 @@
       "chain": "polkadot",
       "metadata": ".papi/metadata/polkadot.scale",
       "genesis": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
-      "codeHash": "0x716bb701ec19452fa522cdaa83ef101d368ba2bcfd89fde9acb6f793a420a616"
+      "codeHash": "0xe260d17fcfa34f10503c91148a7bc2fd820e356295d2e18f828b5fa4190d47f7"
     },
     "polkadot_asset_hub": {
       "chain": "polkadot_asset_hub",
@@ -24,7 +24,7 @@
       "chain": "polkadot_coretime",
       "metadata": ".papi/metadata/polkadot_coretime.scale",
       "genesis": "0xefb56e30d9b4a24099f88820987d0f45fb645992416535d87650d98e00f46fc4",
-      "codeHash": "0x8730d62fc24f15525986b33d5f754b4262d33cd5fa9bf49277843232b793cae4"
+      "codeHash": "0x185c6fc866e001de48f35b5ed4ccbbc7866f6025d22418789f0c75fa535a9d2f"
     },
     "polkadot_people": {
       "chain": "polkadot_people",
@@ -42,19 +42,19 @@
       "chainSpec": "src/chain-specs/hydration.json",
       "metadata": ".papi/metadata/hydration.scale",
       "genesis": "0xafdc188f45c71dacbaa0b62e16a91f726c7b8699a9748cdf715459de6b7f366d",
-      "codeHash": "0x70cad347ab510c1b77cf7fa42942ad9802192410ce382228f54bf81e597fea12"
+      "codeHash": "0xb76d4164995e9d7801bd0cc7d674fc88fb29bb26e32abce2babb6973f74d2423"
     },
     "kusama": {
       "chain": "ksmcc3",
       "metadata": ".papi/metadata/kusama.scale",
       "genesis": "0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe",
-      "codeHash": "0xf45689276dfdcf05b6defd26da68e3283a96190d789f7a311ff31f64b455b421"
+      "codeHash": "0x4c843d1c1b5ce542fcc0e9cc1439ad3384e5753da24d2747c4aa24162a202449"
     },
     "kusama_asset_hub": {
       "chain": "ksmcc3_asset_hub",
       "metadata": ".papi/metadata/kusama_asset_hub.scale",
       "genesis": "0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a",
-      "codeHash": "0xe47150af4545236c2ec6915ad0dbc56a9aadf59e7a031e4d133d962d38ab0ab4"
+      "codeHash": "0x8356dd03a2a5521b9339ce0c6b2a56d3edf83f0ca7262e9edabb695df770a0f6"
     },
     "kusama_people": {
       "chain": "ksmcc3_people",
