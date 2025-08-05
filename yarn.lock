@@ -2886,6 +2886,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reactive-dot/core@npm:^0.44.1":
+  version: 0.44.1
+  resolution: "@reactive-dot/core@npm:0.44.1"
+  dependencies:
+    "@noble/hashes": "npm:^1.8.0"
+    "@reactive-dot/utils": "npm:^0.10.0"
+    "@substrate/smoldot-discovery": "npm:^2.0.2"
+  peerDependencies:
+    polkadot-api: ">=1.11.x"
+  checksum: 10c0/6c8a617aeb1252f320a666828a76dc53d34a29d252ec8c76f3e35b7fba30a5b781c683afdba1c6a815172274d2935f8f8e8ee7eba099426d6c66ee62d410383d
+  languageName: node
+  linkType: hard
+
 "@reactive-dot/react@npm:^0.44.0":
   version: 0.44.0
   resolution: "@reactive-dot/react@npm:0.44.0"
@@ -6739,7 +6752,7 @@ __metadata:
     "@park-ui/panda-preset": "npm:^0.43.1"
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.9"
-    "@reactive-dot/core": "npm:^0.44.0"
+    "@reactive-dot/core": "npm:^0.44.1"
     "@reactive-dot/react": "npm:^0.44.0"
     "@reactive-dot/wallet-ledger": "npm:^0.16.45"
     "@reactive-dot/wallet-mimir": "npm:^0.1.15"
