@@ -2886,17 +2886,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/react@npm:^0.44.0":
-  version: 0.44.0
-  resolution: "@reactive-dot/react@npm:0.44.0"
+"@reactive-dot/core@npm:^0.44.1":
+  version: 0.44.1
+  resolution: "@reactive-dot/core@npm:0.44.1"
   dependencies:
-    "@reactive-dot/core": "npm:^0.44.0"
+    "@noble/hashes": "npm:^1.8.0"
+    "@reactive-dot/utils": "npm:^0.10.0"
+    "@substrate/smoldot-discovery": "npm:^2.0.2"
+  peerDependencies:
+    polkadot-api: ">=1.11.x"
+  checksum: 10c0/6c8a617aeb1252f320a666828a76dc53d34a29d252ec8c76f3e35b7fba30a5b781c683afdba1c6a815172274d2935f8f8e8ee7eba099426d6c66ee62d410383d
+  languageName: node
+  linkType: hard
+
+"@reactive-dot/react@npm:^0.45.0":
+  version: 0.45.0
+  resolution: "@reactive-dot/react@npm:0.45.0"
+  dependencies:
+    "@reactive-dot/core": "npm:^0.44.1"
     jotai: "npm:^2.12.5"
     jotai-derive: "npm:^0.1.3"
     jotai-effect: "npm:^2.0.5"
   peerDependencies:
     react: 19.x
-  checksum: 10c0/300a514491f994e86407c63e69ad32340dbb869fa4185f3e4f366eaf9a75b399c5e95ba0fc9a4871b9a9b2b93ce16c3aeec005c5d29c70db16a56836d940c115
+  checksum: 10c0/f11e39a41e32d177b1b988a7ef91e5c5c2b24577d1aa3677c687a8da17b772c2ebf1320b0beda2eff10b24b104bfa05930a19f1a26920d80f652f22a50e4bf66
   languageName: node
   linkType: hard
 
@@ -6739,8 +6752,8 @@ __metadata:
     "@park-ui/panda-preset": "npm:^0.43.1"
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.9"
-    "@reactive-dot/core": "npm:^0.44.0"
-    "@reactive-dot/react": "npm:^0.44.0"
+    "@reactive-dot/core": "npm:^0.44.1"
+    "@reactive-dot/react": "npm:^0.45.0"
     "@reactive-dot/wallet-ledger": "npm:^0.16.45"
     "@reactive-dot/wallet-mimir": "npm:^0.1.15"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.26"
