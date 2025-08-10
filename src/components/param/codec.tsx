@@ -14,7 +14,7 @@ import { VoidParam, type VoidParamProps } from "./void";
 import type { Decoded, Shape } from "@polkadot-api/view-builder";
 import { createContext, Suspense, use, useMemo } from "react";
 import { css } from "styled-system/css";
-import { type CssProperties } from "styled-system/types";
+import type { CssProperties } from "styled-system/types";
 import { nativeAmountFields } from "~/consts/native-amount-fields";
 
 const StorageParamDepthContext = createContext(0);

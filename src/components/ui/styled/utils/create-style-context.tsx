@@ -35,9 +35,9 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>;
 
       return (
-        <StyleContext value={slotStyles}>
+        <StyleContext.Provider value={slotStyles}>
           <Component {...otherProps} />
-        </StyleContext>
+        </StyleContext.Provider>
       );
     };
     return StyledComponent;
@@ -61,13 +61,13 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>;
 
       return (
-        <StyleContext value={slotStyles}>
+        <StyleContext.Provider value={slotStyles}>
           <StyledComponent
             {...otherProps}
             ref={ref}
             className={cx(slotStyles?.[slot], props.className)}
           />
-        </StyleContext>
+        </StyleContext.Provider>
       );
     });
     // @ts-expect-error
