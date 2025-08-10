@@ -3220,6 +3220,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/history@npm:1.131.2":
+  version: 1.131.2
+  resolution: "@tanstack/history@npm:1.131.2"
+  checksum: 10c0/61760b5e705a7e590b7137476f1a462c744d249fdc417920a898f9109456bb5bab0daacc8cb7751ca67a9b1df399cd4aa50853954ee3c8f8ef282d5bd06a942b
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-router-devtools@npm:^1.121.5":
   version: 1.121.5
   resolution: "@tanstack/react-router-devtools@npm:1.121.5"
@@ -3233,20 +3240,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.121.2":
-  version: 1.121.2
-  resolution: "@tanstack/react-router@npm:1.121.2"
+"@tanstack/react-router@npm:1.131.2":
+  version: 1.131.2
+  resolution: "@tanstack/react-router@npm:1.131.2"
   dependencies:
-    "@tanstack/history": "npm:1.120.17"
+    "@tanstack/history": "npm:1.131.2"
     "@tanstack/react-store": "npm:^0.7.0"
-    "@tanstack/router-core": "npm:1.121.2"
-    jsesc: "npm:^3.1.0"
+    "@tanstack/router-core": "npm:1.131.2"
+    isbot: "npm:^5.1.22"
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   peerDependencies:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/846b1b4c563add2b8556743499f201e125f012a7e7a0112613968bc854b8d041a93e50b1d7351bc01de87c7510cd75022c7f09869481049af3adc9422ceac539
+  checksum: 10c0/bfa9b2d896840f0d471fe46fbf889ccd4965b1c84ca94573d06b1a768958cfaa641472ac1c9e0c07f45dde37d145bfc20e8392661d74e0d498c75b67caefe884
   languageName: node
   linkType: hard
 
@@ -3263,7 +3270,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/router-core@npm:1.121.2, @tanstack/router-core@npm:^1.121.2":
+"@tanstack/router-core@npm:1.131.2":
+  version: 1.131.2
+  resolution: "@tanstack/router-core@npm:1.131.2"
+  dependencies:
+    "@tanstack/history": "npm:1.131.2"
+    "@tanstack/store": "npm:^0.7.0"
+    cookie-es: "npm:^1.2.2"
+    seroval: "npm:^1.3.2"
+    seroval-plugins: "npm:^1.3.2"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  checksum: 10c0/14e2caa30ca5cd24ddcf9bb70a59b56e55dff3169ba54e3577b700fe1a6441f0941dff7d932e7c3c1b352e706cde5b3e2c7ee6347f5f3721ed244960fea40e70
+  languageName: node
+  linkType: hard
+
+"@tanstack/router-core@npm:^1.121.2":
   version: 1.121.2
   resolution: "@tanstack/router-core@npm:1.121.2"
   dependencies:
@@ -6467,7 +6489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie-es@npm:^1.1.0":
+"cookie-es@npm:^1.1.0, cookie-es@npm:^1.2.2":
   version: 1.2.2
   resolution: "cookie-es@npm:1.2.2"
   checksum: 10c0/210eb67cd40a53986fda99d6f47118cfc45a69c4abc03490d15ab1b83ac978d5518356aecdd7a7a4969292445e3063c2302deda4c73706a67edc008127608638
@@ -6700,7 +6722,7 @@ __metadata:
     "@reactive-dot/wallet-ledger": "npm:^0.16.46"
     "@reactive-dot/wallet-mimir": "npm:^0.1.16"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.27"
-    "@tanstack/react-router": "npm:1.121.2"
+    "@tanstack/react-router": "npm:1.131.2"
     "@tanstack/router-devtools": "npm:1.121.5"
     "@tanstack/router-plugin": "npm:1.121.4"
     "@tanstack/zod-adapter": "npm:1.121.2"
@@ -8215,6 +8237,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"isbot@npm:^5.1.22":
+  version: 5.1.29
+  resolution: "isbot@npm:5.1.29"
+  checksum: 10c0/a230429cf6de4b551c129aee8a52b65a6f298a440301537072ddfe94e1eeb481d55bbab1a743084d079c23c71e72ebd89a421d6f7e897f9807493a2f4900319d
+  languageName: node
+  linkType: hard
+
 "isexe@npm:^2.0.0":
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
@@ -8370,7 +8399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsesc@npm:^3.0.2, jsesc@npm:^3.1.0":
+"jsesc@npm:^3.0.2":
   version: 3.1.0
   resolution: "jsesc@npm:3.1.0"
   bin:
@@ -10382,6 +10411,22 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10c0/97d3441e97ace8be4b1976433d1c32658f6afaff09f143e52c593bae7eef33de19e3e369c88bd985ce1042c6f441c80c6803078d1de2a9988080b66684cbb30c
+  languageName: node
+  linkType: hard
+
+"seroval-plugins@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "seroval-plugins@npm:1.3.2"
+  peerDependencies:
+    seroval: ^1.0
+  checksum: 10c0/67b108b3cbc189acca445b512ebd77e11b55c6aa3d1610c3a0b4822b63e5c6d0a4426ac6e50574772cc743257f0a16a8a4d12e5e4f28a2da8e1f583b00a27bbe
+  languageName: node
+  linkType: hard
+
+"seroval@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "seroval@npm:1.3.2"
+  checksum: 10c0/19e74825643786d22e5c58054bd28065238de0156545afba82f9a7d3ee70ea4f0249b427f317bc6bf983849dde8e4190264728d90c84620aa163bfbc5971f1bc
   languageName: node
   linkType: hard
 
