@@ -174,7 +174,6 @@ const LayoutAccountsLayoutValidatorsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
   '/assets': typeof LayoutAssetsRoute
   '/explorer': typeof LayoutExplorerRoute
   '/extrinsics': typeof LayoutExtrinsicsRoute
@@ -198,7 +197,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof LayoutRouteWithChildren
   '/assets': typeof LayoutAssetsRoute
   '/explorer': typeof LayoutExplorerRoute
   '/extrinsics': typeof LayoutExtrinsicsRoute
@@ -249,7 +247,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | ''
     | '/assets'
     | '/explorer'
     | '/extrinsics'
@@ -273,7 +270,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | ''
     | '/assets'
     | '/explorer'
     | '/extrinsics'
