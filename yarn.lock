@@ -5980,7 +5980,7 @@ __metadata:
     typescript-eslint: "npm:^8.40.0"
     vite: "npm:^7.1.3"
     vite-tsconfig-paths: "npm:^5.1.4"
-    zod: "npm:^4.0.17"
+    zod: "npm:^4.1.4"
   languageName: unknown
   linkType: soft
 
@@ -10837,5 +10837,12 @@ __metadata:
   version: 4.0.17
   resolution: "zod@npm:4.0.17"
   checksum: 10c0/c56ef4cc02f8f52be8724c5a8b338266202d68477c7606bee9b7299818b75c9adc27f16f4b6704a372f3e7578bd016f389de19bfec766564b7c39d0d327c540a
+  languageName: node
+  linkType: hard
+
+"zod@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "zod@npm:4.1.4"
+  checksum: 10c0/f9fbfb519db6a838d50115cb686de3961794a9eb13473df8f9ebd1c021bd8505b56643ed1a5fa5197d2ead136ee28e5368e42c45edc31c3a1e9ed62c9734b55a
   languageName: node
   linkType: hard
