@@ -2708,20 +2708,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.131.35":
-  version: 1.131.35
-  resolution: "@tanstack/react-router@npm:1.131.35"
+"@tanstack/react-router@npm:1.131.36":
+  version: 1.131.36
+  resolution: "@tanstack/react-router@npm:1.131.36"
   dependencies:
     "@tanstack/history": "npm:1.131.2"
     "@tanstack/react-store": "npm:^0.7.0"
-    "@tanstack/router-core": "npm:1.131.35"
+    "@tanstack/router-core": "npm:1.131.36"
     isbot: "npm:^5.1.22"
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   peerDependencies:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/f286e61125f316a28dade41915aa6180a3ce556f9da999bd7730a9ca360cb81f081fb2f7b25ad7f58ee200f71015e93cc53623ddbf2c049af583789155a4c63f
+  checksum: 10c0/5c6266b820f745bebd087d45b71f75332440ac584a2279ba4e91c0f355b3a334c2ff79f12c0e67d272ab8dc7dd448b85511ff17d25084f9147117e49243d2c03
   languageName: node
   linkType: hard
 
@@ -2750,6 +2750,21 @@ __metadata:
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   checksum: 10c0/967413fb05a9f49eb18c11665651f01108ea1af65c519420f2a1d1fbc05b0adec83af24d39a9040f6079dc688129d1588b7d21946b3eb19a47c234254e60631f
+  languageName: node
+  linkType: hard
+
+"@tanstack/router-core@npm:1.131.36":
+  version: 1.131.36
+  resolution: "@tanstack/router-core@npm:1.131.36"
+  dependencies:
+    "@tanstack/history": "npm:1.131.2"
+    "@tanstack/store": "npm:^0.7.0"
+    cookie-es: "npm:^1.2.2"
+    seroval: "npm:^1.3.2"
+    seroval-plugins: "npm:^1.3.2"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  checksum: 10c0/ee611a54bad0e9eb1189e75d54175c02fbc2a7d8d1f21d34c8f4e40e1dde5ff2c8e2315e9ee02daffc237820ff408c6222d1ee087085516bf04808c1724cbce1
   languageName: node
   linkType: hard
 
@@ -5968,7 +5983,7 @@ __metadata:
     "@reactive-dot/wallet-ledger": "npm:^0.16.48"
     "@reactive-dot/wallet-mimir": "npm:^0.1.16"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.28"
-    "@tanstack/react-router": "npm:1.131.35"
+    "@tanstack/react-router": "npm:1.131.36"
     "@tanstack/router-devtools": "npm:1.131.35"
     "@tanstack/router-plugin": "npm:1.131.35"
     "@tanstack/zod-adapter": "npm:1.131.35"
