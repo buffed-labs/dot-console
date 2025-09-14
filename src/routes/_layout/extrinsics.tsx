@@ -151,9 +151,10 @@ function CallParam({
 
   const signer = useSigner();
 
-  const [extrinsicState, submit] = useMutation((tx) =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (tx as any)[pallet.name]![call]!(args),
+  const [extrinsicState, submit] = useMutation(
+    (tx, { name, call, args }: { name: string; call: string; args: unknown }) =>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (tx as any)[name]![call]!(args),
   );
 
   const isPending = useMemo(() => {
@@ -334,7 +335,9 @@ function CallParam({
             disabled={
               signer === undefined || args === INCOMPLETE || args === INVALID
             }
-            onClick={() => submit()}
+            onClick={() =>
+              submit({ variables: { name: pallet.name, call, args } })
+            }
           >
             Sign and submit
             <SignATransactionIcon fill="currentcolor" />

@@ -968,63 +968,63 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-react/ast@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/ast@npm:1.53.0"
+"@eslint-react/ast@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/ast@npm:1.53.1"
   dependencies:
-    "@eslint-react/eff": "npm:1.53.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/typescript-estree": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/typescript-estree": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
-  checksum: 10c0/865d5302119e0036d2a7cefaa723ea1a2e80957e136248fa29a24c83973525552526aeb3318bc6a43191e1b80dbe15ddf4a7308c4112d63d9dfcfa164ad5892d
+  checksum: 10c0/2dbb157fb38f68911a12aa18dd2741386cf5ce59ba7fddc35b18891973dfa1b6f5a0ac7734e6154e244b7a5e0ccfa7389d9feb8f337fc981b2e63052d4ed5df4
   languageName: node
   linkType: hard
 
-"@eslint-react/core@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/core@npm:1.53.0"
+"@eslint-react/core@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/core@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     birecord: "npm:^0.1.1"
     ts-pattern: "npm:^5.8.0"
-  checksum: 10c0/6c0293171425daf768f94d765e5b2c4e94f26ebd1d3e3358f99a034695e290b86b60c8e9a45b86f88b5dbd0f48399eba69bccf64557da43504b0604db668388f
+  checksum: 10c0/7dae00c4c2bd3f879ed3b4de50adffe508713772f3201c5553bd63f712f9638b5857e6edfb7903659b29b1bd2cc5c9d8c2043c181ab075de1109920276862eb6
   languageName: node
   linkType: hard
 
-"@eslint-react/eff@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/eff@npm:1.53.0"
-  checksum: 10c0/22bf68bc29ec761c8dadafe10c294e60fb0a9290391690fa3418720a391e208a5073896291c5c3d09766955e4ce4afd9dd8875cd678009d6c8e2672de2a723ec
+"@eslint-react/eff@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/eff@npm:1.53.1"
+  checksum: 10c0/584f3749284f32d6be6fb729c6edea0b3d3d61b964fcc21ed78c8c9262809f16d4e76bd3c847c1005cf01b615ef16a4e528ae15558732d12e825a367b9915de6
   languageName: node
   linkType: hard
 
-"@eslint-react/eslint-plugin@npm:^1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/eslint-plugin@npm:1.53.0"
+"@eslint-react/eslint-plugin@npm:^1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/eslint-plugin@npm:1.53.1"
   dependencies:
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
-    eslint-plugin-react-debug: "npm:1.53.0"
-    eslint-plugin-react-dom: "npm:1.53.0"
-    eslint-plugin-react-hooks-extra: "npm:1.53.0"
-    eslint-plugin-react-naming-convention: "npm:1.53.0"
-    eslint-plugin-react-web-api: "npm:1.53.0"
-    eslint-plugin-react-x: "npm:1.53.0"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
+    eslint-plugin-react-debug: "npm:1.53.1"
+    eslint-plugin-react-dom: "npm:1.53.1"
+    eslint-plugin-react-hooks-extra: "npm:1.53.1"
+    eslint-plugin-react-naming-convention: "npm:1.53.1"
+    eslint-plugin-react-web-api: "npm:1.53.1"
+    eslint-plugin-react-x: "npm:1.53.1"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ^4.9.5 || ^5.3.3
@@ -1033,47 +1033,47 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/b9bbee6a5cfe70fa63bfed837dccfd0f5c5e846217fbd923b70f123b94435f8a0dfc38f77a7304f78416acb5f54294560ecc86ce0c1c10b10f0b859b6ca041a4
+  checksum: 10c0/bcaef384310494241a355a840e2535298fb814cf5e74732ff8c2812f6c8f1a854ba17e50a05d57af49cd215919d25929f9e95c8c626e1a2229c9177676ba21af
   languageName: node
   linkType: hard
 
-"@eslint-react/kit@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/kit@npm:1.53.0"
+"@eslint-react/kit@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/kit@npm:1.53.1"
   dependencies:
-    "@eslint-react/eff": "npm:1.53.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     ts-pattern: "npm:^5.8.0"
     zod: "npm:^4.1.5"
-  checksum: 10c0/d158a5db67bc7c3183860a05b44a5f7f3b4796e210db6c831f7efc5c95035f44fc87b2e6068b98afda0e8465d76a91e596c2979d8c45751f18e06797c2931d88
+  checksum: 10c0/504cb79118814fab4a48a4b8fcf374201779f67ef1e1c3c83db38093f85c265d57bf286832c960350e23679f50e74b6f1c1bdec9a23dc82e37c695a1e3cea7e5
   languageName: node
   linkType: hard
 
-"@eslint-react/shared@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/shared@npm:1.53.0"
+"@eslint-react/shared@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/shared@npm:1.53.1"
   dependencies:
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     ts-pattern: "npm:^5.8.0"
     zod: "npm:^4.1.5"
-  checksum: 10c0/7bb5da08eb7e9db178d1bef0e22c6f1f27aaaa15cc8d96cb52876018cfc6308d603a55f97f3d4dfc20390bc2fc4b7f246c2496166f73d124e62e5c0867f17354
+  checksum: 10c0/fcfae4b403a41f596823f5358ac17c6a94c944253deb64a7ed3d4e90ab77e0b55ca13149f5a65344153781bac74f7bf8f147c63fc19fe0774da9ebc1ed100175
   languageName: node
   linkType: hard
 
-"@eslint-react/var@npm:1.53.0":
-  version: 1.53.0
-  resolution: "@eslint-react/var@npm:1.53.0"
+"@eslint-react/var@npm:1.53.1":
+  version: 1.53.1
+  resolution: "@eslint-react/var@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
-  checksum: 10c0/4c4f8abaa4798091f9cf4e4e6dd268117ed0afa39adcb00ef5567b0795900dccf7404b3d28ca39f89ed36a1a5e292ccd2a3c8b5305ea640f0c0a5ba424610c01
+  checksum: 10c0/0b034b5c132abeb9a0a5faea3a05a9c45a26f31756bff6a2c43c73ec308d12942987c9f12a3ccd0f9d749df334d84e7182a07629994f91ed8e9c165ead160695
   languageName: node
   linkType: hard
 
@@ -1331,46 +1331,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ledgerhq/devices@npm:8.5.0":
-  version: 8.5.0
-  resolution: "@ledgerhq/devices@npm:8.5.0"
+"@ledgerhq/devices@npm:8.5.1":
+  version: 8.5.1
+  resolution: "@ledgerhq/devices@npm:8.5.1"
   dependencies:
-    "@ledgerhq/errors": "npm:^6.24.0"
+    "@ledgerhq/errors": "npm:^6.25.0"
     "@ledgerhq/logs": "npm:^6.13.0"
     rxjs: "npm:^7.8.1"
     semver: "npm:^7.3.5"
-  checksum: 10c0/c28d4513ee6e6f28ca268beeb0e6fcdb64b10483ed59b25d5eea97d96039c7645dc08d9155fe2cd24026207d13fd135678f52437ec7ba3686dea306ad4f99291
+  checksum: 10c0/d0d5761dfd230ef6284288fea41cd5370219b9e5c90dc3264258575ea419f1f76ea03deb5d0c6fa9a5439533c937e352ae9523ab592ee9786932023bd7533ba7
   languageName: node
   linkType: hard
 
-"@ledgerhq/errors@npm:^6.24.0":
-  version: 6.24.0
-  resolution: "@ledgerhq/errors@npm:6.24.0"
-  checksum: 10c0/130c51fa844f4f300d68406f24cac00c900754856950c7b87a9ed93401a69aea4741141f699225f25a31522f10240733d91aa2d985f10dc360b81287c5e708dc
+"@ledgerhq/errors@npm:^6.25.0":
+  version: 6.25.0
+  resolution: "@ledgerhq/errors@npm:6.25.0"
+  checksum: 10c0/f322c78cae6021d83dd7af6b67486bc08a95d644d7f0e613cc3b91c0ff7ad2788aafee0d7af2562728e9a8342d70f6e0d97d95f5a6638800adb7718e6f2b630d
   languageName: node
   linkType: hard
 
-"@ledgerhq/hw-transport-webusb@npm:^6.29.9":
-  version: 6.29.9
-  resolution: "@ledgerhq/hw-transport-webusb@npm:6.29.9"
+"@ledgerhq/hw-transport-webusb@npm:^6.29.10":
+  version: 6.29.10
+  resolution: "@ledgerhq/hw-transport-webusb@npm:6.29.10"
   dependencies:
-    "@ledgerhq/devices": "npm:8.5.0"
-    "@ledgerhq/errors": "npm:^6.24.0"
-    "@ledgerhq/hw-transport": "npm:^6.31.9"
+    "@ledgerhq/devices": "npm:8.5.1"
+    "@ledgerhq/errors": "npm:^6.25.0"
+    "@ledgerhq/hw-transport": "npm:^6.31.10"
     "@ledgerhq/logs": "npm:^6.13.0"
-  checksum: 10c0/42aca4edfe46b59b10f00512a050589ab52d2c2d535b42524d99d417b98fb24896ee0fe206e2dfbfa91497ec870841aab2ce426b61370e5ea62fd568e6447d69
+  checksum: 10c0/3e0a863d873998e1d27fff35762095ea94b64a8d9a3661a7ecbf325208f2d66a25658f0c329f4d007dfe3cf85f9d513394ed511201652205e96ccd7b535c85e8
   languageName: node
   linkType: hard
 
-"@ledgerhq/hw-transport@npm:^6.31.9":
-  version: 6.31.9
-  resolution: "@ledgerhq/hw-transport@npm:6.31.9"
+"@ledgerhq/hw-transport@npm:^6.31.10":
+  version: 6.31.10
+  resolution: "@ledgerhq/hw-transport@npm:6.31.10"
   dependencies:
-    "@ledgerhq/devices": "npm:8.5.0"
-    "@ledgerhq/errors": "npm:^6.24.0"
+    "@ledgerhq/devices": "npm:8.5.1"
+    "@ledgerhq/errors": "npm:^6.25.0"
     "@ledgerhq/logs": "npm:^6.13.0"
     events: "npm:^3.3.0"
-  checksum: 10c0/0c925980afcfe3f772bd5a2df5c25e3108cb1655769709b0c08eb68b6794d556afd9b5ec6f6439336d7a351e0860496020f177c6a56eec0fd68c6654ba9848cd
+  checksum: 10c0/d7c0adf6bd7e4aa5e25aa9b745bf34faab7232dbb00eb6651d26f04f8495b491620f38fa7d751fa9a9097c4016e627918ebfd989bd383dcc5ec7e94a81bae7c4
   languageName: node
   linkType: hard
 
@@ -1669,34 +1669,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pandacss/config@npm:1.2.0, @pandacss/config@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/config@npm:1.2.0"
+"@pandacss/config@npm:1.3.0, @pandacss/config@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/config@npm:1.3.0"
   dependencies:
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/preset-base": "npm:1.2.0"
-    "@pandacss/preset-panda": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/preset-base": "npm:1.3.0"
+    "@pandacss/preset-panda": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     bundle-n-require: "npm:1.1.2"
     escalade: "npm:3.1.2"
     merge-anything: "npm:5.1.7"
     microdiff: "npm:1.3.2"
     typescript: "npm:5.8.3"
-  checksum: 10c0/ac8a1a91ddced4a1202a69fab742db30f1212647ec0c3a2bddaa9bad78564ade96d0f0e89bae5297a7bf42e1d043c26a8a39c853d91f5f2f875b648f3757f194
+  checksum: 10c0/79d42753712ccb6ff8d2bdb35a4e783409e7e8f6cb8537e291e2ee9f74641967402808cf728e04e69e7588adae862768d8b10b8ac040dec9063e7a92c60c0687
   languageName: node
   linkType: hard
 
-"@pandacss/core@npm:1.2.0, @pandacss/core@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/core@npm:1.2.0"
+"@pandacss/core@npm:1.3.0, @pandacss/core@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/core@npm:1.3.0"
   dependencies:
     "@csstools/postcss-cascade-layers": "npm:5.0.2"
-    "@pandacss/is-valid-prop": "npm:^1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/token-dictionary": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/is-valid-prop": "npm:^1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/token-dictionary": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     browserslist: "npm:4.23.3"
     hookable: "npm:5.5.3"
     lightningcss: "npm:1.25.1"
@@ -1711,91 +1711,91 @@ __metadata:
     postcss-normalize-whitespace: "npm:7.0.0"
     postcss-selector-parser: "npm:6.1.2"
     ts-pattern: "npm:5.8.0"
-  checksum: 10c0/9ba8aa10c96074f06675255bbc2f1758fbb95644d2a50eedec7f9a4c51555909269b381ae0bb7c0de976aa2fd361771c7fd2cf30948fae76cbb89680a4ed8430
+  checksum: 10c0/f8c1bc713a022632b8416be9cff52631b173067848fbfc795d72fdeca465c11321d146a0af4c571cc6efc34d852d8d62d15ddb3aae39bb8fc54f71ec354ad34e
   languageName: node
   linkType: hard
 
-"@pandacss/dev@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/dev@npm:1.2.0"
+"@pandacss/dev@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/dev@npm:1.3.0"
   dependencies:
     "@clack/prompts": "npm:0.9.1"
-    "@pandacss/config": "npm:1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/node": "npm:1.2.0"
-    "@pandacss/postcss": "npm:1.2.0"
-    "@pandacss/preset-panda": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/token-dictionary": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/config": "npm:1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/node": "npm:1.3.0"
+    "@pandacss/postcss": "npm:1.3.0"
+    "@pandacss/preset-panda": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/token-dictionary": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     cac: "npm:6.7.14"
   bin:
     panda: bin.js
     pandacss: bin.js
-  checksum: 10c0/ead79cb6458bfead346c8b7b54bc82441a826370b8dff83bbb15b99dc8c0bfb2e8ec875e89678d5def527e637f4d6c256fedbff985ad1211027aacfd5e36473f
+  checksum: 10c0/381ceb5902e27e00102950e48b73b9759b58590e12a3b0098bed2526d625e79c3896ed0462e7f67f9a3074722c0ca73146fdb19ff4ecb2c25ff20e2c29adf693
   languageName: node
   linkType: hard
 
-"@pandacss/extractor@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/extractor@npm:1.2.0"
+"@pandacss/extractor@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/extractor@npm:1.3.0"
   dependencies:
-    "@pandacss/shared": "npm:1.2.0"
+    "@pandacss/shared": "npm:1.3.0"
     ts-evaluator: "npm:1.2.0"
     ts-morph: "npm:26.0.0"
-  checksum: 10c0/40433dbc0ac9cbb125ce5284b9ec6bee1d9f43b92af571e87a712df4f6471f5a5b449ca60a6b960ab159beba62cf4983f16b26bac4dd70cf427d1310b7cf98fa
+  checksum: 10c0/2ebd88c078683ff59addb32ca38519b4f7b3c551286672a885f5e84e2e170ee29de3f98c2d1f1c12031cb93a1dff64b258aa1adeffd8295583c96a55954bac8c
   languageName: node
   linkType: hard
 
-"@pandacss/generator@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/generator@npm:1.2.0"
+"@pandacss/generator@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/generator@npm:1.3.0"
   dependencies:
-    "@pandacss/core": "npm:1.2.0"
-    "@pandacss/is-valid-prop": "npm:^1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/token-dictionary": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/core": "npm:1.3.0"
+    "@pandacss/is-valid-prop": "npm:^1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/token-dictionary": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     javascript-stringify: "npm:2.1.0"
     outdent: "npm: ^0.8.0"
     pluralize: "npm:8.0.0"
     postcss: "npm:8.4.49"
     ts-pattern: "npm:5.8.0"
-  checksum: 10c0/6dedc5655755dc763620c28a16b058195cc021dd1512a58dd5d797192d25124b4ee591cae407a6136360c55fca6b11b9440a728fc2781329cd8fa1acf72072de
+  checksum: 10c0/211252c2b0d91e9a8ce1384bc6c9b7cdcab1b3da3d2769c79ad48027efb5381f54626e8c905efd88775372b663dcd0914a073209a65e7e4b43c7793983672059
   languageName: node
   linkType: hard
 
-"@pandacss/is-valid-prop@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/is-valid-prop@npm:1.2.0"
-  checksum: 10c0/19d209349ee35a160f6e18b92274c8d21c09ff030c82191e220dbe31eac6dbbcdee37921fb09ceddc7420c5cd998ec1d6d965225100d2d2b107c466f2a82d0b9
+"@pandacss/is-valid-prop@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/is-valid-prop@npm:1.3.0"
+  checksum: 10c0/8c5c57f484ddd8fd475b62dfd4fcd79d69d145deb923de536239fdd99e38c7c815c9dbaff0932043d85b1127d844da76e18cbfae8a4aa637c8d0b05c672c1682
   languageName: node
   linkType: hard
 
-"@pandacss/logger@npm:1.2.0, @pandacss/logger@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/logger@npm:1.2.0"
+"@pandacss/logger@npm:1.3.0, @pandacss/logger@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/logger@npm:1.3.0"
   dependencies:
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/types": "npm:1.3.0"
     kleur: "npm:4.1.5"
-  checksum: 10c0/104516b432f88d2bc518ff45360a6e39ab744996ae3ad2bb01ef925e0f17e0a2fcd4ac13cffc6253d3429106bbc9971db8b3d0eb1bce82d3b420172985d39769
+  checksum: 10c0/629596249839f40087418a2d1664722ab99667043a34f1bcef5c8ac6e1f186c0c0d814c9973dfe9d9689f46a771c86fc9f5670caabed2de14132aec09fd7acfb
   languageName: node
   linkType: hard
 
-"@pandacss/node@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/node@npm:1.2.0"
+"@pandacss/node@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/node@npm:1.3.0"
   dependencies:
-    "@pandacss/config": "npm:1.2.0"
-    "@pandacss/core": "npm:1.2.0"
-    "@pandacss/generator": "npm:1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/parser": "npm:1.2.0"
-    "@pandacss/reporter": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/token-dictionary": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/config": "npm:1.3.0"
+    "@pandacss/core": "npm:1.3.0"
+    "@pandacss/generator": "npm:1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/parser": "npm:1.3.0"
+    "@pandacss/reporter": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/token-dictionary": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     browserslist: "npm:4.23.3"
     chokidar: "npm:4.0.3"
     fast-glob: "npm:3.3.3"
@@ -1815,94 +1815,94 @@ __metadata:
     ts-morph: "npm:26.0.0"
     ts-pattern: "npm:5.8.0"
     tsconfck: "npm:3.1.6"
-  checksum: 10c0/06001f6ba3a92c6423c4057f2f57c4db73f1ce4adc3c432a379d5ccbfbeed990db1bfa60cd97041a0e1da81c0e33d8b6ea8d414131cde1057bd642a9f8a36dc7
+  checksum: 10c0/8d87e18c3aa6b33058f41247ca4925c36984f94021c24a1ce832aa013d754e444608807b7d9de6e3a034cdada20e29635d9c56f36e3ce7a6a9353110b394f18e
   languageName: node
   linkType: hard
 
-"@pandacss/parser@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/parser@npm:1.2.0"
+"@pandacss/parser@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/parser@npm:1.3.0"
   dependencies:
-    "@pandacss/config": "npm:^1.2.0"
-    "@pandacss/core": "npm:^1.2.0"
-    "@pandacss/extractor": "npm:1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/config": "npm:^1.3.0"
+    "@pandacss/core": "npm:^1.3.0"
+    "@pandacss/extractor": "npm:1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     "@vue/compiler-sfc": "npm:3.4.19"
     magic-string: "npm:0.30.17"
     ts-morph: "npm:26.0.0"
     ts-pattern: "npm:5.8.0"
-  checksum: 10c0/9f9ab5d1e7f2d2e39cf3169b64584231651286a2eef76e61d4a65820e4f074b3c25ee5e0b65289133a006e6524ed57c9e1bf3aa9f934b06ff30878bd5ffa2cd5
+  checksum: 10c0/11f24b564ecce8a983741653c13719fdc91ebf14e248a3864760df1db9c38e2c38276d5e5850a7720b405714c4599f84f04eb169a7225bad7878aaf5c6ecc09f
   languageName: node
   linkType: hard
 
-"@pandacss/postcss@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/postcss@npm:1.2.0"
+"@pandacss/postcss@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/postcss@npm:1.3.0"
   dependencies:
-    "@pandacss/node": "npm:1.2.0"
+    "@pandacss/node": "npm:1.3.0"
     postcss: "npm:8.4.49"
-  checksum: 10c0/20656c1674db058c30b15842e1a9d34726b5471aa0c967e172ee71347fb54ecafac867b8ccad1f062a0714e65cf6aeab52d8ae93dd1fea57a34bc577e6178755
+  checksum: 10c0/c6fe2682b9bf9a6cc52b219bc71081498c392e43d8c802bb0a8dab758f7a6d9e17d57df6059a785563e255cff17ca7103c5231fc82eb0e6e4196346bc0519830
   languageName: node
   linkType: hard
 
-"@pandacss/preset-base@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/preset-base@npm:1.2.0"
+"@pandacss/preset-base@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/preset-base@npm:1.3.0"
   dependencies:
-    "@pandacss/types": "npm:1.2.0"
-  checksum: 10c0/fcc455ff27e219f63a26ddd28eb04ce0138eb7b6fd82360939b7d932ac8d2724f238e335e0a6bf2a9fe7f2a7bf81e78ecc0d8cc6ec1be1bcca7abe0b6fe6a2d4
+    "@pandacss/types": "npm:1.3.0"
+  checksum: 10c0/8a7d11c7caab92ae8a3925d356fe70d2b0becf974243a8cdd605372fd8d0bc90b27bb60ab4c85372afcaee077cf59bcc5abbeee0444c3fda94188bc74b953e69
   languageName: node
   linkType: hard
 
-"@pandacss/preset-panda@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/preset-panda@npm:1.2.0"
+"@pandacss/preset-panda@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/preset-panda@npm:1.3.0"
   dependencies:
-    "@pandacss/types": "npm:1.2.0"
-  checksum: 10c0/d9cd779af2e86459c3271a409046805869608510c7ac459ef71fe832dfee09635961d7235d91bce04a85c102e32686cff53a4f72d78af9c05fc1c726ff4c848f
+    "@pandacss/types": "npm:1.3.0"
+  checksum: 10c0/411030ac745cada84da6dbc7178734e3e452a2fe59148de326d0ac3f07f93144301131ed8e193be05439d3e0bfa49f12985e054592970cca4ec83e01271da5eb
   languageName: node
   linkType: hard
 
-"@pandacss/reporter@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/reporter@npm:1.2.0"
+"@pandacss/reporter@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/reporter@npm:1.3.0"
   dependencies:
-    "@pandacss/core": "npm:1.2.0"
-    "@pandacss/generator": "npm:1.2.0"
-    "@pandacss/logger": "npm:1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/core": "npm:1.3.0"
+    "@pandacss/generator": "npm:1.3.0"
+    "@pandacss/logger": "npm:1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     table: "npm:6.9.0"
     wordwrapjs: "npm:5.1.0"
-  checksum: 10c0/e119902b47675c372db326f4e430d804ed963c0f4b41a8ef087cf2984f3ffda7234e2089c34231efcd1a273b8d793cb571a82c25a2a8be87925cc59e8be04d32
+  checksum: 10c0/d360dabf53d8cbb43ad4a9e59b1956527e0f28524bd29c415dae7da61a9a8e6b543e2ad93a79396616830397c2f33abc3ae1949bbc467e753a93751da1351ffe
   languageName: node
   linkType: hard
 
-"@pandacss/shared@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/shared@npm:1.2.0"
-  checksum: 10c0/079331e1fd5074e82089a39b5ac23a395f2c816f418ff8f5caae0e7905e3e9af4d6e5951379aa858782586bbcf6ac658ae5a7b565ac76dfafbc18fd09d918176
+"@pandacss/shared@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/shared@npm:1.3.0"
+  checksum: 10c0/6451d6cb1947075628e83942b3ee91a66d207dc80a923f8a86508d5ca2f46771cffee2e3490e7fae1d583bb58ccaedc190e2341679c7998e3bc22907168708df
   languageName: node
   linkType: hard
 
-"@pandacss/token-dictionary@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/token-dictionary@npm:1.2.0"
+"@pandacss/token-dictionary@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/token-dictionary@npm:1.3.0"
   dependencies:
-    "@pandacss/logger": "npm:^1.2.0"
-    "@pandacss/shared": "npm:1.2.0"
-    "@pandacss/types": "npm:1.2.0"
+    "@pandacss/logger": "npm:^1.3.0"
+    "@pandacss/shared": "npm:1.3.0"
+    "@pandacss/types": "npm:1.3.0"
     ts-pattern: "npm:5.8.0"
-  checksum: 10c0/743b7e4ff87bb646969e49fb809bd71a7e2959493021aa5472ee176c9c293525730fafcad4dca6186ff6d5942844c7666f87eebb42b38744d88c8f05feee2052
+  checksum: 10c0/d83e49f71d8b86150175d196c08796e0c565d36698539836d9ea97626387a123c59e76ec7f9ef4c4a40dd8bfbb8b5d8d11e2c79774b4d7613295755e8228f42d
   languageName: node
   linkType: hard
 
-"@pandacss/types@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@pandacss/types@npm:1.2.0"
-  checksum: 10c0/5f61114b126e5044fbada93512ad7a22d0e05c58e3ddcd2afbf184a0d2c31cce1cefb2de4a4a92208a7d660403bf18792dd6f9436e9227e1711fb58b02f12ca7
+"@pandacss/types@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@pandacss/types@npm:1.3.0"
+  checksum: 10c0/4e7030cb8683848006328006c3994e4c934797d64726aae8073df451b3a8752b5a7f8ea9dee431edba7d77a9b5e4a6bd726b16b7efdba63cfaa5e3b51873ed58
   languageName: node
   linkType: hard
 
@@ -2162,7 +2162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot-api/ledger-signer@npm:^0.2.6":
+"@polkadot-api/ledger-signer@npm:^0.2.8":
   version: 0.2.8
   resolution: "@polkadot-api/ledger-signer@npm:0.2.8"
   dependencies:
@@ -2403,17 +2403,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/react@npm:^0.46.3":
-  version: 0.46.3
-  resolution: "@reactive-dot/react@npm:0.46.3"
+"@reactive-dot/react@npm:^0.47.0":
+  version: 0.47.0
+  resolution: "@reactive-dot/react@npm:0.47.0"
   dependencies:
     "@reactive-dot/core": "npm:^0.46.3"
-    jotai: "npm:^2.13.1"
+    jotai: "npm:^2.14.0"
     jotai-derive: "npm:^0.1.3"
-    jotai-effect: "npm:^2.1.0"
+    jotai-effect: "npm:^2.1.1"
   peerDependencies:
     react: 19.x
-  checksum: 10c0/e20e6d0a399719f513f8b48dc9ab1e931f2a876a1dc961666a53936dbc10eb55232a1ec1e41f176a125578079c13daadc2ff81cbd54a2536bb664bed87cdb15b
+  checksum: 10c0/934740558abba48e3df71675684a2c55af8a0efcab6ccd8d4188341f7378933e992a76f1015ee64a2b117c56544734fb7a451751ea64271d914bde246ac195aa
   languageName: node
   linkType: hard
 
@@ -2424,15 +2424,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/wallet-ledger@npm:^0.16.48":
-  version: 0.16.48
-  resolution: "@reactive-dot/wallet-ledger@npm:0.16.48"
+"@reactive-dot/wallet-ledger@npm:^0.16.49":
+  version: 0.16.49
+  resolution: "@reactive-dot/wallet-ledger@npm:0.16.49"
   dependencies:
-    "@ledgerhq/hw-transport-webusb": "npm:^6.29.9"
-    "@polkadot-api/ledger-signer": "npm:^0.2.6"
+    "@ledgerhq/hw-transport-webusb": "npm:^6.29.10"
+    "@polkadot-api/ledger-signer": "npm:^0.2.8"
     "@reactive-dot/core": "npm:^0.46.3"
     buffer: "npm:^6.0.3"
-  checksum: 10c0/7fd6d99ed0f09e25c7134419a3a83d83d2d30c5e7c919b678175b176fcf7a9d361ff12a3e69bfbf69f18926a82972205d5442c7d5d872f05fec9866ca98b9bd9
+  checksum: 10c0/56bdd362bc9bce8a51388079d7b0f49ccb4538749d946931cb15c96f652913923d9363741f9acc9cc38ed29c7fa72290b5a385298179756ac475fc3f5cb50d5b
   languageName: node
   linkType: hard
 
@@ -2695,33 +2695,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router-devtools@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/react-router-devtools@npm:1.131.36"
+"@tanstack/react-router-devtools@npm:1.131.42":
+  version: 1.131.42
+  resolution: "@tanstack/react-router-devtools@npm:1.131.42"
   dependencies:
-    "@tanstack/router-devtools-core": "npm:1.131.36"
+    "@tanstack/router-devtools-core": "npm:1.131.42"
   peerDependencies:
-    "@tanstack/react-router": ^1.131.36
+    "@tanstack/react-router": ^1.131.41
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/411c803c7b17476ce7210e9a0690dba09a0cfa6aaa3cd90b93a27b5069f077db5e1609c4c970ab8768a3d06c9ed41280ea7d9d5b88ad10ab65e2e6e2c1d61ec0
+  checksum: 10c0/57c89d5d45c28a8ecdb1b9687839a59cfb43173126520c62df221c16470137fdf5cfaf800ae844d837776a5b60bffc67ed4e89928a696e5b548d1dc53a9ed10c
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/react-router@npm:1.131.36"
+"@tanstack/react-router@npm:1.131.41":
+  version: 1.131.41
+  resolution: "@tanstack/react-router@npm:1.131.41"
   dependencies:
     "@tanstack/history": "npm:1.131.2"
     "@tanstack/react-store": "npm:^0.7.0"
-    "@tanstack/router-core": "npm:1.131.36"
+    "@tanstack/router-core": "npm:1.131.41"
     isbot: "npm:^5.1.22"
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   peerDependencies:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/5c6266b820f745bebd087d45b71f75332440ac584a2279ba4e91c0f355b3a334c2ff79f12c0e67d272ab8dc7dd448b85511ff17d25084f9147117e49243d2c03
+  checksum: 10c0/5156af121207d543bb525064cd92041b2d2d0698cce83fad7309c609d44530bfe3dea1ae233fbbd88d8613ca3d22452e601b12e912adf92ee0c9c1b24f0ba119
   languageName: node
   linkType: hard
 
@@ -2738,9 +2738,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/router-core@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/router-core@npm:1.131.36"
+"@tanstack/router-core@npm:1.131.41":
+  version: 1.131.41
+  resolution: "@tanstack/router-core@npm:1.131.41"
   dependencies:
     "@tanstack/history": "npm:1.131.2"
     "@tanstack/store": "npm:^0.7.0"
@@ -2749,53 +2749,53 @@ __metadata:
     seroval-plugins: "npm:^1.3.2"
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
-  checksum: 10c0/ee611a54bad0e9eb1189e75d54175c02fbc2a7d8d1f21d34c8f4e40e1dde5ff2c8e2315e9ee02daffc237820ff408c6222d1ee087085516bf04808c1724cbce1
+  checksum: 10c0/41352eb1ca9288fbe15be7d33da0c769ef0a2cd425d972fb15904ea0573d6560d18fbed5d8d51d9d8a4d82fc2c7ba0ddb2f43f3b40e5feb85f5e6b3b44acff03
   languageName: node
   linkType: hard
 
-"@tanstack/router-devtools-core@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/router-devtools-core@npm:1.131.36"
+"@tanstack/router-devtools-core@npm:1.131.42":
+  version: 1.131.42
+  resolution: "@tanstack/router-devtools-core@npm:1.131.42"
   dependencies:
     clsx: "npm:^2.1.1"
     goober: "npm:^2.1.16"
     solid-js: "npm:^1.9.5"
   peerDependencies:
-    "@tanstack/router-core": ^1.131.36
+    "@tanstack/router-core": ^1.131.41
     csstype: ^3.0.10
     solid-js: ">=1.9.5"
     tiny-invariant: ^1.3.3
   peerDependenciesMeta:
     csstype:
       optional: true
-  checksum: 10c0/54de55a86726271221301ce0d95379e36849f3dc5c4e6a0a429c04c6985ee5d644a0fee3c95cd69fb54542708b0a9a9ff2093ad8203ee023d8a263c3420f0a10
+  checksum: 10c0/ebf6827b939423c6194dcabf498e1f31cf92f36ca38fa722228bfb4110eeb1a08b3ea41fe272ed1bfc6bbe8899615b06cd1b9cec45d15fa64df1baee51cd0ed9
   languageName: node
   linkType: hard
 
-"@tanstack/router-devtools@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/router-devtools@npm:1.131.36"
+"@tanstack/router-devtools@npm:1.131.42":
+  version: 1.131.42
+  resolution: "@tanstack/router-devtools@npm:1.131.42"
   dependencies:
-    "@tanstack/react-router-devtools": "npm:1.131.36"
+    "@tanstack/react-router-devtools": "npm:1.131.42"
     clsx: "npm:^2.1.1"
     goober: "npm:^2.1.16"
   peerDependencies:
-    "@tanstack/react-router": ^1.131.36
+    "@tanstack/react-router": ^1.131.41
     csstype: ^3.0.10
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
   peerDependenciesMeta:
     csstype:
       optional: true
-  checksum: 10c0/4a4289c176a8b608d6cf38797f0f4f9bb4fd2ec4d8a3086dd60aaeaefeabefb4182429f68ac9390478aede38998ebe57740c6a6ef402896d62f618f3134ad34f
+  checksum: 10c0/711e05b737a7e3d1df490701f2922f10cbc9a9ab402dd387814b46ffca690bd59a32fafe299178b78fef7b9fab4f9c3d561b810ba4bb334f5071b4f562fb1471
   languageName: node
   linkType: hard
 
-"@tanstack/router-generator@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/router-generator@npm:1.131.36"
+"@tanstack/router-generator@npm:1.131.41":
+  version: 1.131.41
+  resolution: "@tanstack/router-generator@npm:1.131.41"
   dependencies:
-    "@tanstack/router-core": "npm:1.131.36"
+    "@tanstack/router-core": "npm:1.131.41"
     "@tanstack/router-utils": "npm:1.131.2"
     "@tanstack/virtual-file-routes": "npm:1.131.2"
     prettier: "npm:^3.5.0"
@@ -2803,13 +2803,13 @@ __metadata:
     source-map: "npm:^0.7.4"
     tsx: "npm:^4.19.2"
     zod: "npm:^3.24.2"
-  checksum: 10c0/15ac37aa1c58ee7ddd56ef546d51693d3f78d99e409c4d960086be5455045959e5f35dad59430515bda643ee4947152bca41dcc08c3b77f171b2172cd4374044
+  checksum: 10c0/7522e0c770ebe8ab294715bfa6f3645ef13f7ed691fe1679cc69221da51d36e050f44ad56be59d34685254e43450235a49cb44983ba8d0e9997258c945a47945
   languageName: node
   linkType: hard
 
-"@tanstack/router-plugin@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/router-plugin@npm:1.131.36"
+"@tanstack/router-plugin@npm:1.131.43":
+  version: 1.131.43
+  resolution: "@tanstack/router-plugin@npm:1.131.43"
   dependencies:
     "@babel/core": "npm:^7.27.7"
     "@babel/plugin-syntax-jsx": "npm:^7.27.1"
@@ -2817,8 +2817,8 @@ __metadata:
     "@babel/template": "npm:^7.27.2"
     "@babel/traverse": "npm:^7.27.7"
     "@babel/types": "npm:^7.27.7"
-    "@tanstack/router-core": "npm:1.131.36"
-    "@tanstack/router-generator": "npm:1.131.36"
+    "@tanstack/router-core": "npm:1.131.41"
+    "@tanstack/router-generator": "npm:1.131.41"
     "@tanstack/router-utils": "npm:1.131.2"
     "@tanstack/virtual-file-routes": "npm:1.131.2"
     babel-dead-code-elimination: "npm:^1.0.10"
@@ -2827,7 +2827,7 @@ __metadata:
     zod: "npm:^3.24.2"
   peerDependencies:
     "@rsbuild/core": ">=1.0.2"
-    "@tanstack/react-router": ^1.131.36
+    "@tanstack/react-router": ^1.131.41
     vite: ">=5.0.0 || >=6.0.0"
     vite-plugin-solid: ^2.11.2
     webpack: ">=5.92.0"
@@ -2842,7 +2842,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/f6d231a6c78deccd76251cf532f67fee577b9aff9368da498daf857c3cfacd6f5571a48f14e53ff1b470d46d594a895834c50f1f63d2b45c0e7be4898e2f549e
+  checksum: 10c0/dd7176e67806688536123f9f1e9b0fed722ddc26e7637aea96e5346d9dfed13cacddc9a3a345a8a77c76864cf2c38a656d0847735f10f7b8728c2beb566ff14e
   languageName: node
   linkType: hard
 
@@ -2874,13 +2874,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/zod-adapter@npm:1.131.36":
-  version: 1.131.36
-  resolution: "@tanstack/zod-adapter@npm:1.131.36"
+"@tanstack/zod-adapter@npm:1.131.41":
+  version: 1.131.41
+  resolution: "@tanstack/zod-adapter@npm:1.131.41"
   peerDependencies:
     "@tanstack/react-router": ">=1.43.2"
     zod: ^3.23.8
-  checksum: 10c0/fe67db984bcc7dc1312c25276ff343c4f318ff481bdfdfd3c729c411833966bc7b4f37d5f4435cc10a51bffa1befa87c58ae7c8f987a8c1ab4c611ebde23ec9a
+  checksum: 10c0/8b54891fbbb88b4491f5052b7246c19aae9f92d61ea9b7ba7e14945a80f40fbd85f7695e27275212c44309ca7c44b50f954f70ff5b112d403186de060086515c
   languageName: node
   linkType: hard
 
@@ -3022,12 +3022,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.1.12":
-  version: 19.1.12
-  resolution: "@types/react@npm:19.1.12"
+"@types/react@npm:^19.1.13":
+  version: 19.1.13
+  resolution: "@types/react@npm:19.1.13"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/e35912b43da0caaab5252444bab87a31ca22950cde2822b3b3dc32e39c2d42dad1a4cf7b5dde9783aa2d007f0b2cba6ab9563fc6d2dbcaaa833b35178118767c
+  checksum: 10c0/75e35b54883f5ed07d3b5cb16a4711b6dbb7ec6b74301bcb9bfa697c9d9fff022ec508e1719e7b2c69e2e8b042faac1125be7717b5e5e084f816a2c88e136920
   languageName: node
   linkType: hard
 
@@ -3101,7 +3101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:8.42.0, @typescript-eslint/scope-manager@npm:^8.42.0":
+"@typescript-eslint/scope-manager@npm:8.42.0":
   version: 8.42.0
   resolution: "@typescript-eslint/scope-manager@npm:8.42.0"
   dependencies:
@@ -3111,7 +3111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:8.43.0":
+"@typescript-eslint/scope-manager@npm:8.43.0, @typescript-eslint/scope-manager@npm:^8.43.0":
   version: 8.43.0
   resolution: "@typescript-eslint/scope-manager@npm:8.43.0"
   dependencies:
@@ -3139,7 +3139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:8.43.0":
+"@typescript-eslint/type-utils@npm:8.43.0, @typescript-eslint/type-utils@npm:^8.43.0":
   version: 8.43.0
   resolution: "@typescript-eslint/type-utils@npm:8.43.0"
   dependencies:
@@ -3155,7 +3155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:^8.0.0, @typescript-eslint/type-utils@npm:^8.42.0":
+"@typescript-eslint/type-utils@npm:^8.0.0":
   version: 8.42.0
   resolution: "@typescript-eslint/type-utils@npm:8.42.0"
   dependencies:
@@ -3185,7 +3185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:8.42.0, @typescript-eslint/typescript-estree@npm:^8.42.0":
+"@typescript-eslint/typescript-estree@npm:8.42.0":
   version: 8.42.0
   resolution: "@typescript-eslint/typescript-estree@npm:8.42.0"
   dependencies:
@@ -3205,7 +3205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:8.43.0":
+"@typescript-eslint/typescript-estree@npm:8.43.0, @typescript-eslint/typescript-estree@npm:^8.43.0":
   version: 8.43.0
   resolution: "@typescript-eslint/typescript-estree@npm:8.43.0"
   dependencies:
@@ -3225,7 +3225,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.42.0, @typescript-eslint/utils@npm:^8.42.0":
+"@typescript-eslint/utils@npm:8.42.0":
   version: 8.42.0
   resolution: "@typescript-eslint/utils@npm:8.42.0"
   dependencies:
@@ -3240,7 +3240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.43.0":
+"@typescript-eslint/utils@npm:8.43.0, @typescript-eslint/utils@npm:^8.43.0":
   version: 8.43.0
   resolution: "@typescript-eslint/utils@npm:8.43.0"
   dependencies:
@@ -6056,26 +6056,26 @@ __metadata:
     "@dnd-kit/core": "npm:^6.3.1"
     "@dnd-kit/modifiers": "npm:^9.0.0"
     "@dnd-kit/sortable": "npm:^10.0.0"
-    "@eslint-react/eslint-plugin": "npm:^1.53.0"
+    "@eslint-react/eslint-plugin": "npm:^1.53.1"
     "@eslint/compat": "npm:^1.3.2"
     "@eslint/js": "npm:^9.35.0"
-    "@pandacss/dev": "npm:^1.2.0"
+    "@pandacss/dev": "npm:^1.3.0"
     "@park-ui/panda-preset": "npm:^0.43.1"
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.12"
     "@reactive-dot/core": "npm:^0.46.3"
-    "@reactive-dot/react": "npm:^0.46.3"
-    "@reactive-dot/wallet-ledger": "npm:^0.16.48"
+    "@reactive-dot/react": "npm:^0.47.0"
+    "@reactive-dot/wallet-ledger": "npm:^0.16.49"
     "@reactive-dot/wallet-mimir": "npm:^0.1.16"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.28"
-    "@tanstack/react-router": "npm:1.131.36"
-    "@tanstack/router-devtools": "npm:1.131.36"
-    "@tanstack/router-plugin": "npm:1.131.36"
-    "@tanstack/zod-adapter": "npm:1.131.36"
+    "@tanstack/react-router": "npm:1.131.41"
+    "@tanstack/router-devtools": "npm:1.131.42"
+    "@tanstack/router-plugin": "npm:1.131.43"
+    "@tanstack/zod-adapter": "npm:1.131.41"
     "@trivago/prettier-plugin-sort-imports": "npm:^5.2.2"
     "@tsconfig/strictest": "npm:^2.0.5"
     "@tsconfig/vite-react": "npm:^7.0.1"
-    "@types/react": "npm:^19.1.12"
+    "@types/react": "npm:^19.1.13"
     "@types/react-dom": "npm:^19.1.9"
     "@vitejs/plugin-react": "npm:^5.0.2"
     "@w3f/polkadot-icons": "npm:^1.0.0"
@@ -6101,7 +6101,7 @@ __metadata:
     typescript-eslint: "npm:^8.43.0"
     vite: "npm:^7.1.5"
     vite-tsconfig-paths: "npm:^5.1.4"
-    zod: "npm:^4.1.5"
+    zod: "npm:^4.1.8"
   languageName: unknown
   linkType: soft
 
@@ -6441,20 +6441,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-debug@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-debug@npm:1.53.0"
+"eslint-plugin-react-debug@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-debug@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
   peerDependencies:
@@ -6465,23 +6465,23 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/628b816917a1209d57a7c63c5c086b53f7409dcc7e517f66fbd3a0de11d811c34656a019576f946bd6b4ebb7b88042ef83f535f80679e7cfb165820496897e9c
+  checksum: 10c0/882d6284722c2e8494fcf1a663c009e409c78e524ac79c54362bb756318b5c20f21a41bb8daabae014ce44336ed77b4f025ff972794d57247bb0bed5c681e7f3
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-dom@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-dom@npm:1.53.0"
+"eslint-plugin-react-dom@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-dom@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     compare-versions: "npm:^6.1.1"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
@@ -6493,24 +6493,24 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/33e361e27c38763c943345d85968c401ae972f3ba848a56991bf86e8cf41fc893c489eeb524d40144ac1e0f3a1461736d7199174946bc1ffc6962dceabaa2e8f
+  checksum: 10c0/39d003fdc9a956d459656540842751137ed78ff39e8ed7a8484e947d13f19ad6ced5d39986a1009f7f366cd422d54312fcd42c2ebbee93b9125e1e1da1d17d18
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks-extra@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-hooks-extra@npm:1.53.0"
+"eslint-plugin-react-hooks-extra@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-hooks-extra@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
   peerDependencies:
@@ -6521,7 +6521,7 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/96d1a1e32bdd2e3f60d7e5560e07c88f6df03eeaf9dc3c10a11bbc2b015af3832161492ecdee6c7c70039627a06093ff121955d9cbc1c71173e28cf31ff2d46d
+  checksum: 10c0/19930257134510ffbe611a6821036f62667de68a0f9c3e11bcfa23582c0d10fb9053b4fa8c5697ad35082c43cde594b82d56df0eff99ddcb97d4eef4b3fae965
   languageName: node
   linkType: hard
 
@@ -6534,20 +6534,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-naming-convention@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-naming-convention@npm:1.53.0"
+"eslint-plugin-react-naming-convention@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-naming-convention@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
   peerDependencies:
@@ -6558,7 +6558,7 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/bbb1dc50080e2bead271783c8b51d8de1ffc58fa15d438021ff76e2487f6c4b62aea05cfe9b3c95b7ada6188cbbc27159928b2e82319a7408bc6ae044a4e0921
+  checksum: 10c0/a1cfed0fbbd87dee7d3fc039ee0527ff29751702a2c62cbb2ef108b74e4349993410d86874bb9e3da57555325c127e1b94c2b20a9644ea56a054e7ff70691014
   languageName: node
   linkType: hard
 
@@ -6571,19 +6571,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-web-api@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-web-api@npm:1.53.0"
+"eslint-plugin-react-web-api@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-web-api@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     string-ts: "npm:^2.2.1"
     ts-pattern: "npm:^5.8.0"
   peerDependencies:
@@ -6594,24 +6594,24 @@ __metadata:
       optional: false
     typescript:
       optional: true
-  checksum: 10c0/993d627e83929fed8b2ff6260616eaf9a345cebb3a26d8dca4761f48d64ae37160365df2b58c104eeb1d7fbaff13cbe949b6b8a3949b1966256c9c6638186c4c
+  checksum: 10c0/823498e16e194a0d28ad435dba38022f6a8782425a671e906c529a22940e8d207a88ad205f887d1f2ebe6a858203e2bf3b47109e3e958670daaf257f3e70dd92
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-x@npm:1.53.0":
-  version: 1.53.0
-  resolution: "eslint-plugin-react-x@npm:1.53.0"
+"eslint-plugin-react-x@npm:1.53.1":
+  version: 1.53.1
+  resolution: "eslint-plugin-react-x@npm:1.53.1"
   dependencies:
-    "@eslint-react/ast": "npm:1.53.0"
-    "@eslint-react/core": "npm:1.53.0"
-    "@eslint-react/eff": "npm:1.53.0"
-    "@eslint-react/kit": "npm:1.53.0"
-    "@eslint-react/shared": "npm:1.53.0"
-    "@eslint-react/var": "npm:1.53.0"
-    "@typescript-eslint/scope-manager": "npm:^8.42.0"
-    "@typescript-eslint/type-utils": "npm:^8.42.0"
-    "@typescript-eslint/types": "npm:^8.42.0"
-    "@typescript-eslint/utils": "npm:^8.42.0"
+    "@eslint-react/ast": "npm:1.53.1"
+    "@eslint-react/core": "npm:1.53.1"
+    "@eslint-react/eff": "npm:1.53.1"
+    "@eslint-react/kit": "npm:1.53.1"
+    "@eslint-react/shared": "npm:1.53.1"
+    "@eslint-react/var": "npm:1.53.1"
+    "@typescript-eslint/scope-manager": "npm:^8.43.0"
+    "@typescript-eslint/type-utils": "npm:^8.43.0"
+    "@typescript-eslint/types": "npm:^8.43.0"
+    "@typescript-eslint/utils": "npm:^8.43.0"
     compare-versions: "npm:^6.1.1"
     is-immutable-type: "npm:^5.0.1"
     string-ts: "npm:^2.2.1"
@@ -6627,7 +6627,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10c0/9d971805fcf80f3dce236ee5e05e119cd3905ca9b8cf0d0fbc4d968a6ad0ea118af44d74a5d373587d91e3d6b836488f97d7f3291595cb17f4908c94ccd49d26
+  checksum: 10c0/e8e5f75c1300ce643e76097529e83236971f173f8a65f9e1739135232ffb3756ae6f31563450a2b3512501a7793bf6cad0604b0b5b5606a4af3ad349c2a27283
   languageName: node
   linkType: hard
 
@@ -7615,12 +7615,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai-effect@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "jotai-effect@npm:2.1.0"
+"jotai-effect@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "jotai-effect@npm:2.1.1"
   peerDependencies:
-    jotai: ">=2.12.1"
-  checksum: 10c0/d732c8dc29717d77096f843aaea8d2f16a120c850d605387a2631a0ec1e16e01091585e829638ce5182b712771cc7db634d08f448cfc29ab4933286e59f0e794
+    jotai: ">=2.14.0"
+  checksum: 10c0/2eda5a45714ca0b8169177fd83fcf40e1a5f06b5f626696c95d10f5afd5513deb984d1df2d9618d88c3b7e1d1d3ffec2ace2547d8f8e80bd32dc8b695403a261
   languageName: node
   linkType: hard
 
@@ -7631,27 +7631,6 @@ __metadata:
     jotai: ">=2.12.2"
     react: ">=18.0.0"
   checksum: 10c0/6a77c590698fad65868aaefb0e3ff78437afc2ae4bda2faf4fda9c955e2bbf76618979ca6e276d53d98df19e7652da5d3ac08304b72980f8f04a1bf9ab03c8c2
-  languageName: node
-  linkType: hard
-
-"jotai@npm:^2.13.1":
-  version: 2.13.1
-  resolution: "jotai@npm:2.13.1"
-  peerDependencies:
-    "@babel/core": ">=7.0.0"
-    "@babel/template": ">=7.0.0"
-    "@types/react": ">=17.0.0"
-    react: ">=17.0.0"
-  peerDependenciesMeta:
-    "@babel/core":
-      optional: true
-    "@babel/template":
-      optional: true
-    "@types/react":
-      optional: true
-    react:
-      optional: true
-  checksum: 10c0/777915c4f83c372bac066ce3acb037c8c5c01e2789b8b435bf3f302ef32a5564d471217c89b9cdee219d735d445b166bf3ff15a9f43f4cb92a8a9115c72446ad
   languageName: node
   linkType: hard
 
@@ -10992,5 +10971,12 @@ __metadata:
   version: 4.1.5
   resolution: "zod@npm:4.1.5"
   checksum: 10c0/7826fb931bc71d4d0fff2fbb72f1a1cf30a6672cf9dbe6933a216bbb60242ef1c3bdfbcd3c5b27e806235a35efaad7a4a9897ff4d3621452f9ea278bce6fd42a
+  languageName: node
+  linkType: hard
+
+"zod@npm:^4.1.8":
+  version: 4.1.8
+  resolution: "zod@npm:4.1.8"
+  checksum: 10c0/5eae39da09d7bd0564a30dfd2348811e4e2e7dd15955d8f3444f8e196f35e5422b1482eda234b722fafb0738f4a8b718adb042b860936bfdd2cc19cdbdac8a9a
   languageName: node
   linkType: hard
