@@ -48,7 +48,7 @@
       "chain": "ksmcc3",
       "metadata": ".papi/metadata/kusama.scale",
       "genesis": "0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe",
-      "codeHash": "0x4c843d1c1b5ce542fcc0e9cc1439ad3384e5753da24d2747c4aa24162a202449"
+      "codeHash": "0x1e0c7ef66f67073483ec5ad670c6b226fbd9a26e2e7d9b61afb65f2b82f95854"
     },
     "kusama_asset_hub": {
       "chain": "ksmcc3_asset_hub",
