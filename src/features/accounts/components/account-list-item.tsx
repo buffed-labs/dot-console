@@ -157,8 +157,6 @@ function AccountListItemTemplate({
     >
       <PolkadotIdenticon
         address={address}
-        size="2.2rem"
-        backgroundColor="var(--colors-fg-default)"
         onClick={
           !canCopyAddress
             ? undefined
@@ -169,7 +167,11 @@ function AccountListItemTemplate({
                   error: { title: "Failed to copy address" },
                 })
         }
-        className={css({ cursor: !canCopyAddress ? undefined : "copy" })}
+        className={css({
+          "--size": "2.2rem",
+          "--background-color": "var(--colors-fg-default)",
+          cursor: !canCopyAddress ? undefined : "copy",
+        })}
       />
       <div
         onClick={!interactive ? undefined : () => onOpenDialog?.()}
