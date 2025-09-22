@@ -6370,7 +6370,7 @@ __metadata:
     babel-plugin-react-compiler: "npm:19.1.0-rc.3"
     date-fns: "npm:^4.1.0"
     dot-connect: "npm:^0.22.2"
-    dot-identicon: "npm:^0.1.4"
+    dot-identicon: "npm:^0.1.5"
     eslint: "npm:^9.36.0"
     eslint-plugin-react-compiler: "npm:19.1.0-rc.2"
     eslint-plugin-react-hooks: "npm:^5.2.0"
@@ -6406,6 +6406,22 @@ __metadata:
     react:
       optional: true
   checksum: 10c0/452972c3f73dc2d010db2b95cf05fb8858a957ac49bc5a258f2d26517dcc88ff040f807dc0bfbc530e84b0a16a078768e377b639a0338ff74c7928628543cd28
+  languageName: node
+  linkType: hard
+
+"dot-identicon@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "dot-identicon@npm:0.1.5"
+  dependencies:
+    "@lit/react": "npm:^1.0.8"
+    "@noble/hashes": "npm:^2.0.0"
+    lit: "npm:^3.3.1"
+  peerDependencies:
+    react: ">= 18"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 10c0/5827a8f178e55aeb55b65e9335c1d98c68be83ba175490d2aae9db5341203256faca052471ad7f529f443316c8b7087162cc9184327163ada81cae39bdd469ca
   languageName: node
   linkType: hard
 
