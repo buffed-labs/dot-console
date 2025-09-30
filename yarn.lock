@@ -2828,9 +2828,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.132.23":
-  version: 1.132.23
-  resolution: "@tanstack/react-router@npm:1.132.23"
+"@tanstack/react-router@npm:1.132.25":
+  version: 1.132.25
+  resolution: "@tanstack/react-router@npm:1.132.25"
   dependencies:
     "@tanstack/history": "npm:1.132.21"
     "@tanstack/react-store": "npm:^0.7.0"
@@ -2841,7 +2841,7 @@ __metadata:
   peerDependencies:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/5562b2d1965b3ec609aebd2093a6e1f0f081a1abb9080c1c43e3a050d5583eb450482f32b5cc2acca3c1c87cbe58b379fdaadd93ec588acb3c0a303f9a405547
+  checksum: 10c0/083a9d5b3e34978a10ef0a0bb7eb3d2447f53021c95c7d961102f0b6bc0b95848d9a5144ab9484f0a8141a33d277c65bb99ddb0e03cc059300b080a324be12cf
   languageName: node
   linkType: hard
 
@@ -6115,7 +6115,7 @@ __metadata:
     "@reactive-dot/wallet-ledger": "npm:^0.16.53"
     "@reactive-dot/wallet-mimir": "npm:^0.1.19"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.32"
-    "@tanstack/react-router": "npm:1.132.23"
+    "@tanstack/react-router": "npm:1.132.25"
     "@tanstack/router-devtools": "npm:1.132.23"
     "@tanstack/router-plugin": "npm:1.132.23"
     "@tanstack/zod-adapter": "npm:1.132.23"
