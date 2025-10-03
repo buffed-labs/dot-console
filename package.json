@@ -34,7 +34,7 @@
     "@polkadot-api/descriptors": "portal:.papi/descriptors",
     "@polkadot-api/view-builder": "^0.4.13",
     "@reactive-dot/core": "^0.51.1",
-    "@reactive-dot/react": "^0.51.2",
+    "@reactive-dot/react": "^0.52.0",
     "@reactive-dot/wallet-ledger": "^0.16.54",
     "@reactive-dot/wallet-mimir": "^0.1.20",
     "@reactive-dot/wallet-walletconnect": "^0.17.33",
