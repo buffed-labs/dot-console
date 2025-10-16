@@ -2471,9 +2471,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/core@npm:^0.55.1, @reactive-dot/core@npm:^0.55.2":
-  version: 0.55.2
-  resolution: "@reactive-dot/core@npm:0.55.2"
+"@reactive-dot/core@npm:^0.56.0":
+  version: 0.56.0
+  resolution: "@reactive-dot/core@npm:0.56.0"
   dependencies:
     "@noble/hashes": "npm:^2.0.1"
     "@reactive-dot/utils": "npm:^0.10.3"
@@ -2482,21 +2482,21 @@ __metadata:
     ox: "npm:^0.9.11"
   peerDependencies:
     polkadot-api: ">=1.19.x"
-  checksum: 10c0/f2a6925c36b362f2df0935dc05efc705581eedfb8f6482d77c1a4038f9d6c5f4e47a4e3c12ded54830f416d4b9397a96c643df079e98f709c403adfd770ff9b2
+  checksum: 10c0/b59e72cc6aef7ab2362114c49db10b6c2ce397799ca72f5e57b71f95f3b810be9ece937d4760c64d2716521a8d7ec816c06296c37c45f155d4455c6dfc739e37
   languageName: node
   linkType: hard
 
-"@reactive-dot/react@npm:^0.55.1":
-  version: 0.55.1
-  resolution: "@reactive-dot/react@npm:0.55.1"
+"@reactive-dot/react@npm:^0.56.0":
+  version: 0.56.0
+  resolution: "@reactive-dot/react@npm:0.56.0"
   dependencies:
-    "@reactive-dot/core": "npm:^0.55.1"
+    "@reactive-dot/core": "npm:^0.56.0"
     jotai: "npm:^2.15.0"
     jotai-eager: "npm:^0.2.3"
     jotai-effect: "npm:^2.1.3"
   peerDependencies:
     react: 19.x
-  checksum: 10c0/bb5745ab2232464235f9b850344d86db26cfa409b8e8341a65082c65529db2b3771f9db44db6580a465b4114070f40f561c7e03723a08b155f91abbdf4d25602
+  checksum: 10c0/1d9dd4f1e7b2114637ed8450401a434213e5463953955ce5ba5053a620f180f777a22a6320e61ca23aa4159de586672ed63c272acaf28b37a16a5ef5fdb6fa34
   languageName: node
   linkType: hard
 
@@ -2507,37 +2507,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/wallet-ledger@npm:^0.16.58":
-  version: 0.16.58
-  resolution: "@reactive-dot/wallet-ledger@npm:0.16.58"
+"@reactive-dot/wallet-ledger@npm:^0.16.59":
+  version: 0.16.59
+  resolution: "@reactive-dot/wallet-ledger@npm:0.16.59"
   dependencies:
     "@ledgerhq/hw-transport-webusb": "npm:^6.29.12"
     "@polkadot-api/ledger-signer": "npm:^0.2.11"
-    "@reactive-dot/core": "npm:^0.55.1"
+    "@reactive-dot/core": "npm:^0.56.0"
     buffer: "npm:^6.0.3"
-  checksum: 10c0/423ba36296c4d59747ce1f469da8eb942a5c415ce7ed2d862e8f113aa9a2c37575622cb087fc7682779eac417c22d3f77e5c40780332c9f3bb106df76c447152
+  checksum: 10c0/2aa120345bd826ac24e66e9e289ddf56cd47fd9dc0a89cdceff2a18d5d97b4b77e3c8586527e991080bc10fbaf51a0b3bedc0cd7a181542492f9250c443b1d1d
   languageName: node
   linkType: hard
 
-"@reactive-dot/wallet-mimir@npm:^0.1.24":
-  version: 0.1.24
-  resolution: "@reactive-dot/wallet-mimir@npm:0.1.24"
+"@reactive-dot/wallet-mimir@npm:^0.1.25":
+  version: 0.1.25
+  resolution: "@reactive-dot/wallet-mimir@npm:0.1.25"
   dependencies:
     "@mimirdev/apps-inject": "npm:^3.2.0"
     "@mimirdev/papi-signer": "npm:^3.1.0"
-    "@reactive-dot/core": "npm:^0.55.1"
-  checksum: 10c0/444bb1c91accb38d31ad8104a326c32eca14859541ce08ca47bd36a9d77f673817616279cf57e4e638761425a270f2a68bcc54c9305a45dd8085c2695fbcf0b0
+    "@reactive-dot/core": "npm:^0.56.0"
+  checksum: 10c0/0cd7dab20dd19cdea270a3de65c63a6ed8a2e046e091ec0334899f236e1f31a4e4d07e3167666a3fe6fb89b3c6b3daa5235cca92c8da0d88f42edf5bdfbe5352
   languageName: node
   linkType: hard
 
-"@reactive-dot/wallet-walletconnect@npm:^0.17.37":
-  version: 0.17.37
-  resolution: "@reactive-dot/wallet-walletconnect@npm:0.17.37"
+"@reactive-dot/wallet-walletconnect@npm:^0.17.38":
+  version: 0.17.38
+  resolution: "@reactive-dot/wallet-walletconnect@npm:0.17.38"
   dependencies:
-    "@reactive-dot/core": "npm:^0.55.1"
+    "@reactive-dot/core": "npm:^0.56.0"
     "@walletconnect/modal": "npm:^2.7.0"
     "@walletconnect/universal-provider": "npm:^2.22.3"
-  checksum: 10c0/6c997b6a337248c777719d475d0256234ec8493a0ffd13643294929154874b015cd260a487cd70ba01c19e4000bab349cee5fc6dec83167c8c596da4227a0b9b
+  checksum: 10c0/10688e0c62e28a23c316fe8032fa79b01ef329307b7d19161e13b8fd301b70f26fd0bcd8601d566ee999c45813647e61c268a34c58a530d3b7876a82b151d0f0
   languageName: node
   linkType: hard
 
@@ -6059,11 +6059,11 @@ __metadata:
     "@park-ui/panda-preset": "npm:^0.43.1"
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.14"
-    "@reactive-dot/core": "npm:^0.55.2"
-    "@reactive-dot/react": "npm:^0.55.1"
-    "@reactive-dot/wallet-ledger": "npm:^0.16.58"
-    "@reactive-dot/wallet-mimir": "npm:^0.1.24"
-    "@reactive-dot/wallet-walletconnect": "npm:^0.17.37"
+    "@reactive-dot/core": "npm:^0.56.0"
+    "@reactive-dot/react": "npm:^0.56.0"
+    "@reactive-dot/wallet-ledger": "npm:^0.16.59"
+    "@reactive-dot/wallet-mimir": "npm:^0.1.25"
+    "@reactive-dot/wallet-walletconnect": "npm:^0.17.38"
     "@tanstack/react-router": "npm:1.132.47"
     "@tanstack/router-devtools": "npm:1.133.1"
     "@tanstack/router-plugin": "npm:1.132.56"
