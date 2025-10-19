@@ -2,7 +2,7 @@ import { Switch } from "../ui/switch";
 import { CodecParam } from "./codec";
 import { INCOMPLETE, type ParamInput, type ParamProps } from "./common";
 import type { OptionDecoded, OptionShape } from "@polkadot-api/view-builder";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useState } from "react";
 
 export type OptionParamProps<T> = ParamProps<undefined | T> & {
   option: OptionShape;
@@ -19,19 +19,13 @@ export function OptionParam<T>({
   );
   const [value, setValue] = useState<ParamInput<T>>(INCOMPLETE);
 
-  const derivedValue = useMemo(
-    () => (includeOptional ? value : undefined),
-    [includeOptional, value],
+  const derivedValue = includeOptional ? value : undefined;
+
+  const onChangeDerivedValue = useEffectEvent(
+    (value: ParamInput<T> | undefined) => onChangeValue(value),
   );
 
-  useEffect(
-    () => {
-      onChangeValue(derivedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [derivedValue],
-  );
+  useEffect(() => onChangeDerivedValue(derivedValue), [derivedValue]);
 
   return (
     <div>

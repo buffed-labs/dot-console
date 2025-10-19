@@ -16,6 +16,7 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useEffectEvent,
   useMemo,
   useState,
 } from "react";
@@ -247,29 +248,27 @@ function CallParam({
 
   const [callDataInput, _setCallDataInput] = useState(draftCallDataInput);
 
-  useEffect(
-    () => {
-      if (searchCallData) {
-        setCallDataInput(searchCallData, true);
-      }
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const onMount = useEffectEvent(() => {
+    if (searchCallData) {
+      setCallDataInput(searchCallData, true);
+    }
+  });
 
-  useEffect(
-    () => {
+  useEffect(() => {
+    onMount();
+  }, []);
+
+  const onChangeCallDataHex = useEffectEvent(
+    (callDataHex: `0x${string}` | undefined) => {
       if (callDataHex === undefined) {
         clearCallDataInput();
       } else {
         setCallDataInput(callDataHex);
       }
     },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [callDataHex],
   );
+
+  useEffect(() => onChangeCallDataHex(callDataHex), [callDataHex]);
 
   return (
     <div className={css({ gridArea: "param-and-submit" })}>

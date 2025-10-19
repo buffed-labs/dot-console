@@ -11,6 +11,7 @@ import {
   type ChangeEvent,
   useCallback,
   useEffect,
+  useEffectEvent,
   useMemo,
   useState,
 } from "react";
@@ -129,14 +130,11 @@ export function PrimitiveParam({
     }
   }, [commonNumberProps, primitive.codec, value]);
 
-  useEffect(
-    () => {
-      onChangeValue(parsedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [parsedValue],
+  const onChangeParsedValue = useEffectEvent((value: typeof parsedValue) =>
+    onChangeValue(value),
   );
+
+  useEffect(() => onChangeParsedValue(parsedValue), [parsedValue]);
 
   const inputElement = useMemo(() => {
     switch (primitive.codec) {

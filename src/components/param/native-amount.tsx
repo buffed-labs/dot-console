@@ -6,7 +6,7 @@ import {
   useNativeTokenAmountFromNumber,
   useNativeTokenAmountFromPlanck,
 } from "@reactive-dot/react";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useEffectEvent, useMemo, useState } from "react";
 
 export type NativeAmountProps = ParamProps<bigint> & {
   shape: { codec: "compactNumber" | "compactBn" | "u128" };
@@ -51,14 +51,12 @@ function INTERNAL_NativeAmountParam({
     }
   }, [nativeTokenAmount, value]);
 
-  useEffect(
-    () => {
-      onChangeValue(parsedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [parsedValue],
+  const onChangeParsedValue = useEffectEvent(
+    (value: bigint | typeof INCOMPLETE | typeof INVALID) =>
+      onChangeValue(value),
   );
+
+  useEffect(() => onChangeParsedValue(parsedValue), [parsedValue]);
 
   return (
     <Field.Root

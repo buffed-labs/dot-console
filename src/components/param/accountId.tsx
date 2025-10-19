@@ -7,8 +7,9 @@ import type {
   AccountIdDecoded,
   EthAccountDecoded,
 } from "@polkadot-api/view-builder";
+import type { WalletAccount } from "@reactive-dot/core/wallets.js";
 import { useAccounts } from "@reactive-dot/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useState } from "react";
 import { css } from "styled-system/css";
 
 export type AccountIdParamProps = ParamProps<string> & {
@@ -28,16 +29,15 @@ export function AccountIdParam({
     accounts.length === 0 || defaultValue !== undefined,
   );
 
-  useEffect(
-    () => {
+  const onChangeAccount = useEffectEvent(
+    (account: WalletAccount | undefined) => {
       if (account !== undefined) {
         onChangeValue(account.address);
       }
     },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account?.address],
   );
+
+  useEffect(() => onChangeAccount(account));
 
   return (
     <section
@@ -96,14 +96,12 @@ function CustomAccountParam({
     [value],
   );
 
-  useEffect(
-    () => {
-      onChangeValue(derivedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [derivedValue],
+  const onChangeDerivedValue = useEffectEvent(
+    (value: string | typeof INCOMPLETE | typeof INVALID) =>
+      onChangeValue(value),
   );
+
+  useEffect(() => onChangeDerivedValue(derivedValue), [derivedValue]);
 
   return (
     <Input

@@ -35,7 +35,13 @@ import AddIcon from "@w3f/polkadot-icons/solid/Add";
 import CloseIcon from "@w3f/polkadot-icons/solid/Close";
 import CopyIcon from "@w3f/polkadot-icons/solid/Copy";
 import MoreMenuIcon from "@w3f/polkadot-icons/solid/MoreMenu";
-import { type PropsWithChildren, useEffect, useMemo, useState } from "react";
+import {
+  type PropsWithChildren,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useState,
+} from "react";
 import { css } from "styled-system/css";
 
 export type SequenceParamProps<T> = ParamProps<T[]> & {
@@ -93,14 +99,11 @@ export function SequenceParam<T>({
     ]);
   };
 
-  useEffect(
-    () => {
-      onChangeValue(derivedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [derivedValue],
+  const onChangeDerivedValue = useEffectEvent(
+    (value: T[] | typeof INCOMPLETE | typeof INVALID) => onChangeValue(value),
   );
+
+  useEffect(() => onChangeDerivedValue(derivedValue), [derivedValue]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),

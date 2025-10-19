@@ -25,19 +25,14 @@ function INTERNAL_TupleParam<T extends Array<unknown>>({
     Array.from({
       length: tupleShape.shape.length,
     }).fill(INCOMPLETE) as T,
-    useCallback(
-      (tuple) =>
-        onChangeValue(
-          tuple.some((value) => value === INVALID)
-            ? INVALID
-            : tuple.some((value) => value === INCOMPLETE)
-              ? INCOMPLETE
-              : tuple,
-        ),
-      // eslint-disable-next-line react-compiler/react-compiler
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [],
-    ),
+    (tuple) =>
+      onChangeValue(
+        tuple.some((value) => value === INVALID)
+          ? INVALID
+          : tuple.some((value) => value === INCOMPLETE)
+            ? INCOMPLETE
+            : tuple,
+      ),
   );
 
   return (

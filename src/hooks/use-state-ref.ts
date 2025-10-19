@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useEffectEvent, useRef } from "react";
 
 export function useStateRef<T>(value: T, listener: (state: T) => void) {
   const ref = useRef(value);
 
+  const onMount = useEffectEvent(() => listener(ref.current));
+
   useEffect(() => {
-    listener(ref.current);
-  }, [listener]);
+    onMount();
+  }, []);
 
   return useCallback(
     (value: React.SetStateAction<T>) => {

@@ -5,7 +5,7 @@ import {
   integerPrimitives,
   type ParamProps,
 } from "./common";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useState } from "react";
 
 export type CompactParamProps = ParamProps<number | bigint> & {
   compact: { codec: "compactNumber" | "compactBn" };
@@ -54,14 +54,12 @@ export function CompactParam({
     }
   }, [isBig, value]);
 
-  useEffect(
-    () => {
-      onChangeValue(parsedValue);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [parsedValue],
+  const onChangeParsedValue = useEffectEvent(
+    (value: number | bigint | typeof INCOMPLETE | typeof INVALID) =>
+      onChangeValue(value),
   );
+
+  useEffect(() => onChangeParsedValue(parsedValue), [parsedValue]);
 
   return (
     <Field.Root

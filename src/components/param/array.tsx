@@ -29,19 +29,14 @@ function INTERNAL_ArrayParam<T>({
     Array.from<ParamInput<T>>({
       length: arrayShape.len,
     }).fill(INCOMPLETE),
-    useCallback(
-      (array) =>
-        onChangeValue(
-          array.some((value) => value === INVALID)
-            ? INVALID
-            : array.some((value) => value === INCOMPLETE)
-              ? INCOMPLETE
-              : (array as T[]),
-        ),
-      // eslint-disable-next-line react-compiler/react-compiler
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [],
-    ),
+    (array) =>
+      onChangeValue(
+        array.some((value) => value === INVALID)
+          ? INVALID
+          : array.some((value) => value === INCOMPLETE)
+            ? INCOMPLETE
+            : (array as T[]),
+      ),
   );
 
   return (

@@ -2,7 +2,7 @@ import { Select } from "../select";
 import { CodecParam } from "./codec";
 import type { ParamProps } from "./common";
 import type { EnumDecoded, EnumShape } from "@polkadot-api/view-builder";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useState } from "react";
 
 export type EnumParamProps = ParamProps<
   { type: string } | { type: string; value: unknown }
@@ -31,14 +31,11 @@ function INTERNAL_EnumParam({
 
   const valueShape = enumShape.shape[key];
 
-  useEffect(
-    () => {
-      onChangeValue({ type: key, value });
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [key, value],
+  const onChangeKeyAndValue = useEffectEvent((key: string, value: unknown) =>
+    onChangeValue({ type: key, value }),
   );
+
+  useEffect(() => onChangeKeyAndValue(key, value), [key, value]);
 
   return (
     <div>
