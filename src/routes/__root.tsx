@@ -12,7 +12,7 @@ import { Toaster } from "~/components/ui/styled/toast";
 import { Toast } from "~/components/ui/toast";
 import { toaster } from "~/toaster";
 
-registerDotConnect({ wallets: config.wallets ?? [] });
+registerDotConnect(config);
 
 export const Route = createRootRoute({
   component: Root,
