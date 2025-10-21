@@ -1,25 +1,25 @@
 import acalaChainSpec from "./chain-specs/acala.json" with { type: "json" };
 import hydrationChainSpec from "./chain-specs/hydration.json" with { type: "json" };
-import {
-  acala,
-  hydration,
-  kusama,
-  kusama_asset_hub,
-  kusama_people,
-  paseo,
-  paseo_asset_hub,
-  paseo_people,
-  polkadot,
-  polkadot_asset_hub,
-  polkadot_collectives,
-  polkadot_coretime,
-  polkadot_people,
-  westend,
-  westend_asset_hub,
-  westend_collectives,
-  westend_people,
+import type {
+  Polkadot,
+  Acala,
+  Hydration,
+  Kusama,
+  Kusama_asset_hub,
+  Kusama_people,
+  Paseo,
+  Paseo_asset_hub,
+  Paseo_people,
+  Polkadot_asset_hub,
+  Polkadot_collectives,
+  Polkadot_coretime,
+  Polkadot_people,
+  Westend,
+  Westend_asset_hub,
+  Westend_collectives,
+  Westend_people,
 } from "@polkadot-api/descriptors";
-import { defineConfig } from "@reactive-dot/core";
+import { defineConfig, unsafeDescriptor } from "@reactive-dot/core";
 import { createLightClientProvider } from "@reactive-dot/core/providers/light-client.js";
 import { InjectedWalletProvider } from "@reactive-dot/core/wallets.js";
 import { LedgerWallet } from "@reactive-dot/wallet-ledger";
@@ -39,78 +39,79 @@ const westendProvider = lightClientProvider.addRelayChain({ id: "westend" });
 export const config = defineConfig({
   chains: {
     polkadot: {
-      descriptor: polkadot,
+      descriptor: unsafeDescriptor<Polkadot>(),
       provider: polkadotProvider,
     },
     polkadot_asset_hub: {
-      descriptor: polkadot_asset_hub,
+      descriptor: unsafeDescriptor<Polkadot_asset_hub>(),
       provider: polkadotProvider.addParachain({ id: "polkadot_asset_hub" }),
     },
     polkadot_collectives: {
-      descriptor: polkadot_collectives,
+      descriptor: unsafeDescriptor<Polkadot_collectives>(),
       provider: polkadotProvider.addParachain({ id: "polkadot_collectives" }),
     },
     polkadot_coretime: {
-      descriptor: polkadot_coretime,
+      descriptor: unsafeDescriptor<Polkadot_coretime>(),
       provider: polkadotProvider.addParachain({ id: "polkadot_coretime" }),
     },
     polkadot_people: {
-      descriptor: polkadot_people,
+      descriptor: unsafeDescriptor<Polkadot_people>(),
       provider: polkadotProvider.addParachain({ id: "polkadot_people" }),
     },
     acala: {
-      descriptor: acala,
+      descriptor: unsafeDescriptor<Acala>(),
       provider: polkadotProvider.addParachain({
         chainSpec: JSON.stringify(acalaChainSpec),
       }),
     },
     hydration: {
-      descriptor: hydration,
+      descriptor: unsafeDescriptor<Hydration>(),
       provider: polkadotProvider.addParachain({
         chainSpec: JSON.stringify(hydrationChainSpec),
       }),
     },
     kusama: {
-      descriptor: kusama,
+      descriptor: unsafeDescriptor<Kusama>(),
       provider: kusamaProvider,
     },
     kusama_asset_hub: {
-      descriptor: kusama_asset_hub,
+      descriptor: unsafeDescriptor<Kusama_asset_hub>(),
       provider: kusamaProvider.addParachain({ id: "kusama_asset_hub" }),
     },
     kusama_people: {
-      descriptor: kusama_people,
+      descriptor: unsafeDescriptor<Kusama_people>(),
       provider: kusamaProvider.addParachain({ id: "kusama_people" }),
     },
     paseo: {
-      descriptor: paseo,
+      descriptor: unsafeDescriptor<Paseo>(),
       provider: paseoProvider,
     },
     paseo_asset_hub: {
-      descriptor: paseo_asset_hub,
+      descriptor: unsafeDescriptor<Paseo_asset_hub>(),
       provider: paseoProvider.addParachain({ id: "paseo_asset_hub" }),
     },
     paseo_people: {
-      descriptor: paseo_people,
+      descriptor: unsafeDescriptor<Paseo_people>(),
       provider: paseoProvider.addParachain({ id: "paseo_people" }),
     },
     westend: {
-      descriptor: westend,
+      descriptor: unsafeDescriptor<Westend>(),
       provider: westendProvider,
     },
     westend_asset_hub: {
-      descriptor: westend_asset_hub,
+      descriptor: unsafeDescriptor<Westend_asset_hub>(),
       provider: westendProvider.addParachain({ id: "westend_asset_hub" }),
     },
     westend_people: {
-      descriptor: westend_people,
+      descriptor: unsafeDescriptor<Westend_people>(),
       provider: westendProvider.addParachain({ id: "westend_people" }),
     },
     westend_collectives: {
-      descriptor: westend_collectives,
+      descriptor: unsafeDescriptor<Westend_collectives>(),
       provider: westendProvider.addParachain({ id: "westend_collectives" }),
     },
   },
+  targetChains: ["polkadot"],
   wallets: [
     new InjectedWalletProvider(),
     new MimirWalletProvider(),
