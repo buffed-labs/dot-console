@@ -2486,9 +2486,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/react@npm:^0.59.0":
-  version: 0.59.0
-  resolution: "@reactive-dot/react@npm:0.59.0"
+"@reactive-dot/react@npm:^0.59.1":
+  version: 0.59.1
+  resolution: "@reactive-dot/react@npm:0.59.1"
   dependencies:
     "@reactive-dot/core": "npm:^0.58.2"
     jotai: "npm:^2.15.0"
@@ -2497,7 +2497,7 @@ __metadata:
     jotai-suspense: "npm:^0.4.2"
   peerDependencies:
     react: 19.x
-  checksum: 10c0/6c470f4c0401ebb0c0f268076a9cc7f5044e038ac511cac12fc0c72cb592a18d22ff47c5294a3309eaefc94bb05663003e660e3394fe28aa138ff57dd9fd2e46
+  checksum: 10c0/98f1482f9aa7111aca947d1dd6df609810532c9ee55d0cc30aa06d581ed3b8bc7d9125702d5a6d11592fa96d2568837638111e62cb0aef7830fee68a544c53e5
   languageName: node
   linkType: hard
 
@@ -6061,7 +6061,7 @@ __metadata:
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.14"
     "@reactive-dot/core": "npm:^0.58.2"
-    "@reactive-dot/react": "npm:^0.59.0"
+    "@reactive-dot/react": "npm:^0.59.1"
     "@reactive-dot/wallet-ledger": "npm:^0.16.61"
     "@reactive-dot/wallet-mimir": "npm:^0.1.27"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.40"
@@ -10420,7 +10420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.1.12":
+"vite@npm:^7.1.12, vite@npm:^7.1.7":
   version: 7.1.12
   resolution: "vite@npm:7.1.12"
   dependencies:
@@ -10472,61 +10472,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/cef4d4b4a84e663e09b858964af36e916892ac8540068df42a05ced637ceeae5e9ef71c72d54f3cfc1f3c254af16634230e221b6e2327c2a66d794bb49203262
-  languageName: node
-  linkType: hard
-
-"vite@npm:^7.1.7":
-  version: 7.1.11
-  resolution: "vite@npm:7.1.11"
-  dependencies:
-    esbuild: "npm:^0.25.0"
-    fdir: "npm:^6.5.0"
-    fsevents: "npm:~2.3.3"
-    picomatch: "npm:^4.0.3"
-    postcss: "npm:^8.5.6"
-    rollup: "npm:^4.43.0"
-    tinyglobby: "npm:^0.2.15"
-  peerDependencies:
-    "@types/node": ^20.19.0 || >=22.12.0
-    jiti: ">=1.21.0"
-    less: ^4.0.0
-    lightningcss: ^1.21.0
-    sass: ^1.70.0
-    sass-embedded: ^1.70.0
-    stylus: ">=0.54.8"
-    sugarss: ^5.0.0
-    terser: ^5.16.0
-    tsx: ^4.8.1
-    yaml: ^2.4.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    jiti:
-      optional: true
-    less:
-      optional: true
-    lightningcss:
-      optional: true
-    sass:
-      optional: true
-    sass-embedded:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-    tsx:
-      optional: true
-    yaml:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 10c0/c4aa7f47b1fb07f734ed6f4f605d73e5acf7ff9754d75b4adbfbdddf0e520413019834620c1f7b4a207bce7e1d20a2636c584db2b1b17f5a3ba2cd23d47e50ab
   languageName: node
   linkType: hard
 
