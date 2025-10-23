@@ -1,9 +1,15 @@
+import { scan } from "react-scan";
+
 import { DefaultPending } from "./components/default-pending";
 import "./index.css";
 import { routeTree } from "./routeTree.gen";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+
+scan({
+  enabled: import.meta.env.DEV,
+});
 
 const router = createRouter({
   routeTree,
