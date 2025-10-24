@@ -38,7 +38,7 @@
     "@reactive-dot/wallet-ledger": "^0.16.61",
     "@reactive-dot/wallet-mimir": "^0.1.27",
     "@reactive-dot/wallet-walletconnect": "^0.17.40",
-    "@tanstack/react-router": "1.133.22",
+    "@tanstack/react-router": "1.133.27",
     "@tanstack/zod-adapter": "1.133.22",
     "@w3f/polkadot-icons": "^1.0.0",
     "date-fns": "^4.1.0",
