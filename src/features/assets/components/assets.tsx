@@ -1,10 +1,8 @@
 import { type AssetId, getAssetId, NATIVE_ASSET_ID } from "../utils";
-import type { polkadot_asset_hub } from "@polkadot-api/descriptors";
-import { idle, Query } from "@reactive-dot/core";
+import { idle } from "@reactive-dot/core";
 import {
   ChainProvider,
   QueryOptionsProvider,
-  QueryRenderer,
   useLazyLoadQuery,
   useNativeTokenAmountFromPlanck,
 } from "@reactive-dot/react";
@@ -83,12 +81,6 @@ function SuspendableAssetList() {
   return (
     <Table.Body>
       {assets.map(([[id], asset]) => {
-        const query = new Query<[], typeof polkadot_asset_hub>();
-        const metadataQuery =
-          typeof id === "number"
-            ? query.storage("Assets", "Metadata", [id])
-            : query.storage("ForeignAssets", "Metadata", [id]);
-
         return (
           <InView key={stringifyCodec(id)}>
             {({ ref, inView }) => (
@@ -136,12 +128,7 @@ function SuspendableAssetList() {
                     <Suspense
                       fallback={<CircularProgressIndicator size="text" />}
                     >
-                      <QueryRenderer
-                        chainId={assetHubChainId}
-                        query={metadataQuery}
-                      >
-                        {(metadata) => metadata.name.asText()}
-                      </QueryRenderer>
+                      <AssetName id={id} />
                     </Suspense>
                   </Table.Cell>
                   <Table.Cell className={css({ maxWidth: "15rem" })}>
@@ -149,18 +136,7 @@ function SuspendableAssetList() {
                       <Suspense
                         fallback={<CircularProgressIndicator size="text" />}
                       >
-                        <QueryRenderer
-                          chainId={assetHubChainId}
-                          query={metadataQuery}
-                        >
-                          {(metadata) =>
-                            new DenominatedNumber(
-                              asset!.supply,
-                              metadata.decimals,
-                              metadata.symbol.asText(),
-                            ).toLocaleString()
-                          }
-                        </QueryRenderer>
+                        <AssetAmount id={id} amount={asset.supply} />
                       </Suspense>
                     </div>
                   </Table.Cell>
@@ -201,6 +177,34 @@ function SuspendableAssetList() {
       })}
     </Table.Body>
   );
+}
+
+function AssetName({ id }: { id: AssetId }) {
+  const metadata = useLazyLoadQuery(
+    (builder) =>
+      typeof id === "number"
+        ? builder.storage("Assets", "Metadata", [id])
+        : builder.storage("ForeignAssets", "Metadata", [id]),
+    { chainId: useAssetHubChainId() },
+  );
+
+  return metadata.name.asText();
+}
+
+function AssetAmount({ id, amount }: { id: AssetId; amount: bigint }) {
+  const metadata = useLazyLoadQuery(
+    (builder) =>
+      typeof id === "number"
+        ? builder.storage("Assets", "Metadata", [id])
+        : builder.storage("ForeignAssets", "Metadata", [id]),
+    { chainId: useAssetHubChainId() },
+  );
+
+  return new DenominatedNumber(
+    amount,
+    metadata.decimals,
+    metadata.symbol.asText(),
+  ).toLocaleString();
 }
 
 type AssetTvlProps = { id: AssetId };

@@ -1,4 +1,4 @@
-import { QueryRenderer, useLazyLoadQuery } from "@reactive-dot/react";
+import { Await, useLazyLoadQuery } from "@reactive-dot/react";
 import { DenominatedNumber } from "@reactive-dot/utils";
 import { Suspense, useMemo } from "react";
 import { css } from "styled-system/css";
@@ -66,6 +66,11 @@ export function CoreCollective({ type }: CoreCollectiveProps) {
 
   const assetHubChainId = useAssetHubChainId();
 
+  const metadataPromise = useLazyLoadQuery(
+    (query) => query.storage("Assets", "Metadata", [USDT_ASSET_ID]),
+    { chainId: assetHubChainId, use: false },
+  );
+
   return (
     <Table.Root>
       <Table.Head>
@@ -85,12 +90,7 @@ export function CoreCollective({ type }: CoreCollectiveProps) {
             </Table.Cell>
             <Table.Cell>
               <Suspense fallback={<CircularProgressIndicator size="text" />}>
-                <QueryRenderer
-                  chainId={assetHubChainId}
-                  query={(builder) =>
-                    builder.storage("Assets", "Metadata", [USDT_ASSET_ID])
-                  }
-                >
+                <Await promise={metadataPromise}>
                   {(metadata) =>
                     new DenominatedNumber(
                       member.salary,
@@ -98,7 +98,7 @@ export function CoreCollective({ type }: CoreCollectiveProps) {
                       metadata.symbol.asText(),
                     ).toLocaleString()
                   }
-                </QueryRenderer>
+                </Await>
               </Suspense>
             </Table.Cell>
             <Table.Cell

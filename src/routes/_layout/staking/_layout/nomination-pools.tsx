@@ -1,6 +1,6 @@
 import {
+  Await,
   ChainProvider,
-  QueryRenderer,
   useLazyLoadQuery,
   useNativeTokenAmountFromPlanck,
 } from "@reactive-dot/react";
@@ -32,26 +32,28 @@ function NominationPoolsPage() {
         </InfoHeader.Item>
         <InfoHeader.Item title="Pools">
           <Suspense fallback={<CircularProgressIndicator size="text" />}>
-            <QueryRenderer
-              chainId={useStakingChainId()}
-              query={(builder) =>
-                builder.storage("NominationPools", "CounterForBondedPools")
-              }
+            <Await
+              promise={useLazyLoadQuery(
+                (builder) =>
+                  builder.storage("NominationPools", "CounterForBondedPools"),
+                { chainId: useStakingChainId(), use: false },
+              )}
             >
               {(count) => `${count.toLocaleString()} pools`}
-            </QueryRenderer>
+            </Await>
           </Suspense>
         </InfoHeader.Item>
         <InfoHeader.Item title="Pool stakers">
           <Suspense fallback={<CircularProgressIndicator size="text" />}>
-            <QueryRenderer
-              chainId={useStakingChainId()}
-              query={(builder) =>
-                builder.storage("NominationPools", "CounterForPoolMembers")
-              }
+            <Await
+              promise={useLazyLoadQuery(
+                (query) =>
+                  query.storage("NominationPools", "CounterForPoolMembers"),
+                { chainId: useStakingChainId(), use: false },
+              )}
             >
               {(count) => `${count.toLocaleString()} members`}
-            </QueryRenderer>
+            </Await>
           </Suspense>
         </InfoHeader.Item>
       </InfoHeader>

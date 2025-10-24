@@ -1,5 +1,6 @@
-import { QueryRenderer } from "@reactive-dot/react";
-import { createFileRoute } from "@tanstack/react-router";
+import { idle } from "@reactive-dot/core";
+import { useLazyLoadQuery } from "@reactive-dot/react";
+import { Await, createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { RouteTabs } from "~/components/route-tabs";
 import { useCollectivesChainId } from "~/hooks/chain";
@@ -11,10 +12,6 @@ export const Route = createFileRoute("/_layout/collectives/_layout")({
 function CollectivesPage() {
   const collectivesChainId = useCollectivesChainId(false);
 
-  if (collectivesChainId === undefined) {
-    return null;
-  }
-
   return (
     <RouteTabs>
       <RouteTabs.Item
@@ -22,14 +19,19 @@ function CollectivesPage() {
         label="Fellowship"
         badge={
           <Suspense>
-            <QueryRenderer
-              chainId={collectivesChainId}
-              query={(builder) =>
-                builder.storageEntries("FellowshipCore", "Member")
-              }
+            <Await
+              promise={useLazyLoadQuery(
+                (builder) =>
+                  collectivesChainId === undefined
+                    ? undefined
+                    : builder.storageEntries("FellowshipCore", "Member"),
+                { chainId: collectivesChainId, use: false },
+              )}
             >
-              {(members) => members.length.toLocaleString()}
-            </QueryRenderer>
+              {(members) =>
+                members === idle ? null : members.length.toLocaleString()
+              }
+            </Await>
           </Suspense>
         }
       />
@@ -38,14 +40,14 @@ function CollectivesPage() {
         label="Ambassador"
         badge={
           <Suspense>
-            <QueryRenderer
-              chainId={collectivesChainId}
-              query={(builder) =>
-                builder.storageEntries("AmbassadorCore", "Member")
-              }
+            <Await
+              promise={useLazyLoadQuery(
+                (query) => query.storageEntries("AmbassadorCore", "Member"),
+                { chainId: collectivesChainId, use: false },
+              )}
             >
               {(members) => members.length.toLocaleString()}
-            </QueryRenderer>
+            </Await>
           </Suspense>
         }
       />

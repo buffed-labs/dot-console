@@ -4,6 +4,7 @@ import {
   QueryRenderer,
   useLazyLoadQuery,
   useNativeTokenAmountFromPlanck,
+  Await,
 } from "@reactive-dot/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
@@ -40,14 +41,14 @@ function ValidatorsPage() {
         </InfoHeader.Item>
         <InfoHeader.Item title="Nominators">
           <Suspense fallback={<CircularProgressIndicator size="text" />}>
-            <QueryRenderer
-              chainId={useStakingChainId()}
-              query={(builder) =>
-                builder.storage("Staking", "CounterForNominators")
-              }
+            <Await
+              promise={useLazyLoadQuery(
+                (query) => query.storage("Staking", "CounterForNominators"),
+                { chainId: useStakingChainId(), use: false },
+              )}
             >
               {(count) => count.toLocaleString()}
-            </QueryRenderer>
+            </Await>
           </Suspense>
         </InfoHeader.Item>
       </InfoHeader>
