@@ -2779,6 +2779,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/history@npm:1.133.28":
+  version: 1.133.28
+  resolution: "@tanstack/history@npm:1.133.28"
+  checksum: 10c0/1d96e7aa11288bf265a43deb0f7abc11113b30d3c2fd216a38303bd230ed6d931fe62c67f865806865e32186f6d3645f0859547b6b3acc030e552a69125ea8f5
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-router-devtools@npm:1.133.22":
   version: 1.133.22
   resolution: "@tanstack/react-router-devtools@npm:1.133.22"
@@ -2793,33 +2800,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.133.22":
-  version: 1.133.22
-  resolution: "@tanstack/react-router@npm:1.133.22"
+"@tanstack/react-router@npm:1.133.36":
+  version: 1.133.36
+  resolution: "@tanstack/react-router@npm:1.133.36"
   dependencies:
-    "@tanstack/history": "npm:1.133.19"
-    "@tanstack/react-store": "npm:^0.7.0"
-    "@tanstack/router-core": "npm:1.133.20"
+    "@tanstack/history": "npm:1.133.28"
+    "@tanstack/react-store": "npm:^0.8.0"
+    "@tanstack/router-core": "npm:1.133.36"
     isbot: "npm:^5.1.22"
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   peerDependencies:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
-  checksum: 10c0/ab001b11a9e0d6fe38aa6a356cf1e8f85dccabe00fede6f8831fb15d2c337e0449c4b867e4046e604f612a0a552c4f33cf7d93cfc27e6825d4f09b404df0d46a
+  checksum: 10c0/e354b500ae284d0740847b648b944d870d27ea4b28ea4a37adf17f4af3fe9f9f27fa4e099de4af46d8e086ae40f290826d10e53a8f98b18701d16e5ecf95dbcb
   languageName: node
   linkType: hard
 
-"@tanstack/react-store@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@tanstack/react-store@npm:0.7.0"
+"@tanstack/react-store@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@tanstack/react-store@npm:0.8.0"
   dependencies:
-    "@tanstack/store": "npm:0.7.0"
-    use-sync-external-store: "npm:^1.4.0"
+    "@tanstack/store": "npm:0.8.0"
+    use-sync-external-store: "npm:^1.6.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/7e971ae3c547d0d803133f07737e7cc7cf381e959b4fab3f55755b28c194688392f5b921d3d43b8c9c81bdc721ea8878c680d4ca28a1ccd59e8a64ab7bcfd0f8
+  checksum: 10c0/ecf7ad81d97810336d0a808a41442f235a444e98599c6e7e026efd3c4360548b84af9a23612f1d0da85e32a4d9e207632b2ee2cec6f635109a256209caa3bc59
   languageName: node
   linkType: hard
 
@@ -2835,6 +2842,21 @@ __metadata:
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   checksum: 10c0/3fc41c2f6168ad544d50b7e8505029db1c2f9bb8f3dd690d1d16cabad7083f74099aeaf4a72b5161f8ec44e1143b665f0677cf110c5dbe08d54c27549bda3abd
+  languageName: node
+  linkType: hard
+
+"@tanstack/router-core@npm:1.133.36":
+  version: 1.133.36
+  resolution: "@tanstack/router-core@npm:1.133.36"
+  dependencies:
+    "@tanstack/history": "npm:1.133.28"
+    "@tanstack/store": "npm:^0.8.0"
+    cookie-es: "npm:^2.0.0"
+    seroval: "npm:^1.3.2"
+    seroval-plugins: "npm:^1.3.2"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  checksum: 10c0/a372e20738f96b237558dab0422513b43dd835f992593866af854c25e4fbaf1b8fa7ab90b6e5b7ab735858231f74c6015b948a7e41302e3ee2a5fdbdb07efe76
   languageName: node
   linkType: hard
 
@@ -2948,7 +2970,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/store@npm:0.7.0, @tanstack/store@npm:^0.7.0":
+"@tanstack/store@npm:0.8.0, @tanstack/store@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@tanstack/store@npm:0.8.0"
+  checksum: 10c0/71841a7a7653f744bdea457d2c41768b8d5e5aed1d5ff22bd068e28ced9bf658208c730963809c2223b26b753e19da987c0d98acb7c543abd97de14e0d58991f
+  languageName: node
+  linkType: hard
+
+"@tanstack/store@npm:^0.7.0":
   version: 0.7.0
   resolution: "@tanstack/store@npm:0.7.0"
   checksum: 10c0/17003f1eba25bb6e9e2557ffb5d9c63cac09aa46f57d670a917727665ccc0b72d8d421ea1c07451257554aa5d14dbfff46875e7ed6a81f133b0738065f3162df
@@ -6065,7 +6094,7 @@ __metadata:
     "@reactive-dot/wallet-ledger": "npm:^0.16.61"
     "@reactive-dot/wallet-mimir": "npm:^0.1.27"
     "@reactive-dot/wallet-walletconnect": "npm:^0.17.40"
-    "@tanstack/react-router": "npm:1.133.22"
+    "@tanstack/react-router": "npm:1.133.36"
     "@tanstack/router-devtools": "npm:1.133.22"
     "@tanstack/router-plugin": "npm:1.133.22"
     "@tanstack/zod-adapter": "npm:1.133.22"
@@ -10360,12 +10389,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "use-sync-external-store@npm:1.4.0"
+"use-sync-external-store@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "use-sync-external-store@npm:1.6.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/ec011a5055962c0f6b509d6e78c0b143f8cd069890ae370528753053c55e3b360d3648e76cfaa854faa7a59eb08d6c5fb1015e60ffde9046d32f5b2a295acea5
+  checksum: 10c0/35e1179f872a53227bdf8a827f7911da4c37c0f4091c29b76b1e32473d1670ebe7bcd880b808b7549ba9a5605c233350f800ffab963ee4a4ee346ee983b6019b
   languageName: node
   linkType: hard
 
