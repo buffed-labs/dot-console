@@ -14,7 +14,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LayoutQueriesRouteImport } from './routes/_layout/queries'
-import { Route as LayoutParachainsRouteImport } from './routes/_layout/parachains'
 import { Route as LayoutExtrinsicsRouteImport } from './routes/_layout/extrinsics'
 import { Route as LayoutExplorerRouteImport } from './routes/_layout/explorer'
 import { Route as LayoutAssetsRouteImport } from './routes/_layout/assets'
@@ -71,11 +70,6 @@ const LayoutAccountsRoute = LayoutAccountsRouteImport.update({
 const LayoutQueriesRoute = LayoutQueriesRouteImport.update({
   id: '/queries',
   path: '/queries',
-  getParentRoute: () => LayoutRoute,
-} as any)
-const LayoutParachainsRoute = LayoutParachainsRouteImport.update({
-  id: '/parachains',
-  path: '/parachains',
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutExtrinsicsRoute = LayoutExtrinsicsRouteImport.update({
@@ -177,7 +171,6 @@ export interface FileRoutesByFullPath {
   '/assets': typeof LayoutAssetsRoute
   '/explorer': typeof LayoutExplorerRoute
   '/extrinsics': typeof LayoutExtrinsicsRoute
-  '/parachains': typeof LayoutParachainsRoute
   '/queries': typeof LayoutQueriesRoute
   '/accounts': typeof LayoutAccountsLayoutRouteWithChildren
   '/collectives': typeof LayoutCollectivesLayoutRouteWithChildren
@@ -200,7 +193,6 @@ export interface FileRoutesByTo {
   '/assets': typeof LayoutAssetsRoute
   '/explorer': typeof LayoutExplorerRoute
   '/extrinsics': typeof LayoutExtrinsicsRoute
-  '/parachains': typeof LayoutParachainsRoute
   '/queries': typeof LayoutQueriesRoute
   '/accounts': typeof LayoutAccountsLayoutIndexRoute
   '/collectives': typeof LayoutCollectivesIndexRoute
@@ -221,7 +213,6 @@ export interface FileRoutesById {
   '/_layout/assets': typeof LayoutAssetsRoute
   '/_layout/explorer': typeof LayoutExplorerRoute
   '/_layout/extrinsics': typeof LayoutExtrinsicsRoute
-  '/_layout/parachains': typeof LayoutParachainsRoute
   '/_layout/queries': typeof LayoutQueriesRoute
   '/_layout/accounts': typeof LayoutAccountsRouteWithChildren
   '/_layout/accounts/_layout': typeof LayoutAccountsLayoutRouteWithChildren
@@ -250,7 +241,6 @@ export interface FileRouteTypes {
     | '/assets'
     | '/explorer'
     | '/extrinsics'
-    | '/parachains'
     | '/queries'
     | '/accounts'
     | '/collectives'
@@ -273,7 +263,6 @@ export interface FileRouteTypes {
     | '/assets'
     | '/explorer'
     | '/extrinsics'
-    | '/parachains'
     | '/queries'
     | '/accounts'
     | '/collectives'
@@ -293,7 +282,6 @@ export interface FileRouteTypes {
     | '/_layout/assets'
     | '/_layout/explorer'
     | '/_layout/extrinsics'
-    | '/_layout/parachains'
     | '/_layout/queries'
     | '/_layout/accounts'
     | '/_layout/accounts/_layout'
@@ -370,13 +358,6 @@ declare module '@tanstack/react-router' {
       path: '/queries'
       fullPath: '/queries'
       preLoaderRoute: typeof LayoutQueriesRouteImport
-      parentRoute: typeof LayoutRoute
-    }
-    '/_layout/parachains': {
-      id: '/_layout/parachains'
-      path: '/parachains'
-      fullPath: '/parachains'
-      preLoaderRoute: typeof LayoutParachainsRouteImport
       parentRoute: typeof LayoutRoute
     }
     '/_layout/extrinsics': {
@@ -624,7 +605,6 @@ interface LayoutRouteChildren {
   LayoutAssetsRoute: typeof LayoutAssetsRoute
   LayoutExplorerRoute: typeof LayoutExplorerRoute
   LayoutExtrinsicsRoute: typeof LayoutExtrinsicsRoute
-  LayoutParachainsRoute: typeof LayoutParachainsRoute
   LayoutQueriesRoute: typeof LayoutQueriesRoute
   LayoutAccountsRoute: typeof LayoutAccountsRouteWithChildren
   LayoutCollectivesRoute: typeof LayoutCollectivesRouteWithChildren
@@ -637,7 +617,6 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutAssetsRoute: LayoutAssetsRoute,
   LayoutExplorerRoute: LayoutExplorerRoute,
   LayoutExtrinsicsRoute: LayoutExtrinsicsRoute,
-  LayoutParachainsRoute: LayoutParachainsRoute,
   LayoutQueriesRoute: LayoutQueriesRoute,
   LayoutAccountsRoute: LayoutAccountsRouteWithChildren,
   LayoutCollectivesRoute: LayoutCollectivesRouteWithChildren,
