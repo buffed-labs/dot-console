@@ -156,7 +156,7 @@ function TotalStaked() {
 
   return (
     <InfoHeader.Item
-      title={`Total staked ${chainId !== stakingChainId && `@ relay-chain`}`}
+      title={`Total staked ${chainId !== stakingChainId && `@ AssetHub`}`}
     >
       {useNativeTokenAmountFromPlanck(
         queryResult === idle ? 0n : queryResult[0] + queryResult[1],
