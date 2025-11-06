@@ -1,5 +1,5 @@
 import type { ChainId } from "@reactive-dot/core";
-import { ChainProvider, useChainIds } from "@reactive-dot/react";
+import { ChainProvider, useChainId, useChainIds } from "@reactive-dot/react";
 import {
   createFileRoute,
   Outlet,
@@ -9,17 +9,22 @@ import {
 } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import CloseIcon from "@w3f/polkadot-icons/solid/Close";
+import ConnectedIcon from "@w3f/polkadot-icons/solid/Connected";
 import { ConnectionButton } from "dot-connect/react.js";
+import { atom, useAtom } from "jotai";
 import { useRef, useState } from "react";
 import { css } from "styled-system/css";
 import { z } from "zod";
+import { NoCustomChain } from "~/components/chain-guard";
 import { Button } from "~/components/ui/button";
 import { Drawer } from "~/components/ui/drawer";
+import { Field } from "~/components/ui/field";
 import { Heading } from "~/components/ui/heading";
 import { IconButton } from "~/components/ui/icon-button";
 import { Link } from "~/components/ui/link";
 import { RadioButtonGroup } from "~/components/ui/radio-button-group";
 import { Text } from "~/components/ui/text";
+import { initCustomRpcEndpoint } from "~/config";
 import { getRelayChainId, useCollectivesChainId } from "~/hooks/chain";
 
 const searchSchema = z.object({
@@ -182,37 +187,39 @@ function TopBar() {
               Extrinsics
             </RouterLink>
           </Link>
-          <Link asChild>
-            <RouterLink
-              to="/assets"
-              activeProps={{
-                className: css({ color: "colorPalette.default" }),
-              }}
-            >
-              Assets
-            </RouterLink>
-          </Link>
-          <Link asChild>
-            <RouterLink
-              to="/staking"
-              activeProps={{
-                className: css({ color: "colorPalette.default" }),
-              }}
-            >
-              Staking
-            </RouterLink>
-          </Link>
-          <Link asChild>
-            <RouterLink
-              to="/referenda"
-              activeProps={{
-                className: css({ color: "colorPalette.default" }),
-              }}
-            >
-              Referenda
-            </RouterLink>
-          </Link>
-          <CollectivesNavItem />
+          <NoCustomChain>
+            <Link asChild>
+              <RouterLink
+                to="/assets"
+                activeProps={{
+                  className: css({ color: "colorPalette.default" }),
+                }}
+              >
+                Assets
+              </RouterLink>
+            </Link>
+            <Link asChild>
+              <RouterLink
+                to="/staking"
+                activeProps={{
+                  className: css({ color: "colorPalette.default" }),
+                }}
+              >
+                Staking
+              </RouterLink>
+            </Link>
+            <Link asChild>
+              <RouterLink
+                to="/referenda"
+                activeProps={{
+                  className: css({ color: "colorPalette.default" }),
+                }}
+              >
+                Referenda
+              </RouterLink>
+            </Link>
+            <CollectivesNavItem />
+          </NoCustomChain>
           <Link asChild>
             <RouterLink
               to="/accounts"
@@ -280,7 +287,7 @@ function ChainSelect() {
   const chainId = useRouteChainId();
 
   const location = useLocation();
-  const chainIds = useChainIds();
+  const chainIds = useChainIds().filter((chainId) => chainId !== "custom");
 
   const groupedChainIds = Object.groupBy(chainIds, getRelayChainId);
 
@@ -317,65 +324,130 @@ function ChainSelect() {
           <Drawer.Body>
             <Drawer.Context>
               {({ setOpen }) => (
-                <RadioButtonGroup.Root
-                  variant="outline"
-                  value={chainId}
-                  display="flex"
-                  flexDirection="column"
-                  gap="1rem"
-                >
-                  {Object.entries(groupedChainIds).map(
-                    ([relayChainId, chainIds]) => (
-                      <section key={relayChainId}>
-                        <header
-                          className={css({
-                            textStyle: "sm",
-                            marginBottom: "0.35em",
-                            fontWeight: "bold",
-                            textTransform: "capitalize",
-                          })}
-                        >
-                          {relayChainId.replaceAll("_", " ")}
-                        </header>
-                        <div
-                          className={css({
-                            display: "grid",
-                            gridTemplateColumns: "repeat(3, 1fr)",
-                            gap: "0.3em 0.4em",
-                            width: "stretch",
-                          })}
-                        >
-                          {chainIds.map((chainId) => (
-                            <RouterLink
-                              key={chainId}
-                              to={location.pathname}
-                              search={{ chain: chainId.replaceAll("_", "-") }}
-                              onClick={() => setOpen(false)}
-                              className={css({ display: "contents" })}
-                            >
-                              <RadioButtonGroup.Item value={chainId}>
-                                <RadioButtonGroup.ItemControl />
-                                <RadioButtonGroup.ItemText textTransform="capitalize">
-                                  {chainId
-                                    .replace(relayChainId, "")
-                                    .replaceAll("_", " ")
-                                    .trim() || "Relay"}
-                                </RadioButtonGroup.ItemText>
-                                <RadioButtonGroup.ItemHiddenInput />
-                              </RadioButtonGroup.Item>
-                            </RouterLink>
-                          ))}
-                        </div>
-                      </section>
-                    ),
-                  )}
-                </RadioButtonGroup.Root>
+                <>
+                  <RadioButtonGroup.Root
+                    variant="outline"
+                    value={chainId}
+                    display="flex"
+                    flexDirection="column"
+                    gap="1rem"
+                  >
+                    {Object.entries(groupedChainIds).map(
+                      ([relayChainId, chainIds]) => (
+                        <section key={relayChainId}>
+                          <header
+                            className={css({
+                              textStyle: "sm",
+                              marginBottom: "0.35em",
+                              fontWeight: "bold",
+                              textTransform: "capitalize",
+                            })}
+                          >
+                            {relayChainId.replaceAll("_", " ")}
+                          </header>
+                          <div
+                            className={css({
+                              display: "grid",
+                              gridTemplateColumns: "repeat(3, 1fr)",
+                              gap: "0.3em 0.4em",
+                              width: "stretch",
+                            })}
+                          >
+                            {chainIds.map((chainId) => (
+                              <RouterLink
+                                key={chainId}
+                                to={location.pathname}
+                                search={{ chain: chainId.replaceAll("_", "-") }}
+                                onClick={() => setOpen(false)}
+                                className={css({ display: "contents" })}
+                              >
+                                <RadioButtonGroup.Item value={chainId}>
+                                  <RadioButtonGroup.ItemControl />
+                                  <RadioButtonGroup.ItemText textTransform="capitalize">
+                                    {chainId
+                                      .replace(relayChainId, "")
+                                      .replaceAll("_", " ")
+                                      .trim() || "Relay"}
+                                  </RadioButtonGroup.ItemText>
+                                  <RadioButtonGroup.ItemHiddenInput />
+                                </RadioButtonGroup.Item>
+                              </RouterLink>
+                            ))}
+                          </div>
+                        </section>
+                      ),
+                    )}
+                  </RadioButtonGroup.Root>
+                  <hr className={css({ marginY: "1rem" })} />
+                  <CustomChainInput />
+                </>
               )}
             </Drawer.Context>
           </Drawer.Body>
         </Drawer.Content>
       </Drawer.Positioner>
     </Drawer.Root>
+  );
+}
+
+const _customRpcAtom = atom(
+  globalThis.sessionStorage.getItem("customRpcEndpoint") ?? "",
+);
+
+const customRpcAtom = atom(
+  (get) => get(_customRpcAtom),
+  (_, set, newRpc: string) => {
+    set(_customRpcAtom, newRpc);
+    globalThis.sessionStorage.setItem("customRpcEndpoint", newRpc);
+  },
+);
+
+function CustomChainInput() {
+  const navigate = Route.useNavigate();
+  const chainId = useChainId();
+  const [rpc, setRpc] = useAtom(customRpcAtom);
+
+  const active = chainId === "custom";
+  const disabled = active && rpc.trim() === initCustomRpcEndpoint;
+
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        navigate({
+          to: "/explorer",
+          search: { chain: "custom" },
+          reloadDocument: true,
+        });
+      }}
+      className={css(
+        {
+          display: "flex",
+          gap: "0.5rem",
+          alignItems: "center",
+        },
+        active
+          ? {
+              outline: "1.25px solid var(--colors-color-palette-default)",
+              outlineOffset: "0.6rem",
+              borderRadius: "0.2rem",
+            }
+          : {},
+      )}
+    >
+      <Field.Root className={css({ flex: 1 })}>
+        <Field.Label>Custom chain</Field.Label>
+        <Field.Input
+          placeholder="wss://"
+          value={rpc}
+          onChange={(event) => setRpc(event.target.value)}
+        />
+        <Field.HelperText>Enter chain RPC endpoint</Field.HelperText>
+      </Field.Root>
+      <Button variant="outline" disabled={disabled} title="Select custom chain">
+        <ConnectedIcon fill="currentcolor" />
+      </Button>
+    </form>
   );
 }
 

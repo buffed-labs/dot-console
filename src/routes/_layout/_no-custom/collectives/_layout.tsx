@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { RouteTabs } from "~/components/route-tabs";
 import { useCollectivesChainId } from "~/hooks/chain";
 
-export const Route = createFileRoute("/_layout/collectives/_layout")({
+export const Route = createFileRoute("/_layout/_no-custom/collectives/_layout")({
   component: CollectivesPage,
 });
 

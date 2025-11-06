@@ -1,38 +1,8 @@
 import type { ChainId } from "@reactive-dot/core";
 import { useChainId } from "@reactive-dot/react";
 
-export function useBabeChainId() {
-  const chainId = useChainId();
-
-  return chainId === "kusama" ||
-    chainId === "polkadot" ||
-    chainId === "paseo" ||
-    chainId === "westend"
-    ? chainId
-    : undefined;
-}
-
-export function useAuraChainId() {
-  const chainId = useChainId();
-
-  return chainId !== "kusama" &&
-    chainId !== "polkadot" &&
-    chainId !== "paseo" &&
-    chainId !== "westend"
-    ? chainId
-    : undefined;
-}
-
 export function getRelayChainId(chainId: ChainId) {
   switch (chainId) {
-    case "polkadot":
-    case "polkadot_asset_hub":
-    case "polkadot_collectives":
-    case "polkadot_coretime":
-    case "polkadot_people":
-    case "acala":
-    case "hydration":
-      return "polkadot" satisfies ChainId;
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
@@ -46,6 +16,15 @@ export function getRelayChainId(chainId: ChainId) {
     case "paseo_asset_hub":
     case "paseo_people":
       return "paseo" satisfies ChainId;
+    case "polkadot":
+    case "polkadot_asset_hub":
+    case "polkadot_collectives":
+    case "polkadot_coretime":
+    case "polkadot_people":
+    case "acala":
+    case "hydration":
+    default:
+      return "polkadot" satisfies ChainId;
   }
 }
 
@@ -55,14 +34,6 @@ export function useRelayChainId() {
 
 export function usePeopleChainId() {
   switch (useChainId()) {
-    case "polkadot":
-    case "polkadot_asset_hub":
-    case "polkadot_collectives":
-    case "polkadot_coretime":
-    case "polkadot_people":
-    case "acala":
-    case "hydration":
-      return "polkadot_people" satisfies ChainId;
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
@@ -76,11 +47,6 @@ export function usePeopleChainId() {
     case "paseo_asset_hub":
     case "paseo_people":
       return "paseo_people" satisfies ChainId;
-  }
-}
-
-export function useGovernanceChainId() {
-  switch (useChainId()) {
     case "polkadot":
     case "polkadot_asset_hub":
     case "polkadot_collectives":
@@ -88,7 +54,13 @@ export function useGovernanceChainId() {
     case "polkadot_people":
     case "acala":
     case "hydration":
-      return "polkadot" satisfies ChainId;
+    default:
+      return "polkadot_people" satisfies ChainId;
+  }
+}
+
+export function useGovernanceChainId() {
+  switch (useChainId()) {
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
@@ -102,19 +74,20 @@ export function useGovernanceChainId() {
     case "westend_collectives":
     case "westend_people":
       return "westend" satisfies ChainId;
+    case "polkadot":
+    case "polkadot_asset_hub":
+    case "polkadot_collectives":
+    case "polkadot_coretime":
+    case "polkadot_people":
+    case "acala":
+    case "hydration":
+    default:
+      return "polkadot" satisfies ChainId;
   }
 }
 
 export function useStakingChainId() {
   switch (useChainId()) {
-    case "polkadot":
-    case "polkadot_asset_hub":
-    case "polkadot_collectives":
-    case "polkadot_coretime":
-    case "polkadot_people":
-    case "acala":
-    case "hydration":
-      return "polkadot_asset_hub" satisfies ChainId;
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
@@ -128,19 +101,20 @@ export function useStakingChainId() {
     case "westend_collectives":
     case "westend_people":
       return "westend_asset_hub" satisfies ChainId;
+    case "polkadot":
+    case "polkadot_asset_hub":
+    case "polkadot_collectives":
+    case "polkadot_coretime":
+    case "polkadot_people":
+    case "acala":
+    case "hydration":
+    default:
+      return "polkadot_asset_hub" satisfies ChainId;
   }
 }
 
 export function useAssetHubChainId() {
   switch (useChainId()) {
-    case "polkadot":
-    case "polkadot_asset_hub":
-    case "polkadot_collectives":
-    case "polkadot_coretime":
-    case "polkadot_people":
-    case "acala":
-    case "hydration":
-      return "polkadot_asset_hub" satisfies ChainId;
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
@@ -154,6 +128,15 @@ export function useAssetHubChainId() {
     case "westend_collectives":
     case "westend_people":
       return "westend_asset_hub" satisfies ChainId;
+    case "polkadot":
+    case "polkadot_asset_hub":
+    case "polkadot_collectives":
+    case "polkadot_coretime":
+    case "polkadot_people":
+    case "acala":
+    case "hydration":
+    default:
+      return "polkadot_asset_hub" satisfies ChainId;
   }
 }
 

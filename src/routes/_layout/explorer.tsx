@@ -6,13 +6,14 @@ import {
   blockExtrinsicsMapAtom,
   blockInViewAtom,
   blockMapAtom,
+  type DisplayBlock,
 } from "../../features/explorer/stores/blocks";
-import { useAuraChainId, useBabeChainId } from "../../hooks/chain";
 import { unstable_getBlockExtrinsics } from "@reactive-dot/core";
-import { useClient, useTypedApi, useQueryLoader } from "@reactive-dot/react";
+import { useClient, useTypedApi } from "@reactive-dot/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useAtom, useSetAtom } from "jotai";
-import { useEffect } from "react";
+import type { BlockInfo } from "polkadot-api";
+import { useEffect, useEffectEvent } from "react";
 import { mergeMap, type Subscription } from "rxjs";
 import { css } from "styled-system/css";
 
@@ -34,65 +35,28 @@ function ExplorerPage() {
     };
   }, [setBlockInView, setBlockMap]);
 
-  const loadQuery = useQueryLoader();
+  const onBestBlocks = useEffectEvent((bestBlocks: BlockInfo[]) => {
+    setBlockMap((blocks) => {
+      const newBlocks = new Map<number, DisplayBlock>(blocks);
 
-  const babeChainId = useBabeChainId();
-  const auraChainId = useAuraChainId();
+      for (const block of bestBlocks) {
+        newBlocks.set(block.number, {
+          ...block,
+          release: client.hodlBlock(block.hash),
+        });
+      }
+
+      return newBlocks;
+    });
+  });
 
   useEffect(() => {
     const subscription = client.bestBlocks$.subscribe({
-      next: (bestBlocks) =>
-        setBlockMap((blocks) => {
-          const newBlocks = new Map(blocks);
-
-          for (const block of bestBlocks) {
-            newBlocks.set(block.number, block);
-
-            void loadQuery((builder) =>
-              builder
-                .storage("System", "Digest", undefined, {
-                  at: block.hash as `0x${string}`,
-                })
-                .storage("Session", "Validators", undefined, {
-                  at: block.hash as `0x${string}`,
-                })
-                .storage("System", "Events", undefined, {
-                  at: block.hash as `0x${string}`,
-                }),
-            );
-
-            if (babeChainId !== undefined) {
-              loadQuery(
-                (builder) =>
-                  builder.storage("Session", "Validators", undefined, {
-                    at: block.hash as `0x${string}`,
-                  }),
-                { chainId: babeChainId },
-              );
-            }
-
-            if (auraChainId !== undefined) {
-              void loadQuery(
-                (builder) =>
-                  builder.storage(
-                    "CollatorSelection",
-                    "Invulnerables",
-                    undefined,
-                    {
-                      at: block.hash as `0x${string}`,
-                    },
-                  ),
-                { chainId: auraChainId },
-              );
-            }
-          }
-
-          return newBlocks;
-        }),
+      next: onBestBlocks,
     });
 
     return () => subscription.unsubscribe();
-  }, [auraChainId, babeChainId, client.bestBlocks$, loadQuery, setBlockMap]);
+  }, [client]);
 
   const setBlockExtrinsicsMap = useSetAtom(blockExtrinsicsMapAtom);
 

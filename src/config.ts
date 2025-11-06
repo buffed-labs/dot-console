@@ -25,6 +25,9 @@ import { InjectedWalletProvider } from "@reactive-dot/core/wallets.js";
 import { LedgerWallet } from "@reactive-dot/wallet-ledger";
 import { MimirWalletProvider } from "@reactive-dot/wallet-mimir";
 import { WalletConnect } from "@reactive-dot/wallet-walletconnect";
+import type { ChainDefinition } from "polkadot-api";
+import { withPolkadotSdkCompat } from "polkadot-api/polkadot-sdk-compat";
+import { getWsProvider } from "polkadot-api/ws-provider";
 
 const lightClientProvider = createLightClientProvider();
 
@@ -35,6 +38,9 @@ const kusamaProvider = lightClientProvider.addRelayChain({ id: "kusama" });
 const paseoProvider = lightClientProvider.addRelayChain({ id: "paseo" });
 
 const westendProvider = lightClientProvider.addRelayChain({ id: "westend" });
+
+export const initCustomRpcEndpoint =
+  globalThis.sessionStorage.getItem("customRpcEndpoint");
 
 export const config = defineConfig({
   chains: {
@@ -109,6 +115,11 @@ export const config = defineConfig({
     westend_collectives: {
       descriptor: unsafeDescriptor<Westend_collectives>(),
       provider: westendProvider.addParachain({ id: "westend_collectives" }),
+    },
+    custom: {
+      descriptor: unsafeDescriptor<ChainDefinition>(),
+      provider: () =>
+        withPolkadotSdkCompat(getWsProvider(initCustomRpcEndpoint!)),
     },
   },
   targetChains: ["polkadot"],

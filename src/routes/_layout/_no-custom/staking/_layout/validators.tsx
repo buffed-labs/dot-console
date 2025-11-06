@@ -1,7 +1,6 @@
 import {
   ChainProvider,
   QueryOptionsProvider,
-  QueryRenderer,
   useLazyLoadQuery,
   useNativeTokenAmountFromPlanck,
   Await,
@@ -16,7 +15,9 @@ import { Table } from "~/components/ui/table";
 import { AccountListItem } from "~/features/accounts/components/account-list-item";
 import { useStakingChainId } from "~/hooks/chain";
 
-export const Route = createFileRoute("/_layout/staking/_layout/validators")({
+export const Route = createFileRoute(
+  "/_layout/_no-custom/staking/_layout/validators",
+)({
   component: ValidatorsPage,
 });
 

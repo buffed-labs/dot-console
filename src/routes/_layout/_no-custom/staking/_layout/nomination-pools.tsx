@@ -16,7 +16,7 @@ import { Skeleton } from "~/components/ui/skeleton";
 import { useStakingChainId } from "~/hooks/chain";
 
 export const Route = createFileRoute(
-  "/_layout/staking/_layout/nomination-pools",
+  "/_layout/_no-custom/staking/_layout/nomination-pools",
 )({
   component: NominationPoolsPage,
 });

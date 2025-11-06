@@ -1,9 +1,9 @@
-import { useAuraChainId, useBabeChainId } from "../../../hooks/chain";
 import { AccountListItem } from "../../accounts/components/account-list-item";
 import { ScaleEnum, Struct, u32, u64 } from "@polkadot-api/substrate-bindings";
 import { idle } from "@reactive-dot/core";
-import { useLazyLoadQuery } from "@reactive-dot/react";
-import { Suspense, useMemo } from "react";
+import { useChainId, useLazyLoadQuery, useTypedApi } from "@reactive-dot/react";
+import type { ChainDefinition, UnsafeApi } from "polkadot-api";
+import { Suspense, use, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
 
@@ -31,6 +31,8 @@ export function BlockAuthor(props: BlockAuthorProps) {
 }
 
 export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
+  const chainId = useChainId();
+
   const digest = useLazyLoadQuery((builder) =>
     builder.storage("System", "Digest", undefined, {
       at: blockHash as `0x${string}`,
@@ -46,40 +48,51 @@ export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
         ? digestValue[1]
         : digestValue;
 
-  const babeChainId = useBabeChainId();
+  const typedApi = useTypedApi();
+
+  const compatibilityToken = use(
+    (typedApi as unknown as UnsafeApi<ChainDefinition>).runtimeToken,
+  );
+
+  let chainType: "babe" | "aura";
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    typedApi.constants.Babe.EpochDuration(compatibilityToken as any);
+    chainType = "babe";
+  } catch {
+    chainType = "aura";
+  }
 
   const authorIdOrSlotNumber = useMemo(() => {
     if (digestData === undefined) {
       return undefined;
     }
 
-    if (babeChainId !== undefined) {
+    if (chainType === "babe") {
       return babeDigestCodec.dec(digestData.asBytes()).value;
     }
 
     return Number(auraDigestCodec.dec(digestData.asBytes()).slotNumber);
-  }, [babeChainId, digestData]);
+  }, [chainType, digestData]);
 
   const validators = useLazyLoadQuery(
     (builder) =>
-      authorIdOrSlotNumber === undefined || babeChainId === undefined
+      chainType === "aura"
         ? undefined
         : builder.storage("Session", "Validators", undefined, {
             at: blockHash as `0x${string}`,
           }),
-    { chainId: babeChainId! },
+    { chainId: chainId as "polkadot" },
   );
-
-  const auraChainId = useAuraChainId();
 
   const collators = useLazyLoadQuery(
     (builder) =>
-      authorIdOrSlotNumber === undefined || auraChainId === undefined
+      chainType === "babe"
         ? undefined
         : builder.storage("CollatorSelection", "Invulnerables", undefined, {
             at: blockHash as `0x${string}`,
           }),
-    { chainId: auraChainId! },
+    { chainId: chainId as "polkadot_asset_hub" },
   );
 
   const authors = useMemo(() => {
@@ -99,12 +112,12 @@ export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
       return undefined;
     }
 
-    if (auraChainId !== undefined) {
+    if (chainType === "aura") {
       return authorIdOrSlotNumber % authors.length;
     }
 
     return authorIdOrSlotNumber;
-  }, [auraChainId, authorIdOrSlotNumber, authors]);
+  }, [authorIdOrSlotNumber, authors, chainType]);
 
   const author =
     authorIndex === undefined ? undefined : authors?.at(authorIndex);

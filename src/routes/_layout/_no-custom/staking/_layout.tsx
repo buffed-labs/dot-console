@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RouteTabs } from "~/components/route-tabs";
 
-export const Route = createFileRoute("/_layout/staking/_layout")({
+export const Route = createFileRoute("/_layout/_no-custom/staking/_layout")({
   component: RouteComponent,
 });
 
