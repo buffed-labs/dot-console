@@ -64,16 +64,16 @@ export function useGovernanceChainId() {
     case "kusama":
     case "kusama_asset_hub":
     case "kusama_people":
-      return "kusama" satisfies ChainId;
+      return "kusama_asset_hub" satisfies ChainId;
     case "paseo":
     case "paseo_asset_hub":
     case "paseo_people":
-      return "paseo" satisfies ChainId;
+      return "paseo_asset_hub" satisfies ChainId;
     case "westend":
     case "westend_asset_hub":
     case "westend_collectives":
     case "westend_people":
-      return "westend" satisfies ChainId;
+      return "westend_asset_hub" satisfies ChainId;
     case "polkadot":
     case "polkadot_asset_hub":
     case "polkadot_collectives":
@@ -82,7 +82,7 @@ export function useGovernanceChainId() {
     case "acala":
     case "hydration":
     default:
-      return "polkadot" satisfies ChainId;
+      return "polkadot_asset_hub" satisfies ChainId;
   }
 }
 

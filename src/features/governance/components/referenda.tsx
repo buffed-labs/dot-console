@@ -289,13 +289,13 @@ type SubmissionDateProps = {
 };
 
 function SubmissionDate({ blockNumber }: SubmissionDateProps) {
-  const [expectedBlockTime, currentBlock] = useLazyLoadQuery(
+  const [slotDuration, currentBlock] = useLazyLoadQuery(
     (builder) =>
-      builder.constant("Babe", "ExpectedBlockTime").storage("System", "Number"),
+      builder.constant("Aura", "SlotDuration").storage("System", "Number"),
     { chainId: useGovernanceChainId() },
   );
 
-  const msAgo = (currentBlock - blockNumber) * Number(expectedBlockTime);
+  const msAgo = (currentBlock - blockNumber) * Number(slotDuration);
   const submissionDate = subMilliseconds(new Date(), msAgo);
 
   if (differenceInDays(new Date(), submissionDate) >= 1) {

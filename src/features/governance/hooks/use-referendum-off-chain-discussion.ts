@@ -14,13 +14,13 @@ const offchainDiscussionDataAtom = atomFamily(
     atom(async () => {
       const baseUrl = (() => {
         switch (chainId) {
-          case "polkadot":
+          case "polkadot_asset_hub":
             return new URL(`https://polkadot-api.subsquare.io`);
-          case "kusama":
+          case "kusama_asset_hub":
             return new URL("https://kusama-api.subsquare.io");
-          case "paseo":
+          case "paseo_asset_hub":
             return new URL("https://paseo-api.subsquare.io");
-          case "westend":
+          case "westend_asset_hub":
             return new URL("https://westend-api.subsquare.io");
         }
       })();
