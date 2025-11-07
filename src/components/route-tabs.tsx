@@ -39,8 +39,8 @@ type RouteTabsItemProps = {
 
 function RouteTabsItem({ to, label, badge }: RouteTabsItemProps) {
   return (
-    <Tabs.Trigger value={to} asChild>
-      <Link to={to}>
+    <Link to={to}>
+      <Tabs.Trigger value={to}>
         {label}
         {badge && (
           <span className={css({ "&:has(> div:empty)": { display: "none" } })}>
@@ -48,7 +48,7 @@ function RouteTabsItem({ to, label, badge }: RouteTabsItemProps) {
             <Badge>{badge}</Badge>
           </span>
         )}
-      </Link>
-    </Tabs.Trigger>
+      </Tabs.Trigger>{" "}
+    </Link>
   );
 }
