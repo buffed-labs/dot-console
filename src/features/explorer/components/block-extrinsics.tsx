@@ -23,6 +23,7 @@ export function BlockExtrinsicsTable({ block }: BlockExtrinsicsTableProps) {
           ?.filter((extrinsic) => extrinsic !== undefined)
           .map((extrinsic, index) => (
             <Collapsible.Root
+              // eslint-disable-next-line @eslint-react/no-array-index-key
               key={index}
               className={css({ display: "contents" })}
             >

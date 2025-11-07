@@ -2,7 +2,6 @@ import { CodecParam } from "./codec";
 import { CollapsibleParam } from "./collapsible";
 import { INCOMPLETE, INVALID, type ParamProps } from "./common";
 import type { TupleDecoded, TupleShape } from "@polkadot-api/view-builder";
-import { useCallback } from "react";
 import { useStateRef } from "~/hooks/use-state-ref";
 
 export type TupleParamProps<T extends Array<unknown>> = ParamProps<T> & {

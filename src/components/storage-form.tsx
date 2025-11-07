@@ -212,6 +212,7 @@ function INTERNAL_StorageKey({ pallet, storage, onAddQuery }: StorageKeyProps) {
                   }
                 >
                   {Array.from({ length: maxKeyLength + 1 }).map((_, index) => (
+                    // eslint-disable-next-line @eslint-react/no-array-index-key
                     <option key={index} value={index}>
                       {index === maxKeyLength ? "all" : index}
                     </option>

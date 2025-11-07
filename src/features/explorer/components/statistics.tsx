@@ -95,21 +95,15 @@ function LastBlockTime() {
 
   const client = useClient();
 
-  const [lastBestBlockNumber, setLastBestBlockNumber] = useState<number>();
+  const [lastBlockTime, setLastBlockTime] = useState(() => new Date());
 
   useEffect(() => {
     const subscription = client.bestBlocks$.subscribe({
-      next: (bestBlocks) => setLastBestBlockNumber(bestBlocks.at(0)!.number),
+      next: () => setLastBlockTime(new Date()),
     });
 
     return () => subscription.unsubscribe();
   }, [client.bestBlocks$]);
-
-  const [lastBlockTime, setLastBlockTime] = useState(new Date());
-
-  useEffect(() => {
-    setLastBlockTime(new Date());
-  }, [lastBestBlockNumber]);
 
   const [lastBlockTimeToNow, setLastBlockTimeToNow] = useState(() =>
     formatDistance(lastBlockTime),

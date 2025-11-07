@@ -160,6 +160,7 @@ function FileUploadBinaryParam({
         <FileUpload.Context>
           {({ acceptedFiles }) =>
             acceptedFiles.map((file, id) => (
+              // eslint-disable-next-line @eslint-react/no-array-index-key
               <FileUpload.Item key={id} file={file}>
                 <FileUpload.ItemPreview type="image/*">
                   <FileUpload.ItemPreviewImage />

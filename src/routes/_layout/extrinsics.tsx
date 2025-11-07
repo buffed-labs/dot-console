@@ -183,6 +183,39 @@ function CallParam({
 
   const navigate = useNavigate({ from: Route.fullPath });
 
+  const callData = useMemo(() => {
+    if (args === INCOMPLETE || args === INVALID) {
+      return undefined;
+    }
+
+    try {
+      const callMetadata = dynamicBuilder.buildCall(pallet.name, call);
+
+      return Binary.fromBytes(
+        mergeUint8(
+          new Uint8Array(callMetadata.location),
+          callMetadata.codec.enc(args),
+        ),
+      );
+    } catch {
+      return undefined;
+    }
+  }, [args, call, dynamicBuilder, pallet.name]);
+
+  const { callData: searchCallData } = Route.useSearch();
+
+  const callDataHex = callData?.asHex();
+
+  const [defaultArgs, setDefaultArgs] = useState<Decoded>();
+  const [argsRenderCount, setArgsRenderCount] = useState(0);
+
+  const [draftCallDataInput, setDraftCallDataInput] = useState(
+    callDataHex ?? "",
+  );
+
+  // eslint-disable-next-line @eslint-react/naming-convention/use-state
+  const [callDataInput, _setCallDataInput] = useState(draftCallDataInput);
+
   const setCallDataInput = useCallback(
     (callDataInput: string, forceRerender?: boolean) => {
       if (callDataInput.trim() === "") {
@@ -215,38 +248,6 @@ function CallParam({
     setDraftCallDataInput("");
     navigate({ search: { callData: undefined } });
   }, [navigate]);
-
-  const callData = useMemo(() => {
-    if (args === INCOMPLETE || args === INVALID) {
-      return undefined;
-    }
-
-    try {
-      const callMetadata = dynamicBuilder.buildCall(pallet.name, call);
-
-      return Binary.fromBytes(
-        mergeUint8(
-          new Uint8Array(callMetadata.location),
-          callMetadata.codec.enc(args),
-        ),
-      );
-    } catch {
-      return undefined;
-    }
-  }, [args, call, dynamicBuilder, pallet.name]);
-
-  const { callData: searchCallData } = Route.useSearch();
-
-  const callDataHex = callData?.asHex();
-
-  const [defaultArgs, setDefaultArgs] = useState<Decoded>();
-  const [argsRenderCount, setArgsRenderCount] = useState(0);
-
-  const [draftCallDataInput, setDraftCallDataInput] = useState(
-    callDataHex ?? "",
-  );
-
-  const [callDataInput, _setCallDataInput] = useState(draftCallDataInput);
 
   const onMount = useEffectEvent(() => {
     if (searchCallData) {

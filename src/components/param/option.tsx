@@ -2,7 +2,7 @@ import { Switch } from "../ui/switch";
 import { CodecParam } from "./codec";
 import { INCOMPLETE, type ParamInput, type ParamProps } from "./common";
 import type { OptionDecoded, OptionShape } from "@polkadot-api/view-builder";
-import { useEffect, useEffectEvent, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 
 export type OptionParamProps<T> = ParamProps<undefined | T> & {
   option: OptionShape;

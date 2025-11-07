@@ -7,7 +7,6 @@ import {
   type ParamProps,
 } from "./common";
 import type { ArrayDecoded, ArrayShape } from "@polkadot-api/view-builder";
-import { useCallback } from "react";
 import { css } from "styled-system/css";
 import { useStateRef } from "~/hooks/use-state-ref";
 

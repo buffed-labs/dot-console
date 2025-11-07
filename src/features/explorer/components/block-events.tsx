@@ -141,6 +141,7 @@ export function BlockEvents({
         )
         .map(({ event, eventIndex }, index) => (
           <Collapsible.Root
+            // eslint-disable-next-line @eslint-react/no-array-index-key
             key={blockHash + index}
             className={css({ display: "contents" })}
           >
