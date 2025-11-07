@@ -35,7 +35,7 @@ export function CircularProgressIndicator({
       )}
     >
       <Spinner size={size} />
-      <Text color="fg.muted" size={size}>
+      <Text color="fg.muted" size={size === "text" ? undefined : size}>
         {label}
       </Text>
     </div>

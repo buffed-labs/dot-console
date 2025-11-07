@@ -10,6 +10,7 @@ import {
 import { differenceInMilliseconds, formatDuration } from "date-fns";
 import { useEffect, useState } from "react";
 import { InfoHeader } from "~/components/info-header";
+import { useChainType } from "~/hooks/use-chain-type";
 
 export type StatisticsProps = {
   className?: string | undefined;
@@ -41,34 +42,22 @@ export function Statistics({ className }: StatisticsProps) {
 
 function BlockTime() {
   const chainId = useChainId();
-
-  if (
-    chainId === "kusama" ||
-    chainId === "polkadot" ||
-    chainId === "paseo" ||
-    chainId === "westend"
-  ) {
-    // eslint-disable-next-line no-var
-    var babeChainId = chainId;
-  } else {
-    // eslint-disable-next-line no-var
-    var auraChainId = chainId;
-  }
+  const chainType = useChainType();
 
   const expectedBabeBlockTime = useLazyLoadQuery(
     (builder) =>
-      babeChainId === undefined
+      chainType === "aura"
         ? undefined
         : builder.constant("Babe", "ExpectedBlockTime"),
-    { chainId: babeChainId! },
+    { chainId: chainId as "polkadot" },
   );
 
   const auraSlotDuration = useLazyLoadQuery(
     (builder) =>
-      auraChainId === undefined
+      chainType === "babe"
         ? undefined
         : builder.runtimeApi("AuraApi", "slot_duration"),
-    { chainId: auraChainId! },
+    { chainId: chainId as "polkadot_asset_hub" },
   );
 
   const expectedBlockTime =

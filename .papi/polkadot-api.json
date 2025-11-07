@@ -54,7 +54,7 @@
       "chain": "ksmcc3_asset_hub",
       "metadata": ".papi/metadata/kusama_asset_hub.scale",
       "genesis": "0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a",
-      "codeHash": "0x5a0e93172b7d4f2030a3a31c2f1aff1e170a323373a48f7f2bc44328872616fc"
+      "codeHash": "0xe3b1cff634878a0176df177caaa6333efca2c33fc7313fdf66c3195e2ed15883"
     },
     "kusama_people": {
       "chain": "ksmcc3_people",

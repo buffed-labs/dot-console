@@ -1,11 +1,11 @@
 import { AccountListItem } from "../../accounts/components/account-list-item";
 import { ScaleEnum, Struct, u32, u64 } from "@polkadot-api/substrate-bindings";
 import { idle } from "@reactive-dot/core";
-import { useChainId, useLazyLoadQuery, useTypedApi } from "@reactive-dot/react";
-import type { ChainDefinition, UnsafeApi } from "polkadot-api";
-import { Suspense, use, useMemo } from "react";
+import { useChainId, useLazyLoadQuery } from "@reactive-dot/react";
+import { Suspense, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
+import { useChainType } from "~/hooks/use-chain-type";
 
 const babeDigestCodec = ScaleEnum({
   authority_index: u32,
@@ -48,20 +48,7 @@ export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
         ? digestValue[1]
         : digestValue;
 
-  const typedApi = useTypedApi();
-
-  const compatibilityToken = use(
-    (typedApi as unknown as UnsafeApi<ChainDefinition>).runtimeToken,
-  );
-
-  let chainType: "babe" | "aura";
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    typedApi.constants.Babe.EpochDuration(compatibilityToken as any);
-    chainType = "babe";
-  } catch {
-    chainType = "aura";
-  }
+  const chainType = useChainType();
 
   const authorIdOrSlotNumber = useMemo(() => {
     if (digestData === undefined) {
