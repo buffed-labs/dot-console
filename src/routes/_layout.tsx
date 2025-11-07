@@ -123,7 +123,10 @@ function TopBar() {
           },
         })}
       >
-        <ChainSelect />
+        <ChainSelect
+          // TODO: need to reset else modal state gets stuck
+          key={useChainId()}
+        />
         <nav
           className={css({
             display: "flex",
