@@ -25,6 +25,7 @@ import { InjectedWalletProvider } from "@reactive-dot/core/wallets.js";
 import { LedgerWallet } from "@reactive-dot/wallet-ledger";
 import { MimirWalletProvider } from "@reactive-dot/wallet-mimir";
 import { WalletConnect } from "@reactive-dot/wallet-walletconnect";
+import { registerDotConnect } from "dot-connect";
 import type { ChainDefinition } from "polkadot-api";
 import { withPolkadotSdkCompat } from "polkadot-api/polkadot-sdk-compat";
 import { getWsProvider } from "polkadot-api/ws-provider";
@@ -155,3 +156,5 @@ declare module "@reactive-dot/core" {
     config: typeof config;
   }
 }
+
+registerDotConnect(config);

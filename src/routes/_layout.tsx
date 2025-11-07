@@ -1,20 +1,16 @@
-import type { ChainId } from "@reactive-dot/core";
-import { ChainProvider, useChainId, useChainIds } from "@reactive-dot/react";
+import { useChainId, useChainIds } from "@reactive-dot/react";
 import {
   createFileRoute,
   Outlet,
-  retainSearchParams,
   Link as RouterLink,
   useLocation,
 } from "@tanstack/react-router";
-import { zodValidator } from "@tanstack/zod-adapter";
 import CloseIcon from "@w3f/polkadot-icons/solid/Close";
 import ConnectedIcon from "@w3f/polkadot-icons/solid/Connected";
 import { ConnectionButton } from "dot-connect/react.js";
 import { atom, useAtom } from "jotai";
 import { useRef, useState } from "react";
 import { css } from "styled-system/css";
-import { z } from "zod";
 import { NoCustomChain } from "~/components/chain-guard";
 import { Button } from "~/components/ui/button";
 import { Drawer } from "~/components/ui/drawer";
@@ -26,46 +22,26 @@ import { RadioButtonGroup } from "~/components/ui/radio-button-group";
 import { Text } from "~/components/ui/text";
 import { initCustomRpcEndpoint } from "~/config";
 import { getRelayChainId, useCollectivesChainId } from "~/hooks/chain";
-
-const searchSchema = z.object({
-  chain: z.string().optional(),
-});
+import { useRouteChainId } from "~/hooks/use-route-chain-id";
 
 export const Route = createFileRoute("/_layout")({
   component: Layout,
-  validateSearch: zodValidator(searchSchema),
-  search: {
-    middlewares: [retainSearchParams(["chain"])],
-  },
 });
 
-function useRouteChainId() {
-  const { chain: searchChainId } = Route.useSearch();
-  return (
-    (searchChainId?.replaceAll("-", "_") as ChainId | undefined) ?? "polkadot"
-  );
-}
-
 function Layout() {
-  const chainId = useRouteChainId();
-
   return (
-    <ChainProvider key={chainId} chainId={chainId}>
-      <div
-        className={css({
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100dvh",
-        })}
-      >
-        <TopBar />
-        <main className={css({ display: "contents" })}>
-          <ChainProvider key={chainId} chainId={chainId}>
-            <Outlet />
-          </ChainProvider>
-        </main>
-      </div>
-    </ChainProvider>
+    <div
+      className={css({
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100dvh",
+      })}
+    >
+      <TopBar />
+      <main className={css({ display: "contents" })}>
+        <Outlet />
+      </main>
+    </div>
   );
 }
 

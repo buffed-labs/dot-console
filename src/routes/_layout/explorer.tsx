@@ -2,19 +2,10 @@ import { BlockDetail } from "../../features/explorer/components/block-detail";
 import { Events } from "../../features/explorer/components/block-events";
 import { Blocks } from "../../features/explorer/components/blocks";
 import { Statistics } from "../../features/explorer/components/statistics";
-import {
-  blockExtrinsicsMapAtom,
-  blockInViewAtom,
-  blockMapAtom,
-  type DisplayBlock,
-} from "../../features/explorer/stores/blocks";
-import { unstable_getBlockExtrinsics } from "@reactive-dot/core";
-import { useClient, useTypedApi } from "@reactive-dot/react";
+import { blockInViewAtom } from "../../features/explorer/stores/blocks";
 import { createFileRoute } from "@tanstack/react-router";
-import { useAtom, useSetAtom } from "jotai";
-import type { BlockInfo } from "polkadot-api";
+import { useAtom } from "jotai";
 import { useEffect, useEffectEvent } from "react";
-import { mergeMap, type Subscription } from "rxjs";
 import { css } from "styled-system/css";
 
 export const Route = createFileRoute("/_layout/explorer")({
@@ -22,84 +13,15 @@ export const Route = createFileRoute("/_layout/explorer")({
 });
 
 function ExplorerPage() {
-  const setBlockMap = useSetAtom(blockMapAtom);
   const [blockInView, setBlockInView] = useAtom(blockInViewAtom);
 
-  const client = useClient();
-  const typedApi = useTypedApi();
-
-  useEffect(() => {
-    return () => {
-      setBlockMap(new Map());
-      setBlockInView(undefined);
-    };
-  }, [setBlockInView, setBlockMap]);
-
-  const onBestBlocks = useEffectEvent((bestBlocks: BlockInfo[]) => {
-    setBlockMap((blocks) => {
-      const newBlocks = new Map<number, DisplayBlock>(blocks);
-
-      for (const block of bestBlocks) {
-        newBlocks.set(block.number, {
-          ...block,
-          release: client.hodlBlock(block.hash),
-        });
-      }
-
-      return newBlocks;
-    });
+  const onUnMount = useEffectEvent(() => {
+    setBlockInView(undefined);
   });
 
   useEffect(() => {
-    const subscription = client.bestBlocks$.subscribe({
-      next: onBestBlocks,
-    });
-
-    return () => subscription.unsubscribe();
-  }, [client]);
-
-  const setBlockExtrinsicsMap = useSetAtom(blockExtrinsicsMapAtom);
-
-  useEffect(() => {
-    let subscription: Subscription;
-
-    const startSubscription = () => {
-      subscription = client.bestBlocks$
-        .pipe(
-          mergeMap((blocks) =>
-            Promise.all(
-              blocks.map((block) =>
-                unstable_getBlockExtrinsics(client, typedApi, block.hash).then(
-                  (extrinsics) => ({ ...block, extrinsics }),
-                ),
-              ),
-            ),
-          ),
-        )
-        .subscribe({
-          next: (blocks) =>
-            setBlockExtrinsicsMap((prevBlocks) => {
-              const newBlocks = new Map(prevBlocks);
-
-              for (const block of blocks) {
-                if (block.extrinsics !== undefined) {
-                  newBlocks.set(block.hash, block.extrinsics);
-                }
-              }
-
-              return newBlocks;
-            }),
-          error: (error) => {
-            console.error("block error", error);
-            return startSubscription();
-          },
-        });
-    };
-
-    startSubscription();
-
-    return () => subscription.unsubscribe();
-  }, [client, setBlockExtrinsicsMap, typedApi]);
+    return onUnMount;
+  }, []);
 
   return blockInView === undefined ? <LiveView /> : <BlockDetail />;
 }
