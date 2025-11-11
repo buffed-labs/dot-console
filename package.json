@@ -46,7 +46,7 @@
     "dot-identicon": "^0.1.6",
     "jotai": "^2.15.1",
     "jotai-suspense": "^0.4.2",
-    "polkadot-api": "^1.20.2",
+    "polkadot-api": "^1.20.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.0.0",
