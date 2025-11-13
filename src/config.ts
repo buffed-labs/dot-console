@@ -24,6 +24,7 @@ import { createLightClientProvider } from "@reactive-dot/core/providers/light-cl
 import { InjectedWalletProvider } from "@reactive-dot/core/wallets.js";
 import { LedgerWallet } from "@reactive-dot/wallet-ledger";
 import { MimirWalletProvider } from "@reactive-dot/wallet-mimir";
+import { PolkadotVaultWallet } from "@reactive-dot/wallet-polkadot-vault";
 import { WalletConnect } from "@reactive-dot/wallet-walletconnect";
 import { registerDotConnect } from "dot-connect";
 import type { ChainDefinition } from "polkadot-api";
@@ -128,6 +129,7 @@ export const config = defineConfig({
     new InjectedWalletProvider(),
     new MimirWalletProvider(),
     new LedgerWallet(),
+    new PolkadotVaultWallet(),
     new WalletConnect({
       projectId: import.meta.env.VITE_APP_WALLET_CONNECT_PROJECT_ID,
       providerOptions: {
