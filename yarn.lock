@@ -2932,17 +2932,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/strictest@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "@tsconfig/strictest@npm:2.0.7"
-  checksum: 10c0/5122ced742f7271fbc423182d40ade0264c7ef5acd517eb892a4aa2ea74bc0e4fa874931c4a8f271275913b2d289ae20bcc8cd9e355b38dfacd03d475a2c19f3
+"@tsconfig/strictest@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "@tsconfig/strictest@npm:2.0.8"
+  checksum: 10c0/96d7f1c6988c284886e7f2caea87415a6ebc779dc24c3f102cfa83b7d924da1363176b09c4600d11a1205bf2d819f35515c542a4bbcbe2fe13c1d7833376d203
   languageName: node
   linkType: hard
 
-"@tsconfig/vite-react@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "@tsconfig/vite-react@npm:7.0.1"
-  checksum: 10c0/9980067dc3cd86cd439a4b87056cbc2480bf6ad25e53e5300234b1b9409058a6c933bfc6d385b1eb7f832da973f74ac88a406bc6f5e115a7c4a337c15739d515
+"@tsconfig/vite-react@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "@tsconfig/vite-react@npm:7.0.2"
+  checksum: 10c0/cc63685e4f7b70a2ca34becb81939dad3f852f5640b6072aeeb2671b41f8bd1d80746ac7438c166090d6f22ca41db89282238e09a8877b8ac495c9fb0fa58257
   languageName: node
   linkType: hard
 
@@ -6066,8 +6066,8 @@ __metadata:
     "@tanstack/router-plugin": "npm:1.135.2"
     "@tanstack/zod-adapter": "npm:1.135.2"
     "@trivago/prettier-plugin-sort-imports": "npm:^6.0.0"
-    "@tsconfig/strictest": "npm:^2.0.7"
-    "@tsconfig/vite-react": "npm:^7.0.1"
+    "@tsconfig/strictest": "npm:^2.0.8"
+    "@tsconfig/vite-react": "npm:^7.0.2"
     "@types/react": "npm:^19.2.4"
     "@types/react-dom": "npm:^19.2.3"
     "@vitejs/plugin-react": "npm:^5.1.1"
