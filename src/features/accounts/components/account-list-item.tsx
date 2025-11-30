@@ -31,6 +31,7 @@ export function AccountListItem(props: AccountListItemProps) {
           <AccountListItemTemplate
             {...props}
             onOpenDialog={() => setDialogOpen(true)}
+            pending
           />
         }
       >
@@ -129,6 +130,7 @@ type AccountListItemTemplateProps = {
   interactive?: boolean | undefined;
   canCopyAddress?: boolean | undefined;
   onOpenDialog: () => unknown;
+  pending?: boolean;
   className?: string | undefined;
 };
 
@@ -139,6 +141,7 @@ function AccountListItemTemplate({
   interactive = true,
   canCopyAddress = interactive,
   onOpenDialog,
+  pending,
   className,
 }: AccountListItemTemplateProps) {
   return (
@@ -152,6 +155,7 @@ function AccountListItemTemplate({
           gap: "0.5rem",
           overflow: "hidden",
           whiteSpace: "nowrap",
+          animation: pending ? "skeleton-pulse" : undefined,
         }),
       )}
     >
