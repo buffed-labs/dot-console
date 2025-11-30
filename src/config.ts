@@ -125,7 +125,7 @@ export const config = defineConfig({
         withPolkadotSdkCompat(getWsProvider(initCustomRpcEndpoint!)),
     },
   },
-  targetChains: ["polkadot"],
+  targetChains: ["polkadot_asset_hub"],
   wallets: [
     new InjectedWalletProvider(),
     new MimirWalletProvider(),
