@@ -5,8 +5,8 @@ import { Suspense } from "react";
 import { css } from "styled-system/css";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
 import { Badge } from "~/components/ui/badge";
-import { Heading } from "~/components/ui/heading";
-import { useAssetHubChainId, useRelayChainId } from "~/hooks/chain";
+import { AccountListItem } from "~/features/accounts/components/account-list-item";
+import { useAssetHubChainId } from "~/hooks/chain";
 
 export function TreasuryBalances() {
   return (
@@ -19,13 +19,11 @@ export function TreasuryBalances() {
       })}
     >
       <header>
-        <Heading as="h2" size="lg">
-          Treasury
-        </Heading>
+        <TreasuryAccount />
       </header>
       <div className={css({ display: "flex", gap: "1em", flexWrap: "wrap" })}>
         <article>
-          <header className={css({ marginBottom: "0.25em" })}>On Relay</header>
+          <header className={css({ marginBottom: "0.25em" })}>Native</header>
           <p>
             <Suspense fallback={<CircularProgressIndicator size="text" />}>
               <NativeBalance />
@@ -33,11 +31,9 @@ export function TreasuryBalances() {
           </p>
         </article>
         <article>
-          <header className={css({ marginBottom: "0.25em" })}>
-            On Asset Hub
-          </header>
+          <header className={css({ marginBottom: "0.25em" })}>Others</header>
           <Suspense fallback={<CircularProgressIndicator size="text" />}>
-            <MaybeAssetHubBalances />
+            <NonNativeBalances />
           </Suspense>
         </article>
       </div>
@@ -45,62 +41,29 @@ export function TreasuryBalances() {
   );
 }
 
+function TreasuryAccount() {
+  return <AccountListItem address={useTreasuryAccount()} name="Treasury" />;
+}
+
 function NativeBalance() {
-  const [ss58Prefix, treasuryPalletId] = useLazyLoadQuery(
-    (builder) =>
-      builder.constant("System", "SS58Prefix").constant("Treasury", "PalletId"),
-    { chainId: useRelayChainId() },
-  );
-
-  const treasuryAccountBytes = new Uint8Array([
-    ...Binary.fromText("modl").asBytes(),
-    ...treasuryPalletId.asBytes(),
-  ]);
-
-  const treasuryAccount = AccountId(ss58Prefix).dec(
-    Uint8Array.from(
-      { length: 32 },
-      (_, index) => treasuryAccountBytes.at(index) ?? 0,
-    ),
-  );
-
   return (
     <Balance
-      value={useSpendableBalance(treasuryAccount, {
-        chainId: useRelayChainId(),
+      value={useSpendableBalance(useTreasuryAccount(), {
+        chainId: useAssetHubChainId(),
       })}
     />
   );
 }
 
-function MaybeAssetHubBalances() {
-  const treasuryAccount = useLazyLoadQuery(
-    (builder) =>
-      builder.runtimeApi("LocationToAccountApi", "convert_location", [
-        {
-          type: "V5",
-          value: {
-            parents: 1,
-            interior: {
-              type: "X1",
-              value: { type: "PalletInstance", value: 19 },
-            },
-          },
-        },
-      ]),
-    { chainId: useAssetHubChainId() },
-  );
-
-  return typeof treasuryAccount.value === "string" ? (
-    <AssetHubBalances account={treasuryAccount.value} />
-  ) : null;
+function NonNativeBalances() {
+  return <NonNativeBalancesInner account={useTreasuryAccount()} />;
 }
 
 type AssetHubBalancesProps = {
   account: string;
 };
 
-function AssetHubBalances({ account }: AssetHubBalancesProps) {
+function NonNativeBalancesInner({ account }: AssetHubBalancesProps) {
   const assets = useLazyLoadQuery(
     (builder) => builder.storageEntries("Assets", "Asset", []),
     { chainId: useAssetHubChainId() },
@@ -126,11 +89,7 @@ function AssetHubBalances({ account }: AssetHubBalancesProps) {
   return (
     <ul className={css({ display: "flex", gap: "0.5ch", flexWrap: "wrap" })}>
       {treasuryAssetHoldings.map(([assetId, balance]) => (
-        // TODO: investigate why the suspense boundary is needed
-        // flickers will happen without it
-        <Suspense key={assetId}>
-          <AssetBalance assetId={assetId} balance={balance} />
-        </Suspense>
+        <AssetBalance key={assetId} assetId={assetId} balance={balance} />
       ))}
     </ul>
   );
@@ -169,5 +128,25 @@ function Balance({ value }: BalanceProps) {
     <Badge size="lg" fontWeight="medium">
       {value.toLocaleString(undefined, { notation: "compact" })}
     </Badge>
+  );
+}
+
+function useTreasuryAccount() {
+  const [ss58Prefix, treasuryPalletId] = useLazyLoadQuery(
+    (builder) =>
+      builder.constant("System", "SS58Prefix").constant("Treasury", "PalletId"),
+    { chainId: useAssetHubChainId() },
+  );
+
+  const treasuryAccountBytes = new Uint8Array([
+    ...Binary.fromText("modl").asBytes(),
+    ...treasuryPalletId.asBytes(),
+  ]);
+
+  return AccountId(ss58Prefix).dec(
+    Uint8Array.from(
+      { length: 32 },
+      (_, index) => treasuryAccountBytes.at(index) ?? 0,
+    ),
   );
 }
