@@ -2399,9 +2399,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/core@npm:^0.65.0":
-  version: 0.65.0
-  resolution: "@reactive-dot/core@npm:0.65.0"
+"@reactive-dot/core@npm:^0.65.0, @reactive-dot/core@npm:^0.65.1":
+  version: 0.65.1
+  resolution: "@reactive-dot/core@npm:0.65.1"
   dependencies:
     "@noble/hashes": "npm:^2.0.1"
     "@reactive-dot/utils": "npm:^0.10.3"
@@ -2409,7 +2409,7 @@ __metadata:
     ox: "npm:^0.9.17"
   peerDependencies:
     polkadot-api: ">=1.21.1"
-  checksum: 10c0/d53197bf2f39140bccf313a8973e5f1d8cd62a2e58d6d3991b1f39af1dfe65ca8c1b0e88df2f649cb393850bfefa857a16248131067d4bbac55224f73ab8829f
+  checksum: 10c0/af19afdf136bc3d3f506a970e69a4ea6147ed0c631bf447d7b8d728181d1fcc752782996a09d115206f3ed3442eded045d1c3ce9b8100d104efa4a07c4a33884
   languageName: node
   linkType: hard
 
@@ -6111,7 +6111,7 @@ __metadata:
     "@park-ui/panda-preset": "npm:^0.43.1"
     "@polkadot-api/descriptors": "portal:.papi/descriptors"
     "@polkadot-api/view-builder": "npm:^0.4.15"
-    "@reactive-dot/core": "npm:^0.65.0"
+    "@reactive-dot/core": "npm:^0.65.1"
     "@reactive-dot/react": "npm:^0.65.0"
     "@reactive-dot/wallet-ledger": "npm:^0.18.4"
     "@reactive-dot/wallet-mimir": "npm:^0.2.2"
@@ -6137,7 +6137,7 @@ __metadata:
     eslint-plugin-react-compiler: "npm:19.1.0-rc.2"
     eslint-plugin-react-hooks: "npm:^7.0.1"
     eslint-plugin-react-refresh: "npm:^0.4.24"
-    jotai: "npm:^2.15.1"
+    jotai: "npm:^2.15.2"
     jotai-suspense: "npm:^0.4.2"
     polkadot-api: "npm:^1.22.0"
     prettier: "npm:^3.7.3"
@@ -7574,9 +7574,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:^2.15.1":
-  version: 2.15.1
-  resolution: "jotai@npm:2.15.1"
+"jotai@npm:^2.15.1, jotai@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "jotai@npm:2.15.2"
   peerDependencies:
     "@babel/core": ">=7.0.0"
     "@babel/template": ">=7.0.0"
@@ -7591,7 +7591,7 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10c0/8260ac9f36e14d2cedbc79f63bc1bcd82902d68a1ab1f3dfce6ffabccbedfd5fa54fffe93e53a09253d6b29a9c05fbc455108a280efc8d349fd5bfb965f7869b
+  checksum: 10c0/b8ffd26f8429d5512aa4f5204027a9ae43da5229f28e8e16df0558f5cbde56c2c5149883354ea977cba4a1e89f566d19cc37324dd3df53741582a38c8ad31d5a
   languageName: node
   linkType: hard
 
