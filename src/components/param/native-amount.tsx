@@ -6,7 +6,14 @@ import {
   useNativeTokenAmountFromNumber,
   useNativeTokenAmountFromPlanck,
 } from "@reactive-dot/react";
-import { Suspense, useEffect, useEffectEvent, useMemo, useState } from "react";
+import {
+  Suspense,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 export type NativeAmountProps = ParamProps<bigint> & {
   shape: { codec: "compactNumber" | "compactBn" | "u128" };
@@ -14,9 +21,16 @@ export type NativeAmountProps = ParamProps<bigint> & {
 };
 
 export function NativeAmountParam(props: NativeAmountProps) {
+  // Needed due to Suspense losing initial default
+  const initialDefault = useRef(props.defaultValue);
+
   return (
     <Suspense>
-      <INTERNAL_NativeAmountParam {...props} />
+      <INTERNAL_NativeAmountParam
+        {...props}
+        // eslint-disable-next-line react-hooks/refs
+        defaultValue={initialDefault.current}
+      />
     </Suspense>
   );
 }

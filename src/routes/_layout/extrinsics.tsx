@@ -18,6 +18,7 @@ import {
   useEffect,
   useEffectEvent,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { css } from "styled-system/css";
@@ -204,6 +205,8 @@ function CallParam({
 
   const { callData: searchCallData } = Route.useSearch();
 
+  const initialSearchCallData = useRef(searchCallData);
+
   const callDataHex = callData?.asHex();
 
   const [defaultArgs, setDefaultArgs] = useState<Decoded>();
@@ -250,8 +253,8 @@ function CallParam({
   }, [navigate]);
 
   const onMount = useEffectEvent(() => {
-    if (searchCallData) {
-      setCallDataInput(searchCallData, true);
+    if (initialSearchCallData.current) {
+      setCallDataInput(initialSearchCallData.current, true);
     }
   });
 
