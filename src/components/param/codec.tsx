@@ -26,12 +26,14 @@ export type CodecParamProps<T = unknown> = ParamProps<T> & {
   defaultValue?: Decoded | undefined;
   basePath?: string[];
   currentPath?: string;
+  skipIndentation?: boolean;
 };
 
 export function CodecParam<T = unknown>({
   shape,
   basePath,
   currentPath,
+  skipIndentation,
   ...props
 }: CodecParamProps<T>) {
   const contextPath = use(StorageParamPathContext);
@@ -55,12 +57,12 @@ export function CodecParam<T = unknown>({
       })}
       style={{
         ["--storage-depth" as keyof CssProperties]: depth,
-        borderLeft: depth <= 0 ? undefined : "1px dotted",
-        paddingLeft: depth <= 0 ? undefined : "1rem",
+        borderLeft: skipIndentation || depth <= 0 ? undefined : "1px dotted",
+        paddingLeft: skipIndentation || depth <= 0 ? undefined : "1rem",
       }}
     >
       <StorageParamPathContext value={path}>
-        <StorageParamDepthContext value={depth + 1}>
+        <StorageParamDepthContext value={skipIndentation ? depth : depth + 1}>
           {useMemo(() => {
             if (nativeTokenShape) {
               return (

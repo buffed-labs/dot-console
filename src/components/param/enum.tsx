@@ -64,6 +64,7 @@ function INTERNAL_EnumParam({
           }
           // @ts-expect-error TODO: improve Enum type
           onChangeValue={setValue}
+          skipIndentation={valueShape.codec === "Enum"}
         />
       )}
     </div>
