@@ -14,7 +14,13 @@ import { Binary } from "@polkadot-api/substrate-bindings";
 import type { BytesArrayShape } from "@polkadot-api/view-builder";
 import Delete from "@w3f/polkadot-icons/solid/DeleteCancel";
 import type { HexString } from "polkadot-api";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import {
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useState,
+  useTransition,
+} from "react";
 import { css } from "styled-system/css";
 import { toaster } from "~/toaster";
 import { bytesToString } from "~/utils";
@@ -72,14 +78,12 @@ function TextBinaryParam({
     [bytesArray, value],
   );
 
-  useEffect(
-    () => {
-      onChangeValue(validBinary);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [validBinary instanceof Binary ? validBinary.asHex() : validBinary],
-  );
+  const onChangeBinary = useEffectEvent(() => onChangeValue(validBinary));
+
+  const hexBinary =
+    validBinary instanceof Binary ? validBinary.asHex() : validBinary;
+
+  useEffect(() => onChangeBinary(), [hexBinary]);
 
   return (
     <Field.Root
@@ -139,14 +143,11 @@ function FileUploadBinaryParam({
     },
   });
 
-  useEffect(
-    () => {
-      onChangeValue(binary);
-    },
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [binary instanceof Binary ? binary.asHex() : binary],
+  const onChangeBinary = useEffectEvent((value: ParamInput<Binary>) =>
+    onChangeValue(value),
   );
+
+  useEffect(() => onChangeBinary(binary), [binary]);
 
   return (
     <FileUpload.RootProvider value={fileUpload}>

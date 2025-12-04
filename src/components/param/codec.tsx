@@ -36,22 +36,14 @@ export function CodecParam<T = unknown>({
 }: CodecParamProps<T>) {
   const contextPath = use(StorageParamPathContext);
 
-  const path = useMemo(
-    () =>
-      basePath !== undefined
-        ? [...basePath, ...contextPath]
-        : [...contextPath, currentPath],
-    [basePath, contextPath, currentPath],
-  );
+  const path =
+    basePath !== undefined
+      ? [...basePath, ...contextPath]
+      : [...contextPath, currentPath];
 
   const depth = use(StorageParamDepthContext);
 
-  const nativeTokenShape = useMemo(
-    () => isNativeTokenShape(path),
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [path.join()],
-  );
+  const nativeTokenShape = isNativeTokenShape(path);
 
   return (
     <div
