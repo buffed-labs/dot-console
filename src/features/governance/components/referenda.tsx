@@ -30,7 +30,7 @@ import { IconButton } from "~/components/ui/icon-button";
 import { Link } from "~/components/ui/link";
 import { Table } from "~/components/ui/table";
 import { AccountListItem } from "~/features/accounts/components/account-list-item";
-import { useGovernanceChainId } from "~/hooks/chain";
+import { useGovernanceChainId, useRelayChainId } from "~/hooks/chain";
 import { range } from "~/utils";
 import { atomFamily } from "~/utils/atom-family";
 import { objectId } from "~/utils/object-id";
@@ -182,7 +182,7 @@ function ReferendumRow({ number }: ReferendumProps) {
             </Badge>
           </Table.Cell>
           <Table.Cell>
-            <SubmissionDate blockNumber={info.value.submitted} />
+            <BlockDate blockNumber={info.value.submitted} />
           </Table.Cell>
           <Table.Cell>
             <ReferendumDiscussionLink
@@ -246,7 +246,7 @@ function ReferendumRow({ number }: ReferendumProps) {
             </Badge>
           </Table.Cell>
           <Table.Cell>
-            <SubmissionDate blockNumber={at} />
+            <BlockDate blockNumber={at} />
           </Table.Cell>
           <Table.Cell>
             <ReferendumDiscussionLink
@@ -284,17 +284,16 @@ function ReferendumRow({ number }: ReferendumProps) {
   }
 }
 
-type SubmissionDateProps = {
+type BlockDateProps = {
   blockNumber: number;
 };
 
-function SubmissionDate({ blockNumber }: SubmissionDateProps) {
+function BlockDate({ blockNumber }: BlockDateProps) {
   const [slotDuration, currentBlock] = useLazyLoadQuery(
     (builder) =>
-      builder.constant("Aura", "SlotDuration").storage("System", "Number"),
-    { chainId: useGovernanceChainId() },
+      builder.constant("Babe", "ExpectedBlockTime").storage("System", "Number"),
+    { chainId: useRelayChainId() },
   );
-
   const msAgo = (currentBlock - blockNumber) * Number(slotDuration);
   const submissionDate = subMilliseconds(new Date(), msAgo);
 
