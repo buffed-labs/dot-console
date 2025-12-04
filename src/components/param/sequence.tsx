@@ -248,28 +248,15 @@ export function SortableItem({
           </IconButton>
         </TooltipBox>
       }
+      aside={
+        <TooltipBox tooltip="Duplicate item">
+          <IconButton variant="ghost" size="xs" onClick={onRequestDuplicate}>
+            <CopyIcon fill="currentcolor" />
+          </IconButton>
+        </TooltipBox>
+      }
     >
-      <div
-        className={css({
-          display: "flex",
-          // gap: "0.5rem",
-          "&>*:first-child": { flex: 1 },
-        })}
-      >
-        <div>{children}</div>
-        <div
-          className={css({
-            display: "flex",
-            flexDirection: "column",
-          })}
-        >
-          <TooltipBox tooltip="Duplicate item">
-            <IconButton variant="ghost" size="xs" onClick={onRequestDuplicate}>
-              <CopyIcon fill="currentcolor" />
-            </IconButton>
-          </TooltipBox>
-        </div>
-      </div>
+      {children}
     </CollapsibleParam>
   );
 }

@@ -8,6 +8,7 @@ type CollapsibleParamProps = PropsWithChildren<{
   label: ReactNode;
   leadingLabel?: ReactNode;
   trailingLabel?: ReactNode;
+  aside?: ReactNode;
   style?: CSSProperties;
   className?: string;
 }>;
@@ -16,6 +17,7 @@ export function CollapsibleParam({
   label,
   leadingLabel,
   trailingLabel,
+  aside,
   style,
   className,
   children,
@@ -29,9 +31,10 @@ export function CollapsibleParam({
         css({
           borderRadius: "md",
           overflow: "hidden",
-          "&:has(>:first-child:hover)": {
-            backgroundColor: "bg.subtle",
-          },
+          "&:has(>:first-child:hover), &:has(>:nth-child(2) > :first-child > :nth-child(2):hover)":
+            {
+              backgroundColor: "bg.subtle",
+            },
         }),
       )}
     >
@@ -53,7 +56,28 @@ export function CollapsibleParam({
           )}
         </Button>
       </Collapsible.Trigger>
-      <Collapsible.Content>{children}</Collapsible.Content>
+      <Collapsible.Content>
+        <div
+          className={css({
+            display: "flex",
+            gap: "0.25rem",
+            "&>*:first-child": { flex: 1 },
+          })}
+        >
+          {children}
+          {aside !== undefined && (
+            <div
+              className={css({
+                display: "flex",
+                flexDirection: "column",
+                height: "fit-content",
+              })}
+            >
+              {aside}
+            </div>
+          )}
+        </div>
+      </Collapsible.Content>
     </Collapsible.Root>
   );
 }
