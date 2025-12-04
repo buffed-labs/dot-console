@@ -182,7 +182,18 @@ function Amount({ value }: { value: DenominatedNumber | "pending" }) {
 
 export function AccountIdentity(props: AccountInfoProps) {
   return (
-    <Suspense>
+    <Suspense
+      fallback={
+        <section>
+          <header className={css({ margin: "1rem 0 0.5rem 0" })}>
+            <Heading as="h3" size="xl">
+              Identity
+            </Heading>
+          </header>
+          <CircularProgressIndicator size="text" />
+        </section>
+      }
+    >
       <SuspendableAccountIdentity {...props} />
     </Suspense>
   );
@@ -201,7 +212,16 @@ export function SuspendableAccountIdentity({ address }: AccountInfoProps) {
   const [superAddress, subName] = result[1] ?? [];
 
   if (identity === undefined && subName === undefined) {
-    return null;
+    return (
+      <section>
+        <header className={css({ margin: "1rem 0 0.5rem 0" })}>
+          <Heading as="h3" size="xl">
+            Identity
+          </Heading>
+        </header>
+        <p>No on-chain ID found</p>
+      </section>
+    );
   }
 
   const { additional, pgp_fingerprint, ...knowns } =
