@@ -8,8 +8,6 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as IndexRouteImport } from './routes/index'
@@ -34,15 +32,6 @@ import { Route as LayoutNoCustomStakingLayoutNominationPoolsRouteImport } from '
 import { Route as LayoutNoCustomCollectivesLayoutFellowshipRouteImport } from './routes/_layout/_no-custom/collectives/_layout/fellowship'
 import { Route as LayoutNoCustomCollectivesLayoutAmbassadorRouteImport } from './routes/_layout/_no-custom/collectives/_layout/ambassador'
 
-const LayoutUtilitiesRouteImport = createFileRoute('/_layout/utilities')()
-const LayoutAccountsRouteImport = createFileRoute('/_layout/accounts')()
-const LayoutNoCustomStakingRouteImport = createFileRoute(
-  '/_layout/_no-custom/staking',
-)()
-const LayoutNoCustomCollectivesRouteImport = createFileRoute(
-  '/_layout/_no-custom/collectives',
-)()
-
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => rootRouteImport,
@@ -51,16 +40,6 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const LayoutUtilitiesRoute = LayoutUtilitiesRouteImport.update({
-  id: '/utilities',
-  path: '/utilities',
-  getParentRoute: () => LayoutRoute,
-} as any)
-const LayoutAccountsRoute = LayoutAccountsRouteImport.update({
-  id: '/accounts',
-  path: '/accounts',
-  getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutQueriesRoute = LayoutQueriesRouteImport.update({
   id: '/queries',
@@ -81,29 +60,20 @@ const LayoutNoCustomRoute = LayoutNoCustomRouteImport.update({
   id: '/_no-custom',
   getParentRoute: () => LayoutRoute,
 } as any)
-const LayoutNoCustomStakingRoute = LayoutNoCustomStakingRouteImport.update({
-  id: '/staking',
-  path: '/staking',
-  getParentRoute: () => LayoutNoCustomRoute,
-} as any)
-const LayoutNoCustomCollectivesRoute =
-  LayoutNoCustomCollectivesRouteImport.update({
-    id: '/collectives',
-    path: '/collectives',
-    getParentRoute: () => LayoutNoCustomRoute,
-  } as any)
 const LayoutUtilitiesIndexRoute = LayoutUtilitiesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => LayoutUtilitiesRoute,
+  id: '/utilities/',
+  path: '/utilities/',
+  getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutUtilitiesLayoutRoute = LayoutUtilitiesLayoutRouteImport.update({
-  id: '/_layout',
-  getParentRoute: () => LayoutUtilitiesRoute,
+  id: '/utilities/_layout',
+  path: '/utilities',
+  getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutAccountsLayoutRoute = LayoutAccountsLayoutRouteImport.update({
-  id: '/_layout',
-  getParentRoute: () => LayoutAccountsRoute,
+  id: '/accounts/_layout',
+  path: '/accounts',
+  getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutNoCustomAssetsRoute = LayoutNoCustomAssetsRouteImport.update({
   id: '/assets',
@@ -118,9 +88,9 @@ const LayoutAccountsLayoutIndexRoute =
   } as any)
 const LayoutNoCustomStakingIndexRoute =
   LayoutNoCustomStakingIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => LayoutNoCustomStakingRoute,
+    id: '/staking/',
+    path: '/staking/',
+    getParentRoute: () => LayoutNoCustomRoute,
   } as any)
 const LayoutNoCustomReferendaIndexRoute =
   LayoutNoCustomReferendaIndexRouteImport.update({
@@ -130,9 +100,9 @@ const LayoutNoCustomReferendaIndexRoute =
   } as any)
 const LayoutNoCustomCollectivesIndexRoute =
   LayoutNoCustomCollectivesIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => LayoutNoCustomCollectivesRoute,
+    id: '/collectives/',
+    path: '/collectives/',
+    getParentRoute: () => LayoutNoCustomRoute,
   } as any)
 const LayoutUtilitiesLayoutPlanckConvertorRoute =
   LayoutUtilitiesLayoutPlanckConvertorRouteImport.update({
@@ -148,13 +118,15 @@ const LayoutAccountsLayoutValidatorsRoute =
   } as any)
 const LayoutNoCustomStakingLayoutRoute =
   LayoutNoCustomStakingLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => LayoutNoCustomStakingRoute,
+    id: '/staking/_layout',
+    path: '/staking',
+    getParentRoute: () => LayoutNoCustomRoute,
   } as any)
 const LayoutNoCustomCollectivesLayoutRoute =
   LayoutNoCustomCollectivesLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => LayoutNoCustomCollectivesRoute,
+    id: '/collectives/_layout',
+    path: '/collectives',
+    getParentRoute: () => LayoutNoCustomRoute,
   } as any)
 const LayoutNoCustomStakingLayoutValidatorsRoute =
   LayoutNoCustomStakingLayoutValidatorsRouteImport.update({
@@ -188,15 +160,12 @@ export interface FileRoutesByFullPath {
   '/queries': typeof LayoutQueriesRoute
   '/assets': typeof LayoutNoCustomAssetsRoute
   '/accounts': typeof LayoutAccountsLayoutRouteWithChildren
-  '/utilities': typeof LayoutUtilitiesLayoutRouteWithChildren
-  '/utilities/': typeof LayoutUtilitiesIndexRoute
-  '/collectives': typeof LayoutNoCustomCollectivesLayoutRouteWithChildren
-  '/staking': typeof LayoutNoCustomStakingLayoutRouteWithChildren
+  '/utilities': typeof LayoutUtilitiesIndexRoute
+  '/collectives': typeof LayoutNoCustomCollectivesIndexRoute
+  '/staking': typeof LayoutNoCustomStakingIndexRoute
   '/accounts/validators': typeof LayoutAccountsLayoutValidatorsRoute
   '/utilities/planck-convertor': typeof LayoutUtilitiesLayoutPlanckConvertorRoute
-  '/collectives/': typeof LayoutNoCustomCollectivesIndexRoute
   '/referenda': typeof LayoutNoCustomReferendaIndexRoute
-  '/staking/': typeof LayoutNoCustomStakingIndexRoute
   '/accounts/': typeof LayoutAccountsLayoutIndexRoute
   '/collectives/ambassador': typeof LayoutNoCustomCollectivesLayoutAmbassadorRoute
   '/collectives/fellowship': typeof LayoutNoCustomCollectivesLayoutFellowshipRoute
@@ -209,13 +178,13 @@ export interface FileRoutesByTo {
   '/extrinsics': typeof LayoutExtrinsicsRoute
   '/queries': typeof LayoutQueriesRoute
   '/assets': typeof LayoutNoCustomAssetsRoute
-  '/accounts': typeof LayoutAccountsLayoutIndexRoute
   '/utilities': typeof LayoutUtilitiesIndexRoute
   '/collectives': typeof LayoutNoCustomCollectivesIndexRoute
   '/staking': typeof LayoutNoCustomStakingIndexRoute
   '/accounts/validators': typeof LayoutAccountsLayoutValidatorsRoute
   '/utilities/planck-convertor': typeof LayoutUtilitiesLayoutPlanckConvertorRoute
   '/referenda': typeof LayoutNoCustomReferendaIndexRoute
+  '/accounts': typeof LayoutAccountsLayoutIndexRoute
   '/collectives/ambassador': typeof LayoutNoCustomCollectivesLayoutAmbassadorRoute
   '/collectives/fellowship': typeof LayoutNoCustomCollectivesLayoutFellowshipRoute
   '/staking/nomination-pools': typeof LayoutNoCustomStakingLayoutNominationPoolsRoute
@@ -230,14 +199,10 @@ export interface FileRoutesById {
   '/_layout/extrinsics': typeof LayoutExtrinsicsRoute
   '/_layout/queries': typeof LayoutQueriesRoute
   '/_layout/_no-custom/assets': typeof LayoutNoCustomAssetsRoute
-  '/_layout/accounts': typeof LayoutAccountsRouteWithChildren
   '/_layout/accounts/_layout': typeof LayoutAccountsLayoutRouteWithChildren
-  '/_layout/utilities': typeof LayoutUtilitiesRouteWithChildren
   '/_layout/utilities/_layout': typeof LayoutUtilitiesLayoutRouteWithChildren
   '/_layout/utilities/': typeof LayoutUtilitiesIndexRoute
-  '/_layout/_no-custom/collectives': typeof LayoutNoCustomCollectivesRouteWithChildren
   '/_layout/_no-custom/collectives/_layout': typeof LayoutNoCustomCollectivesLayoutRouteWithChildren
-  '/_layout/_no-custom/staking': typeof LayoutNoCustomStakingRouteWithChildren
   '/_layout/_no-custom/staking/_layout': typeof LayoutNoCustomStakingLayoutRouteWithChildren
   '/_layout/accounts/_layout/validators': typeof LayoutAccountsLayoutValidatorsRoute
   '/_layout/utilities/_layout/planck-convertor': typeof LayoutUtilitiesLayoutPlanckConvertorRoute
@@ -260,14 +225,11 @@ export interface FileRouteTypes {
     | '/assets'
     | '/accounts'
     | '/utilities'
-    | '/utilities/'
     | '/collectives'
     | '/staking'
     | '/accounts/validators'
     | '/utilities/planck-convertor'
-    | '/collectives/'
     | '/referenda'
-    | '/staking/'
     | '/accounts/'
     | '/collectives/ambassador'
     | '/collectives/fellowship'
@@ -280,13 +242,13 @@ export interface FileRouteTypes {
     | '/extrinsics'
     | '/queries'
     | '/assets'
-    | '/accounts'
     | '/utilities'
     | '/collectives'
     | '/staking'
     | '/accounts/validators'
     | '/utilities/planck-convertor'
     | '/referenda'
+    | '/accounts'
     | '/collectives/ambassador'
     | '/collectives/fellowship'
     | '/staking/nomination-pools'
@@ -300,14 +262,10 @@ export interface FileRouteTypes {
     | '/_layout/extrinsics'
     | '/_layout/queries'
     | '/_layout/_no-custom/assets'
-    | '/_layout/accounts'
     | '/_layout/accounts/_layout'
-    | '/_layout/utilities'
     | '/_layout/utilities/_layout'
     | '/_layout/utilities/'
-    | '/_layout/_no-custom/collectives'
     | '/_layout/_no-custom/collectives/_layout'
-    | '/_layout/_no-custom/staking'
     | '/_layout/_no-custom/staking/_layout'
     | '/_layout/accounts/_layout/validators'
     | '/_layout/utilities/_layout/planck-convertor'
@@ -342,20 +300,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_layout/utilities': {
-      id: '/_layout/utilities'
-      path: '/utilities'
-      fullPath: '/utilities'
-      preLoaderRoute: typeof LayoutUtilitiesRouteImport
-      parentRoute: typeof LayoutRoute
-    }
-    '/_layout/accounts': {
-      id: '/_layout/accounts'
-      path: '/accounts'
-      fullPath: '/accounts'
-      preLoaderRoute: typeof LayoutAccountsRouteImport
-      parentRoute: typeof LayoutRoute
-    }
     '/_layout/queries': {
       id: '/_layout/queries'
       path: '/queries'
@@ -384,40 +328,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutNoCustomRouteImport
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/_no-custom/staking': {
-      id: '/_layout/_no-custom/staking'
-      path: '/staking'
-      fullPath: '/staking'
-      preLoaderRoute: typeof LayoutNoCustomStakingRouteImport
-      parentRoute: typeof LayoutNoCustomRoute
-    }
-    '/_layout/_no-custom/collectives': {
-      id: '/_layout/_no-custom/collectives'
-      path: '/collectives'
-      fullPath: '/collectives'
-      preLoaderRoute: typeof LayoutNoCustomCollectivesRouteImport
-      parentRoute: typeof LayoutNoCustomRoute
-    }
     '/_layout/utilities/': {
       id: '/_layout/utilities/'
-      path: '/'
-      fullPath: '/utilities/'
+      path: '/utilities'
+      fullPath: '/utilities'
       preLoaderRoute: typeof LayoutUtilitiesIndexRouteImport
-      parentRoute: typeof LayoutUtilitiesRoute
+      parentRoute: typeof LayoutRoute
     }
     '/_layout/utilities/_layout': {
       id: '/_layout/utilities/_layout'
       path: '/utilities'
       fullPath: '/utilities'
       preLoaderRoute: typeof LayoutUtilitiesLayoutRouteImport
-      parentRoute: typeof LayoutUtilitiesRoute
+      parentRoute: typeof LayoutRoute
     }
     '/_layout/accounts/_layout': {
       id: '/_layout/accounts/_layout'
       path: '/accounts'
       fullPath: '/accounts'
       preLoaderRoute: typeof LayoutAccountsLayoutRouteImport
-      parentRoute: typeof LayoutAccountsRoute
+      parentRoute: typeof LayoutRoute
     }
     '/_layout/_no-custom/assets': {
       id: '/_layout/_no-custom/assets'
@@ -435,10 +365,10 @@ declare module '@tanstack/react-router' {
     }
     '/_layout/_no-custom/staking/': {
       id: '/_layout/_no-custom/staking/'
-      path: '/'
-      fullPath: '/staking/'
+      path: '/staking'
+      fullPath: '/staking'
       preLoaderRoute: typeof LayoutNoCustomStakingIndexRouteImport
-      parentRoute: typeof LayoutNoCustomStakingRoute
+      parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/_no-custom/referenda/': {
       id: '/_layout/_no-custom/referenda/'
@@ -449,10 +379,10 @@ declare module '@tanstack/react-router' {
     }
     '/_layout/_no-custom/collectives/': {
       id: '/_layout/_no-custom/collectives/'
-      path: '/'
-      fullPath: '/collectives/'
+      path: '/collectives'
+      fullPath: '/collectives'
       preLoaderRoute: typeof LayoutNoCustomCollectivesIndexRouteImport
-      parentRoute: typeof LayoutNoCustomCollectivesRoute
+      parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/utilities/_layout/planck-convertor': {
       id: '/_layout/utilities/_layout/planck-convertor'
@@ -473,14 +403,14 @@ declare module '@tanstack/react-router' {
       path: '/staking'
       fullPath: '/staking'
       preLoaderRoute: typeof LayoutNoCustomStakingLayoutRouteImport
-      parentRoute: typeof LayoutNoCustomStakingRoute
+      parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/_no-custom/collectives/_layout': {
       id: '/_layout/_no-custom/collectives/_layout'
       path: '/collectives'
       fullPath: '/collectives'
       preLoaderRoute: typeof LayoutNoCustomCollectivesLayoutRouteImport
-      parentRoute: typeof LayoutNoCustomCollectivesRoute
+      parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/_no-custom/staking/_layout/validators': {
       id: '/_layout/_no-custom/staking/_layout/validators'
@@ -531,23 +461,6 @@ const LayoutNoCustomCollectivesLayoutRouteWithChildren =
     LayoutNoCustomCollectivesLayoutRouteChildren,
   )
 
-interface LayoutNoCustomCollectivesRouteChildren {
-  LayoutNoCustomCollectivesLayoutRoute: typeof LayoutNoCustomCollectivesLayoutRouteWithChildren
-  LayoutNoCustomCollectivesIndexRoute: typeof LayoutNoCustomCollectivesIndexRoute
-}
-
-const LayoutNoCustomCollectivesRouteChildren: LayoutNoCustomCollectivesRouteChildren =
-  {
-    LayoutNoCustomCollectivesLayoutRoute:
-      LayoutNoCustomCollectivesLayoutRouteWithChildren,
-    LayoutNoCustomCollectivesIndexRoute: LayoutNoCustomCollectivesIndexRoute,
-  }
-
-const LayoutNoCustomCollectivesRouteWithChildren =
-  LayoutNoCustomCollectivesRoute._addFileChildren(
-    LayoutNoCustomCollectivesRouteChildren,
-  )
-
 interface LayoutNoCustomStakingLayoutRouteChildren {
   LayoutNoCustomStakingLayoutNominationPoolsRoute: typeof LayoutNoCustomStakingLayoutNominationPoolsRoute
   LayoutNoCustomStakingLayoutValidatorsRoute: typeof LayoutNoCustomStakingLayoutValidatorsRoute
@@ -566,34 +479,24 @@ const LayoutNoCustomStakingLayoutRouteWithChildren =
     LayoutNoCustomStakingLayoutRouteChildren,
   )
 
-interface LayoutNoCustomStakingRouteChildren {
-  LayoutNoCustomStakingLayoutRoute: typeof LayoutNoCustomStakingLayoutRouteWithChildren
-  LayoutNoCustomStakingIndexRoute: typeof LayoutNoCustomStakingIndexRoute
-}
-
-const LayoutNoCustomStakingRouteChildren: LayoutNoCustomStakingRouteChildren = {
-  LayoutNoCustomStakingLayoutRoute:
-    LayoutNoCustomStakingLayoutRouteWithChildren,
-  LayoutNoCustomStakingIndexRoute: LayoutNoCustomStakingIndexRoute,
-}
-
-const LayoutNoCustomStakingRouteWithChildren =
-  LayoutNoCustomStakingRoute._addFileChildren(
-    LayoutNoCustomStakingRouteChildren,
-  )
-
 interface LayoutNoCustomRouteChildren {
   LayoutNoCustomAssetsRoute: typeof LayoutNoCustomAssetsRoute
-  LayoutNoCustomCollectivesRoute: typeof LayoutNoCustomCollectivesRouteWithChildren
-  LayoutNoCustomStakingRoute: typeof LayoutNoCustomStakingRouteWithChildren
+  LayoutNoCustomCollectivesLayoutRoute: typeof LayoutNoCustomCollectivesLayoutRouteWithChildren
+  LayoutNoCustomStakingLayoutRoute: typeof LayoutNoCustomStakingLayoutRouteWithChildren
+  LayoutNoCustomCollectivesIndexRoute: typeof LayoutNoCustomCollectivesIndexRoute
   LayoutNoCustomReferendaIndexRoute: typeof LayoutNoCustomReferendaIndexRoute
+  LayoutNoCustomStakingIndexRoute: typeof LayoutNoCustomStakingIndexRoute
 }
 
 const LayoutNoCustomRouteChildren: LayoutNoCustomRouteChildren = {
   LayoutNoCustomAssetsRoute: LayoutNoCustomAssetsRoute,
-  LayoutNoCustomCollectivesRoute: LayoutNoCustomCollectivesRouteWithChildren,
-  LayoutNoCustomStakingRoute: LayoutNoCustomStakingRouteWithChildren,
+  LayoutNoCustomCollectivesLayoutRoute:
+    LayoutNoCustomCollectivesLayoutRouteWithChildren,
+  LayoutNoCustomStakingLayoutRoute:
+    LayoutNoCustomStakingLayoutRouteWithChildren,
+  LayoutNoCustomCollectivesIndexRoute: LayoutNoCustomCollectivesIndexRoute,
   LayoutNoCustomReferendaIndexRoute: LayoutNoCustomReferendaIndexRoute,
+  LayoutNoCustomStakingIndexRoute: LayoutNoCustomStakingIndexRoute,
 }
 
 const LayoutNoCustomRouteWithChildren = LayoutNoCustomRoute._addFileChildren(
@@ -613,18 +516,6 @@ const LayoutAccountsLayoutRouteChildren: LayoutAccountsLayoutRouteChildren = {
 const LayoutAccountsLayoutRouteWithChildren =
   LayoutAccountsLayoutRoute._addFileChildren(LayoutAccountsLayoutRouteChildren)
 
-interface LayoutAccountsRouteChildren {
-  LayoutAccountsLayoutRoute: typeof LayoutAccountsLayoutRouteWithChildren
-}
-
-const LayoutAccountsRouteChildren: LayoutAccountsRouteChildren = {
-  LayoutAccountsLayoutRoute: LayoutAccountsLayoutRouteWithChildren,
-}
-
-const LayoutAccountsRouteWithChildren = LayoutAccountsRoute._addFileChildren(
-  LayoutAccountsRouteChildren,
-)
-
 interface LayoutUtilitiesLayoutRouteChildren {
   LayoutUtilitiesLayoutPlanckConvertorRoute: typeof LayoutUtilitiesLayoutPlanckConvertorRoute
 }
@@ -639,27 +530,14 @@ const LayoutUtilitiesLayoutRouteWithChildren =
     LayoutUtilitiesLayoutRouteChildren,
   )
 
-interface LayoutUtilitiesRouteChildren {
-  LayoutUtilitiesLayoutRoute: typeof LayoutUtilitiesLayoutRouteWithChildren
-  LayoutUtilitiesIndexRoute: typeof LayoutUtilitiesIndexRoute
-}
-
-const LayoutUtilitiesRouteChildren: LayoutUtilitiesRouteChildren = {
-  LayoutUtilitiesLayoutRoute: LayoutUtilitiesLayoutRouteWithChildren,
-  LayoutUtilitiesIndexRoute: LayoutUtilitiesIndexRoute,
-}
-
-const LayoutUtilitiesRouteWithChildren = LayoutUtilitiesRoute._addFileChildren(
-  LayoutUtilitiesRouteChildren,
-)
-
 interface LayoutRouteChildren {
   LayoutNoCustomRoute: typeof LayoutNoCustomRouteWithChildren
   LayoutExplorerRoute: typeof LayoutExplorerRoute
   LayoutExtrinsicsRoute: typeof LayoutExtrinsicsRoute
   LayoutQueriesRoute: typeof LayoutQueriesRoute
-  LayoutAccountsRoute: typeof LayoutAccountsRouteWithChildren
-  LayoutUtilitiesRoute: typeof LayoutUtilitiesRouteWithChildren
+  LayoutAccountsLayoutRoute: typeof LayoutAccountsLayoutRouteWithChildren
+  LayoutUtilitiesLayoutRoute: typeof LayoutUtilitiesLayoutRouteWithChildren
+  LayoutUtilitiesIndexRoute: typeof LayoutUtilitiesIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
@@ -667,8 +545,9 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutExplorerRoute: LayoutExplorerRoute,
   LayoutExtrinsicsRoute: LayoutExtrinsicsRoute,
   LayoutQueriesRoute: LayoutQueriesRoute,
-  LayoutAccountsRoute: LayoutAccountsRouteWithChildren,
-  LayoutUtilitiesRoute: LayoutUtilitiesRouteWithChildren,
+  LayoutAccountsLayoutRoute: LayoutAccountsLayoutRouteWithChildren,
+  LayoutUtilitiesLayoutRoute: LayoutUtilitiesLayoutRouteWithChildren,
+  LayoutUtilitiesIndexRoute: LayoutUtilitiesIndexRoute,
 }
 
 const LayoutRouteWithChildren =
