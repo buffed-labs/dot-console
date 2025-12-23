@@ -462,17 +462,17 @@ function LightClientToggle() {
           marginTop: "0.5rem",
         })}
       >
-        Light clients are blockchain nodes running in your browser. They provide
-        secure and uncensorable connections to Polkadot networks.
+        Light-clients are blockchain nodes running in your browser. They provide
+        secure and un-censorable connections to Polkadot networks.
         <br />
         Pro-tip: get{" "}
-        <a
+        <Link
           href="https://github.com/paritytech/substrate-connect/tree/main/projects/extension"
           target="_blank"
         >
-          Substrate Connect browser extension
-        </a>{" "}
-        to share light clients across all your browser apps.
+          Substrate Connect
+        </Link>{" "}
+        browser extension to share light-clients across all your browser apps.
       </p>
     </div>
   );
