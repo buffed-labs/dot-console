@@ -9,7 +9,7 @@ import CloseIcon from "@w3f/polkadot-icons/solid/Close";
 import ConnectedIcon from "@w3f/polkadot-icons/solid/Connected";
 import { ConnectionButton } from "dot-connect/react.js";
 import { atom, useAtom } from "jotai";
-import { useRef, useState } from "react";
+import { use, useRef, useState } from "react";
 import { css } from "styled-system/css";
 import { NoCustomChain } from "~/components/chain-guard";
 import { Button } from "~/components/ui/button";
@@ -19,6 +19,7 @@ import { Heading } from "~/components/ui/heading";
 import { IconButton } from "~/components/ui/icon-button";
 import { Link } from "~/components/ui/link";
 import { RadioButtonGroup } from "~/components/ui/radio-button-group";
+import { Switch } from "~/components/ui/switch";
 import { Text } from "~/components/ui/text";
 import { initCustomRpcEndpoint } from "~/config";
 import { getRelayChainId, useCollectivesChainId } from "~/hooks/chain";
@@ -359,6 +360,8 @@ function ChainSelect() {
                   </RadioButtonGroup.Root>
                   <hr className={css({ marginY: "1rem" })} />
                   <CustomChainInput />
+                  <hr className={css({ marginY: "1rem" })} />
+                  <LightClientToggle />
                 </>
               )}
             </Drawer.Context>
@@ -427,6 +430,51 @@ function CustomChainInput() {
         <ConnectedIcon fill="currentcolor" />
       </Button>
     </form>
+  );
+}
+
+function LightClientToggle() {
+  const useLightClient =
+    globalThis.localStorage.getItem("dot-console/use-light-client") === "true";
+
+  return (
+    <div>
+      <Switch
+        checked={useLightClient}
+        onCheckedChange={() => {
+          if (useLightClient) {
+            globalThis.localStorage.removeItem("dot-console/use-light-client");
+          } else {
+            globalThis.localStorage.setItem(
+              "dot-console/use-light-client",
+              "true",
+            );
+          }
+          globalThis.location.reload();
+        }}
+      >
+        Connect via light-client
+      </Switch>
+      <p
+        className={css({
+          textStyle: "sm",
+          color: "fg.muted",
+          marginTop: "0.5rem",
+        })}
+      >
+        Light clients are blockchain nodes running in your browser. They provide
+        secure and uncensorable connections to Polkadot networks.
+        <br />
+        Pro-tip: get{" "}
+        <a
+          href="https://github.com/paritytech/substrate-connect/tree/main/projects/extension"
+          target="_blank"
+        >
+          Substrate Connect browser extension
+        </a>{" "}
+        to share light clients across all your browser apps.
+      </p>
+    </div>
   );
 }
 
