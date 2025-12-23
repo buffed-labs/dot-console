@@ -54,18 +54,20 @@ export const config = defineConfig({
       descriptor: unsafeDescriptor<Polkadot>(),
       provider: useLightClient
         ? polkadotProvider
-        : getWsProvider([
-            "wss://polkadot-rpc.publicnode.com",
-            "wss://polkadot-public-rpc.blockops.network/ws",
-            "wss://polkadot-rpc.dwellir.com",
-            "wss://polkadot.dotters.network",
-            "wss://rpc-polkadot.luckyfriday.io",
-            "wss://polkadot.api.onfinality.io/public-ws",
-            "wss://polkadot-rpc.polkadot.io",
-            "wss://rockx-dot.w3node.com/polka-public-dot/ws",
-            "wss://dot-rpc.stakeworld.io",
-            "wss://polkadot.rpc.subquery.network/public/ws",
-          ]),
+        : withPolkadotSdkCompat(
+            getWsProvider([
+              "wss://polkadot-rpc.publicnode.com",
+              "wss://polkadot-public-rpc.blockops.network/ws",
+              "wss://polkadot-rpc.dwellir.com",
+              "wss://polkadot.dotters.network",
+              "wss://rpc-polkadot.luckyfriday.io",
+              "wss://polkadot.api.onfinality.io/public-ws",
+              "wss://polkadot-rpc.polkadot.io",
+              "wss://rockx-dot.w3node.com/polka-public-dot/ws",
+              "wss://dot-rpc.stakeworld.io",
+              "wss://polkadot.rpc.subquery.network/public/ws",
+            ]),
+          ),
     },
     polkadot_asset_hub: {
       descriptor: unsafeDescriptor<Polkadot_asset_hub>(),
@@ -159,18 +161,20 @@ export const config = defineConfig({
       descriptor: unsafeDescriptor<Kusama>(),
       provider: useLightClient
         ? kusamaProvider
-        : getWsProvider([
-            "wss://kusama-rpc.publicnode.com",
-            "wss://kusama-rpc.dwellir.com",
-            "wss://kusama-rpc-tn.dwellir.com",
-            "wss://rpc.ibp.network/kusama",
-            "wss://kusama.dotters.network",
-            "wss://rpc-kusama.luckyfriday.io",
-            "wss://kusama.api.onfinality.io/public-ws",
-            "wss://rockx-ksm.w3node.com/polka-public-ksm/ws",
-            "wss://ksm-rpc.stakeworld.io",
-            "wss://kusama.rpc.subquery.network/public/ws",
-          ]),
+        : withPolkadotSdkCompat(
+            getWsProvider([
+              "wss://kusama-rpc.publicnode.com",
+              "wss://kusama-rpc.dwellir.com",
+              "wss://kusama-rpc-tn.dwellir.com",
+              "wss://rpc.ibp.network/kusama",
+              "wss://kusama.dotters.network",
+              "wss://rpc-kusama.luckyfriday.io",
+              "wss://kusama.api.onfinality.io/public-ws",
+              "wss://rockx-ksm.w3node.com/polka-public-ksm/ws",
+              "wss://ksm-rpc.stakeworld.io",
+              "wss://kusama.rpc.subquery.network/public/ws",
+            ]),
+          ),
     },
     kusama_asset_hub: {
       descriptor: unsafeDescriptor<Kusama_asset_hub>(),
@@ -207,13 +211,15 @@ export const config = defineConfig({
       descriptor: unsafeDescriptor<Paseo>(),
       provider: useLightClient
         ? paseoProvider
-        : getWsProvider([
-            "wss://paseo.rpc.amforc.com",
-            "wss://paseo-rpc.dwellir.com",
-            "wss://rpc.ibp.network/paseo",
-            "wss://paseo.dotters.network",
-            "wss://pas-rpc.stakeworld.io",
-          ]),
+        : withPolkadotSdkCompat(
+            getWsProvider([
+              "wss://paseo.rpc.amforc.com",
+              "wss://paseo-rpc.dwellir.com",
+              "wss://rpc.ibp.network/paseo",
+              "wss://paseo.dotters.network",
+              "wss://pas-rpc.stakeworld.io",
+            ]),
+          ),
     },
     paseo_asset_hub: {
       descriptor: unsafeDescriptor<Paseo_asset_hub>(),
@@ -247,15 +253,17 @@ export const config = defineConfig({
       descriptor: unsafeDescriptor<Westend>(),
       provider: useLightClient
         ? westendProvider
-        : getWsProvider([
-            "wss://westend-rpc.dwellir.com",
-            "wss://westend-rpc-tn.dwellir.com",
-            "wss://rpc.ibp.network/westend",
-            "wss://westend.dotters.network",
-            "wss://westend.api.onfinality.io/public-ws",
-            "wss://westend-rpc.polkadot.io",
-            "wss://westend.public.curie.radiumblock.co/ws",
-          ]),
+        : withPolkadotSdkCompat(
+            getWsProvider([
+              "wss://westend-rpc.dwellir.com",
+              "wss://westend-rpc-tn.dwellir.com",
+              "wss://rpc.ibp.network/westend",
+              "wss://westend.dotters.network",
+              "wss://westend.api.onfinality.io/public-ws",
+              "wss://westend-rpc.polkadot.io",
+              "wss://westend.public.curie.radiumblock.co/ws",
+            ]),
+          ),
     },
     westend_asset_hub: {
       descriptor: unsafeDescriptor<Westend_asset_hub>(),
