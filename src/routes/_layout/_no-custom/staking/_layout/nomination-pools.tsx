@@ -95,7 +95,9 @@ function SuspendableNominationPoolList() {
       })}
     >
       {nominationPools
-        .toSorted(([[a]], [[b]]) => a - b)
+        .toSorted(([_, a], [__, b]) =>
+          a.points === b.points ? 0 : a.points > b.points ? -1 : 1,
+        )
         .map(([[poolId]]) => (
           <li key={poolId}>
             <NominationPoolCard number={poolId} />
