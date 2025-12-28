@@ -25,7 +25,7 @@ import { Popover } from "~/components/ui/popover";
 import { Progress } from "~/components/ui/progress";
 import { Table } from "~/components/ui/table";
 import { AccountListItem } from "~/features/accounts/components/account-list-item";
-import { useStakingChainId } from "~/hooks/chain";
+import { useRelayChainId, useStakingChainId } from "~/hooks/chain";
 import { ellipsize } from "~/utils";
 
 type AccountProps = {
@@ -283,8 +283,9 @@ function SuspendableSessionKey({ account }: AccountProps) {
 }
 
 function SuspendableSessionKeyValue({ account }: AccountProps) {
-  const sessionKeys = useLazyLoadQuery((query) =>
-    query.storage("Session", "NextKeys", [account.address]),
+  const sessionKeys = useLazyLoadQuery(
+    (query) => query.storage("Session", "NextKeys", [account.address]),
+    { chainId: useRelayChainId() },
   );
 
   if (sessionKeys === undefined) {
