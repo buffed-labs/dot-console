@@ -9,7 +9,7 @@ import CloseIcon from "@w3f/polkadot-icons/solid/Close";
 import ConnectedIcon from "@w3f/polkadot-icons/solid/Connected";
 import { ConnectionButton } from "dot-connect/react.js";
 import { atom, useAtom } from "jotai";
-import { use, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { css } from "styled-system/css";
 import { NoCustomChain } from "~/components/chain-guard";
 import { Button } from "~/components/ui/button";
@@ -55,7 +55,10 @@ function TopBar() {
       ref={(element) => {
         const listener = () => {
           if (element !== null && prevScrollY.current !== undefined) {
-            if (globalThis.scrollY > prevScrollY.current) {
+            if (
+              globalThis.scrollY > element.getBoundingClientRect().height &&
+              globalThis.scrollY > prevScrollY.current
+            ) {
               setHidden(true);
             } else {
               setHidden(false);
