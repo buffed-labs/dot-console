@@ -3,7 +3,6 @@ import {
   QueryOptionsProvider,
   useLazyLoadQuery,
   useNativeTokenAmountFromPlanck,
-  Await,
 } from "@reactive-dot/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
@@ -40,16 +39,9 @@ function ValidatorsPage() {
             <SuspendableTotalValidators />
           </Suspense>
         </InfoHeader.Item>
-        <InfoHeader.Item title="Nominators">
+        <InfoHeader.Item title="Active nominators">
           <Suspense fallback={<CircularProgressIndicator size="text" />}>
-            <Await
-              promise={useLazyLoadQuery(
-                (query) => query.storage("Staking", "CounterForNominators"),
-                { chainId: useStakingChainId(), use: false },
-              )}
-            >
-              {(count) => count.toLocaleString()}
-            </Await>
+            <SuspendableActiveNominators />
           </Suspense>
         </InfoHeader.Item>
       </InfoHeader>
@@ -88,6 +80,26 @@ function SuspendableTotalValidators() {
   );
 
   return `${validatorCount.toLocaleString()} / ${maxValidatorCount?.toLocaleString()}`;
+}
+
+function SuspendableActiveNominators() {
+  const [activeEra, totalNominators] = useLazyLoadQuery(
+    (query) =>
+      query
+        .storage("Staking", "ActiveEra", [])
+        .storage("Staking", "CounterForNominators"),
+    { chainId: useStakingChainId() },
+  );
+
+  const stakers = useLazyLoadQuery(
+    (query) =>
+      query.storageEntries("Staking", "ErasStakersOverview", [
+        activeEra?.index ?? 0,
+      ]),
+    { chainId: useStakingChainId() },
+  );
+
+  return `${stakers.reduce((prev, [__, curr]) => prev + curr.nominator_count, 0).toLocaleString()} / ${totalNominators.toLocaleString()}`;
 }
 
 function SuspendableTotalStaked() {
