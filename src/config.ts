@@ -254,11 +254,11 @@ export const config = defineConfig({
         : () =>
             withPolkadotSdkCompat(
               getWsProvider([
-                "wss://asset-hub-paseo-rpc.dwellir.com",
-                "wss://sys.ibp.network/asset-hub-paseo",
-                "wss://asset-hub-paseo.dotters.network",
-                "wss://pas-rpc.stakeworld.io/assethub",
-                "wss://sys.turboflakes.io/asset-hub-paseo",
+                "wss://people-paseo-rpc.dwellir.com",
+                "wss://sys.ibp.network/people-paseo",
+                "wss://people-paseo.dotters.network",
+                "wss://pas-rpc.stakeworld.io/people",
+                "wss://sys.turboflakes.io/people-paseo",
               ]),
             ),
     },
@@ -300,13 +300,10 @@ export const config = defineConfig({
         : () =>
             withPolkadotSdkCompat(
               getWsProvider([
-                "wss://westend-rpc.dwellir.com",
-                "wss://westend-rpc-tn.dwellir.com",
-                "wss://rpc.ibp.network/westend",
-                "wss://westend.dotters.network",
-                "wss://westend.api.onfinality.io/public-ws",
-                "wss://westend-rpc.polkadot.io",
-                "wss://westend.public.curie.radiumblock.co/ws",
+                "wss://people-westend-rpc.dwellir.com",
+                "wss://sys.ibp.network/people-westend",
+                "wss://people-westend.dotters.network",
+                "wss://westend-people-rpc.polkadot.io",
               ]),
             ),
     },
@@ -317,13 +314,10 @@ export const config = defineConfig({
         : () =>
             withPolkadotSdkCompat(
               getWsProvider([
-                "wss://westend-rpc.dwellir.com",
-                "wss://westend-rpc-tn.dwellir.com",
-                "wss://rpc.ibp.network/westend",
-                "wss://westend.dotters.network",
-                "wss://westend.api.onfinality.io/public-ws",
-                "wss://westend-rpc.polkadot.io",
-                "wss://westend.public.curie.radiumblock.co/ws",
+                "wss://collectives-westend-rpc.dwellir.com",
+                "wss://sys.ibp.network/collectives-westend",
+                "wss://collectives-westend.dotters.network",
+                "wss://westend-collectives-rpc.polkadot.io",
               ]),
             ),
     },
