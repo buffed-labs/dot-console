@@ -160,12 +160,15 @@ export interface FileRoutesByFullPath {
   '/queries': typeof LayoutQueriesRoute
   '/assets': typeof LayoutNoCustomAssetsRoute
   '/accounts': typeof LayoutAccountsLayoutRouteWithChildren
-  '/utilities': typeof LayoutUtilitiesIndexRoute
-  '/collectives': typeof LayoutNoCustomCollectivesIndexRoute
-  '/staking': typeof LayoutNoCustomStakingIndexRoute
+  '/utilities': typeof LayoutUtilitiesLayoutRouteWithChildren
+  '/utilities/': typeof LayoutUtilitiesIndexRoute
+  '/collectives': typeof LayoutNoCustomCollectivesLayoutRouteWithChildren
+  '/staking': typeof LayoutNoCustomStakingLayoutRouteWithChildren
   '/accounts/validators': typeof LayoutAccountsLayoutValidatorsRoute
   '/utilities/planck-convertor': typeof LayoutUtilitiesLayoutPlanckConvertorRoute
-  '/referenda': typeof LayoutNoCustomReferendaIndexRoute
+  '/collectives/': typeof LayoutNoCustomCollectivesIndexRoute
+  '/referenda/': typeof LayoutNoCustomReferendaIndexRoute
+  '/staking/': typeof LayoutNoCustomStakingIndexRoute
   '/accounts/': typeof LayoutAccountsLayoutIndexRoute
   '/collectives/ambassador': typeof LayoutNoCustomCollectivesLayoutAmbassadorRoute
   '/collectives/fellowship': typeof LayoutNoCustomCollectivesLayoutFellowshipRoute
@@ -225,11 +228,14 @@ export interface FileRouteTypes {
     | '/assets'
     | '/accounts'
     | '/utilities'
+    | '/utilities/'
     | '/collectives'
     | '/staking'
     | '/accounts/validators'
     | '/utilities/planck-convertor'
-    | '/referenda'
+    | '/collectives/'
+    | '/referenda/'
+    | '/staking/'
     | '/accounts/'
     | '/collectives/ambassador'
     | '/collectives/fellowship'
@@ -289,7 +295,7 @@ declare module '@tanstack/react-router' {
     '/_layout': {
       id: '/_layout'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof LayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -324,14 +330,14 @@ declare module '@tanstack/react-router' {
     '/_layout/_no-custom': {
       id: '/_layout/_no-custom'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof LayoutNoCustomRouteImport
       parentRoute: typeof LayoutRoute
     }
     '/_layout/utilities/': {
       id: '/_layout/utilities/'
       path: '/utilities'
-      fullPath: '/utilities'
+      fullPath: '/utilities/'
       preLoaderRoute: typeof LayoutUtilitiesIndexRouteImport
       parentRoute: typeof LayoutRoute
     }
@@ -366,21 +372,21 @@ declare module '@tanstack/react-router' {
     '/_layout/_no-custom/staking/': {
       id: '/_layout/_no-custom/staking/'
       path: '/staking'
-      fullPath: '/staking'
+      fullPath: '/staking/'
       preLoaderRoute: typeof LayoutNoCustomStakingIndexRouteImport
       parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/_no-custom/referenda/': {
       id: '/_layout/_no-custom/referenda/'
       path: '/referenda'
-      fullPath: '/referenda'
+      fullPath: '/referenda/'
       preLoaderRoute: typeof LayoutNoCustomReferendaIndexRouteImport
       parentRoute: typeof LayoutNoCustomRoute
     }
     '/_layout/_no-custom/collectives/': {
       id: '/_layout/_no-custom/collectives/'
       path: '/collectives'
-      fullPath: '/collectives'
+      fullPath: '/collectives/'
       preLoaderRoute: typeof LayoutNoCustomCollectivesIndexRouteImport
       parentRoute: typeof LayoutNoCustomRoute
     }
