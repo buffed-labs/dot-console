@@ -1,5 +1,12 @@
 import { AccountListItem } from "../../accounts/components/account-list-item";
-import { ScaleEnum, Struct, u32, u64 } from "@polkadot-api/substrate-bindings";
+import {
+  _void,
+  Bytes,
+  Struct,
+  u32,
+  u64,
+  Variant,
+} from "@polkadot-api/substrate-bindings";
 import { idle } from "@reactive-dot/core";
 import { useChainId, useLazyLoadQuery } from "@reactive-dot/react";
 import { Suspense, useMemo } from "react";
@@ -7,11 +14,23 @@ import { ErrorBoundary } from "react-error-boundary";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
 import { useChainType } from "~/hooks/use-chain-type";
 
-const babeDigestCodec = ScaleEnum({
+const digestWithVRFCodec = Struct({
   authority_index: u32,
-  one: u32,
-  two: u32,
-  three: u32,
+  slot: u64,
+  vrf_signature: Struct({
+    pre_output: Bytes(32),
+    proof: Bytes(64),
+  }),
+});
+
+const babeDigestCodec = Variant({
+  Unknown: _void,
+  Primary: digestWithVRFCodec,
+  SecondaryPlain: Struct({
+    authority_index: u32,
+    slot: u64,
+  }),
+  SecondaryVRF: digestWithVRFCodec,
 });
 
 const auraDigestCodec = Struct({ slotNumber: u64 });
@@ -33,34 +52,35 @@ export function BlockAuthor(props: BlockAuthorProps) {
 export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
   const chainId = useChainId();
 
-  const digest = useLazyLoadQuery((builder) =>
+  const digests = useLazyLoadQuery((builder) =>
     builder.storage("System", "Digest", undefined, {
       at: blockHash as `0x${string}`,
     }),
   );
 
-  const digestValue = digest.at(0)?.value;
+  const babeOrAuraDigest = digests.find(
+    (digest) =>
+      digest.type === "PreRuntime" &&
+      ["babe", "aura"].includes(digest.value[0].asText()),
+  )?.value;
 
-  const digestData =
-    digestValue === undefined
-      ? undefined
-      : Array.isArray(digestValue)
-        ? digestValue[1]
-        : digestValue;
+  const digestValue = Array.isArray(babeOrAuraDigest)
+    ? babeOrAuraDigest[1]
+    : babeOrAuraDigest;
 
   const chainType = useChainType();
 
   const authorIdOrSlotNumber = useMemo(() => {
-    if (digestData === undefined) {
+    if (digestValue === undefined) {
       return undefined;
     }
 
     if (chainType === "babe") {
-      return babeDigestCodec.dec(digestData.asBytes()).value;
+      return babeDigestCodec.dec(digestValue.asBytes()).value?.authority_index;
     }
 
-    return Number(auraDigestCodec.dec(digestData.asBytes()).slotNumber);
-  }, [chainType, digestData]);
+    return Number(auraDigestCodec.dec(digestValue.asBytes()).slotNumber);
+  }, [chainType, digestValue]);
 
   const validators = useLazyLoadQuery(
     (builder) =>
