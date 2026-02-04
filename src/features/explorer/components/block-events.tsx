@@ -101,6 +101,18 @@ export type BlockEventsProps = {
   filterNoise?: boolean | undefined;
 };
 
+const noisyEvents: Record<string, string[] | true> = {
+  System: true,
+  VoterList: true,
+  Balances: ["Deposit", "UpdatedInactive", "Withdraw"],
+  Treasury: ["Deposit", "UpdatedInactive", "Withdraw"],
+  TransactionPayment: ["TransactionFeePaid"],
+  ParaInclusion: ["CandidateBacked", "CandidateIncluded"],
+  ParasInclusion: ["CandidateBacked", "CandidateIncluded"],
+  Inclusion: ["CandidateBacked", "CandidateIncluded"],
+  RelayChainInfo: ["CurrentBlockNumbers"],
+};
+
 export function BlockEvents({
   blockNumber,
   blockHash,
@@ -116,40 +128,42 @@ export function BlockEvents({
     <>
       {events
         .map((event, index) => ({ ...event, eventIndex: index }))
-        .filter(
-          ({ event }) =>
-            !filterNoise ||
-            (event.type !== "System" &&
-              (!["Balances", "Treasury"].includes(event.type) ||
-                (event.value !== undefined &&
-                  !["Deposit", "UpdatedInactive", "Withdraw"].includes(
-                    event.value.type,
-                  ))) &&
-              (!["TransactionPayment"].includes(event.type) ||
-                (event.value !== undefined &&
-                  !["TransactionFeePaid"].includes(event.value.type))) &&
-              (!["ParaInclusion", "ParasInclusion", "Inclusion"].includes(
-                event.type,
-              ) ||
-                (event.value !== undefined &&
-                  !["CandidateBacked", "CandidateIncluded"].includes(
-                    event.value.type,
-                  ))) &&
-              (!["RelayChainInfo"].includes(event.type) ||
-                (event.value !== undefined &&
-                  !["CurrentBlockNumbers"].includes(event.value.type)))),
-        )
-        .map(({ event, eventIndex }, index) => (
+        .filter(({ event }) => {
+          if (!filterNoise) {
+            return true;
+          }
+
+          const eventValue = event.value;
+          if (eventValue === undefined) {
+            return true;
+          }
+
+          const noisyEventTypes = noisyEvents[event.type];
+
+          if (noisyEventTypes === undefined) {
+            return true;
+          }
+
+          if (typeof noisyEventTypes === "boolean" && noisyEventTypes) {
+            return false;
+          }
+
+          if (noisyEventTypes.includes(eventValue.type)) {
+            return false;
+          }
+
+          return true;
+        })
+        .map(({ event, eventIndex }) => (
           <Collapsible.Root
-            // eslint-disable-next-line @eslint-react/no-array-index-key
-            key={blockHash + index}
+            key={`${blockHash}-${eventIndex}`}
             className={css({ display: "contents" })}
           >
             <Collapsible.Trigger asChild>
               <Table.Row className={css({ cursor: "pointer" })}>
                 <Table.Cell>
                   {event.type}
-                  {event.value === undefined ? "" : `.${event.value.type}`}
+                  {event.value !== undefined && `.${event.value.type}`}
                 </Table.Cell>
                 <Table.Cell>{blockNumber.toLocaleString()}</Table.Cell>
                 <Table.Cell>{eventIndex}</Table.Cell>
