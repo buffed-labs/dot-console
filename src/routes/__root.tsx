@@ -25,7 +25,7 @@ import "react18-json-view/src/style.css";
 import { mergeMap, type Subscription } from "rxjs";
 import z from "zod";
 import { IconButton } from "~/components/ui/icon-button";
-import { Toaster } from "~/components/ui/styled/toast";
+import { Toaster } from "~/components/ui/toast";
 import { Toast } from "~/components/ui/toast";
 import {
   blockExtrinsicsMapAtom,
@@ -191,7 +191,7 @@ function MutationToaster() {
           <Toast.Title>{toast.title}</Toast.Title>
           <Toast.Description>{toast.description}</Toast.Description>
           <Toast.CloseTrigger asChild>
-            <IconButton variant="link" size="sm">
+            <IconButton variant="plain" size="sm">
               <Close fill="currentcolor" />
             </IconButton>
           </Toast.CloseTrigger>

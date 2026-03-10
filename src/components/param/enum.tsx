@@ -40,7 +40,7 @@ function INTERNAL_EnumParam({
   return (
     <div>
       <Select
-        variant="ghost"
+        variant="plain"
         size="sm"
         width="fit-content"
         options={useMemo(

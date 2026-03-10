@@ -226,7 +226,7 @@ export function SortableItem({
         sortable && (
           <IconButton
             ref={setNodeRef}
-            variant="ghost"
+            variant="plain"
             size="xs"
             className={css({
               cursor: "grab",
@@ -243,14 +243,14 @@ export function SortableItem({
       }
       trailingLabel={
         <TooltipBox tooltip="Delete item">
-          <IconButton variant="ghost" size="xs" onClick={onRequestRemove}>
+          <IconButton variant="plain" size="xs" onClick={onRequestRemove}>
             <CloseIcon fill="currentcolor" />
           </IconButton>
         </TooltipBox>
       }
       aside={
         <TooltipBox tooltip="Duplicate item">
-          <IconButton variant="ghost" size="xs" onClick={onRequestDuplicate}>
+          <IconButton variant="plain" size="xs" onClick={onRequestDuplicate}>
             <CopyIcon fill="currentcolor" />
           </IconButton>
         </TooltipBox>

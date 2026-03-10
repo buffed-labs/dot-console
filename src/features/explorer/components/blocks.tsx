@@ -79,7 +79,7 @@ export function Blocks({ className }: BlocksProps) {
               >
                 <Table.Cell>
                   <Button
-                    variant="link"
+                    variant="plain"
                     onClick={() => setBlockInView(block.number)}
                     className={css({
                       color: "colorPalette.text",

@@ -1,7 +1,7 @@
 import { useNativeTokenAmountFromPlanck } from "@reactive-dot/react";
 import { css } from "styled-system/css";
 import { HoverCard } from "~/components/ui/hover-card";
-import * as Progress from "~/components/ui/styled/progress";
+import * as Progress from "~/components/ui/progress";
 
 type TallyProps = { ayes: bigint; nays: bigint; support: bigint };
 

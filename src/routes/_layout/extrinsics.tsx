@@ -311,15 +311,15 @@ function CallParam({
                 {editable.editing ? (
                   <>
                     <Editable.SubmitTrigger asChild>
-                      <Button variant="link">Save</Button>
+                      <Button variant="plain">Save</Button>
                     </Editable.SubmitTrigger>
                     <Editable.CancelTrigger asChild>
-                      <Button variant="link">Cancel</Button>
+                      <Button variant="plain">Cancel</Button>
                     </Editable.CancelTrigger>
                   </>
                 ) : (
                   <Editable.EditTrigger asChild>
-                    <Button variant="link">Edit</Button>
+                    <Button variant="plain">Edit</Button>
                   </Editable.EditTrigger>
                 )}
               </Editable.Control>

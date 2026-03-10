@@ -1,72 +1,31 @@
-"use client";
+'use client'
+import { TreeView } from '@ark-ui/react/tree-view'
+import { ChevronRightIcon } from 'lucide-react'
+import type { ComponentProps } from 'react'
+import { createStyleContext } from 'styled-system/jsx'
+import { treeView } from 'styled-system/recipes'
 
-import * as StyledTreeView from "./styled/tree-view";
-import {
-  CheckSquareIcon,
-  ChevronRightIcon,
-  FileIcon,
-  FolderIcon,
-} from "lucide-react";
-import { forwardRef } from "react";
+const { withProvider, withContext } = createStyleContext(treeView)
 
-export const TreeView = forwardRef<HTMLDivElement, StyledTreeView.RootProps>(
-  (props, ref) => {
-    return (
-      <StyledTreeView.Root ref={ref} {...props}>
-        <StyledTreeView.Tree>
-          {/* @ts-expect-error */}
-          {props.collection.rootNode.children.map((node, index) => (
-            <TreeNode key={node.id} node={node} indexPath={[index]} />
-          ))}
-        </StyledTreeView.Tree>
-      </StyledTreeView.Root>
-    );
-  },
-);
+export type RootProps = ComponentProps<typeof Root>
+export const Root = withProvider(TreeView.Root, 'root')
+export const RootProvider = withProvider(TreeView.RootProvider, 'root')
+export const Branch = withContext(TreeView.Branch, 'branch')
+export const BranchContent = withContext(TreeView.BranchContent, 'branchContent')
+export const BranchControl = withContext(TreeView.BranchControl, 'branchControl')
+export const BranchIndentGuide = withContext(TreeView.BranchIndentGuide, 'branchIndentGuide')
+export const BranchIndicator = withContext(TreeView.BranchIndicator, 'branchIndicator', {
+  defaultProps: { children: <ChevronRightIcon /> },
+})
+export const BranchText = withContext(TreeView.BranchText, 'branchText')
+export const BranchTrigger = withContext(TreeView.BranchTrigger, 'branchTrigger')
+export const Item = withContext(TreeView.Item, 'item')
+export const ItemIndicator = withContext(TreeView.ItemIndicator, 'itemIndicator')
+export const ItemText = withContext(TreeView.ItemText, 'itemText')
+export const Label = withContext(TreeView.Label, 'label')
+export const Tree = withContext(TreeView.Tree, 'tree')
+export const NodeProvider = TreeView.NodeProvider
 
-TreeView.displayName = "TreeView";
+export type NodeProviderProps = ComponentProps<typeof NodeProvider>
 
-const TreeNode = (props: StyledTreeView.NodeProviderProps) => {
-  const { node, indexPath } = props;
-  return (
-    <StyledTreeView.NodeProvider
-      key={node.id}
-      node={node}
-      indexPath={indexPath}
-    >
-      {node.children ? (
-        <StyledTreeView.Branch>
-          <StyledTreeView.BranchControl>
-            <StyledTreeView.BranchText>
-              <FolderIcon /> {node.name}
-            </StyledTreeView.BranchText>
-            <StyledTreeView.BranchIndicator>
-              <ChevronRightIcon />
-            </StyledTreeView.BranchIndicator>
-          </StyledTreeView.BranchControl>
-          <StyledTreeView.BranchContent>
-            <StyledTreeView.BranchIndentGuide />
-            {/* @ts-expect-error */}
-            {node.children.map((child, index) => (
-              <TreeNode
-                key={child.id}
-                node={child}
-                indexPath={[...indexPath, index]}
-              />
-            ))}
-          </StyledTreeView.BranchContent>
-        </StyledTreeView.Branch>
-      ) : (
-        <StyledTreeView.Item>
-          <StyledTreeView.ItemIndicator>
-            <CheckSquareIcon />
-          </StyledTreeView.ItemIndicator>
-          <StyledTreeView.ItemText>
-            <FileIcon />
-            {node.name}
-          </StyledTreeView.ItemText>
-        </StyledTreeView.Item>
-      )}
-    </StyledTreeView.NodeProvider>
-  );
-};
+export { TreeViewContext as Context } from '@ark-ui/react/tree-view'
