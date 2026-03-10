@@ -116,7 +116,7 @@ export function BlockDetail() {
                       )}
                     </Clipboard.Context>
                     <Clipboard.Trigger asChild>
-                      <IconButton variant="ghost" size="xs">
+                      <IconButton variant="plain" size="xs">
                         <Clipboard.Indicator
                           copied={<CheckIcon fill="currentcolor" />}
                         >

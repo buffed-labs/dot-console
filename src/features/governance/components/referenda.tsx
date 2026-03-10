@@ -393,7 +393,7 @@ function CallData({ section, method, call }: CallDataProps) {
           <Dialog.Title marginBottom="1rem">Decoded call</Dialog.Title>
           <CodecView value={call} className={css({ overflow: "auto" })} />
           <Dialog.CloseTrigger asChild position="absolute" top="2" right="2">
-            <IconButton variant="ghost" size="sm">
+            <IconButton variant="plain" size="sm">
               <CloseIcon fill="currentcolor" />
             </IconButton>
           </Dialog.CloseTrigger>

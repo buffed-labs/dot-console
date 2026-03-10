@@ -115,7 +115,7 @@ function SuspendableAssetList() {
                               top="2"
                               right="2"
                             >
-                              <IconButton variant="ghost" size="sm">
+                              <IconButton variant="plain" size="sm">
                                 <CloseIcon fill="currentcolor" />
                               </IconButton>
                             </Dialog.CloseTrigger>

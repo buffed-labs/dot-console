@@ -39,7 +39,7 @@ export function CollapsibleParam({
       )}
     >
       <Collapsible.Trigger asChild>
-        <Button variant="link" justifyContent="start" width="stretch">
+        <Button variant="plain" justifyContent="start" width="stretch">
           {leadingLabel}
           <Collapsible.Context>
             {({ open }) => (

@@ -169,7 +169,7 @@ function FileUploadBinaryParam({
                 <FileUpload.ItemName />
                 <FileUpload.ItemSizeText />
                 <FileUpload.ItemDeleteTrigger asChild>
-                  <IconButton variant="link" size="sm">
+                  <IconButton variant="plain" size="sm">
                     <Delete fill="currentcolor" />
                   </IconButton>
                 </FileUpload.ItemDeleteTrigger>

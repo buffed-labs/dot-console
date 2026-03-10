@@ -285,7 +285,7 @@ function ChainSelect() {
       >
         <Drawer.Trigger asChild>
           <Button
-            variant="ghost"
+            variant="plain"
             className={css({ textTransform: "capitalize" })}
           >
             {chainId.replaceAll("_", " ")}
@@ -299,7 +299,7 @@ function ChainSelect() {
             <Drawer.Title>Chain</Drawer.Title>
             <Drawer.Description>Select a chain</Drawer.Description>
             <Drawer.CloseTrigger asChild position="absolute" top="3" right="4">
-              <IconButton variant="ghost">
+              <IconButton variant="plain">
                 <CloseIcon fill="currentcolor" />
               </IconButton>
             </Drawer.CloseTrigger>

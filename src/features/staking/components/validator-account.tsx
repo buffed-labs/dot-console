@@ -423,7 +423,7 @@ function SuspendableNominatorList({ account }: AccountProps) {
             <Table.Row className={css({ backgroundColor: "transparent" })}>
               <Table.Cell colSpan={2}>
                 <Button
-                  variant="ghost"
+                  variant="plain"
                   onClick={showMore}
                   className={css({ width: "stretch" })}
                 >
@@ -445,7 +445,7 @@ function Action({ children }: PropsWithChildren) {
     >
       {children}
       <TooltipBox tooltip="Coming soon">
-        <IconButton variant="ghost" size="lg" disabled>
+        <IconButton variant="plain" size="lg" disabled>
           <ActionRightIcon fill="currentcolor" />
         </IconButton>
       </TooltipBox>

@@ -132,14 +132,14 @@ function SuspendableQueryResult({ query, onDelete }: StorageQueryResultProps) {
           <div className={css({ display: "flex", gap: "0.5rem" })}>
             {refreshable && (
               <IconButton
-                variant="ghost"
+                variant="plain"
                 disabled={isPending}
                 onClick={refresh}
               >
                 <Refresh fill="currentcolor" />
               </IconButton>
             )}
-            <IconButton variant="ghost" onClick={() => onDelete()}>
+            <IconButton variant="plain" onClick={() => onDelete()}>
               <Close fill="currentcolor" />
             </IconButton>
           </div>
@@ -197,7 +197,7 @@ function QueryErrorBoundary({ onDelete, children }: QueryErrorBoundaryProps) {
               })}
             >
               <div>Error fetching query</div>
-              <IconButton variant="ghost" onClick={() => resetErrorBoundary()}>
+              <IconButton variant="plain" onClick={() => resetErrorBoundary()}>
                 <Close fill="currentcolor" />
               </IconButton>
             </Card.Title>
