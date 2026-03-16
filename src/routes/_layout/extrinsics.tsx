@@ -205,7 +205,7 @@ function CallParam({
 
   const { callData: searchCallData } = Route.useSearch();
 
-  const initialSearchCallData = useRef(searchCallData);
+  const initialSearchCallDataRef = useRef(searchCallData);
 
   const callDataHex = callData?.asHex();
 
@@ -216,7 +216,7 @@ function CallParam({
     callDataHex ?? "",
   );
 
-  // eslint-disable-next-line @eslint-react/naming-convention/use-state
+  // eslint-disable-next-line @eslint-react/use-state
   const [callDataInput, _setCallDataInput] = useState(draftCallDataInput);
 
   const setCallDataInput = useCallback(
@@ -253,8 +253,8 @@ function CallParam({
   }, [navigate]);
 
   const onMount = useEffectEvent(() => {
-    if (initialSearchCallData.current) {
-      setCallDataInput(initialSearchCallData.current, true);
+    if (initialSearchCallDataRef.current) {
+      setCallDataInput(initialSearchCallDataRef.current, true);
     }
   });
 

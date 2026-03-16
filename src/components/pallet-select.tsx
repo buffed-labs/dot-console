@@ -31,7 +31,7 @@ export function PalletSelect({ filter, children }: PalletSelectProps) {
     throw new Error("Metadata doesn't contain any pallet");
   }
 
-  // eslint-disable-next-line @eslint-react/naming-convention/use-state
+  // eslint-disable-next-line @eslint-react/use-state
   const [selectedPallet, _setSelectedPallet] = useState(defaultPallet.index);
 
   const setSelectedPallet = (index: number) => {

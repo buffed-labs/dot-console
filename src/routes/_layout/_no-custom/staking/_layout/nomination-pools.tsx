@@ -171,6 +171,13 @@ function SuspendableNominationPoolCard({ number }: NominationPoolProps) {
     return null;
   }
 
+  const poolStateColorPalette =
+    bondedPool.state.type === "Open"
+      ? "success"
+      : bondedPool.state.type === "Blocked"
+        ? "error"
+        : "warning";
+
   return (
     <Card.Root>
       <Card.Header>
@@ -202,16 +209,7 @@ function SuspendableNominationPoolCard({ number }: NominationPoolProps) {
         <Badge
           variant="solid"
           size="sm"
-          colorPalette={(() => {
-            switch (bondedPool.state.type) {
-              case "Open":
-                return "success";
-              case "Blocked":
-                return "error";
-              case "Destroying":
-                return "warning";
-            }
-          })()}
+          colorPalette={poolStateColorPalette}
         >
           {bondedPool.state.type}
         </Badge>

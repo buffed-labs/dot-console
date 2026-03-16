@@ -48,16 +48,16 @@ function Layout() {
 
 function TopBar() {
   const [hidden, setHidden] = useState(false);
-  const prevScrollY = useRef<number>(undefined);
+  const prevScrollYRef = useRef<number>(undefined);
 
   return (
     <header
       ref={(element) => {
         const listener = () => {
-          if (element !== null && prevScrollY.current !== undefined) {
+          if (element !== null && prevScrollYRef.current !== undefined) {
             if (
               globalThis.scrollY > element.getBoundingClientRect().height &&
-              globalThis.scrollY > prevScrollY.current
+              globalThis.scrollY > prevScrollYRef.current
             ) {
               setHidden(true);
             } else {
@@ -65,7 +65,7 @@ function TopBar() {
             }
           }
 
-          prevScrollY.current = globalThis.scrollY;
+          prevScrollYRef.current = globalThis.scrollY;
         };
 
         globalThis.addEventListener("scroll", listener);

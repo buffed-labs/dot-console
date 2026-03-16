@@ -33,6 +33,16 @@ export default tseslint.config(
   },
   reactRefresh.configs.recommended,
   {
+    rules: {
+      "react-refresh/only-export-components": [
+        "error",
+        {
+          extraHOCs: ["assign", "createFileRoute", "createRootRoute"],
+        },
+      ],
+    },
+  },
+  {
     plugins: {
       "react-compiler": reactCompiler,
     },

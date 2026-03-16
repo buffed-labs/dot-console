@@ -16,7 +16,7 @@ import {
 import { atom } from "jotai";
 import { useAtomValue } from "jotai-suspense";
 import type { Binary, ChainDefinition, TypedApi } from "polkadot-api";
-import { Suspense, use, useState } from "react";
+import { Suspense, use, useMemo, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useInView } from "react-intersection-observer";
 import { css } from "styled-system/css";
@@ -217,6 +217,13 @@ function ReferendumRow({ number }: ReferendumProps) {
           ? ([info.value, undefined] as const)
           : info.value;
 
+      const colorPalette =
+        info.type === "Approved"
+          ? "success"
+          : info.type === "TimedOut"
+            ? "warning"
+            : "error";
+
       return (
         <>
           <Table.Cell>{number.toLocaleString()}</Table.Cell>
@@ -227,21 +234,7 @@ function ReferendumRow({ number }: ReferendumProps) {
             </Code>
           </Table.Cell>
           <Table.Cell>
-            <Badge
-              variant="solid"
-              colorPalette={(() => {
-                switch (info.type) {
-                  case "Approved":
-                    return "success";
-                  case "TimedOut":
-                    return "warning";
-                  case "Cancelled":
-                  case "Killed":
-                  case "Rejected":
-                    return "error";
-                }
-              })()}
-            >
+            <Badge variant="solid" colorPalette={colorPalette}>
               {info.type}
             </Badge>
           </Table.Cell>
@@ -289,19 +282,20 @@ type BlockDateProps = {
 };
 
 function BlockDate({ blockNumber }: BlockDateProps) {
+  const now = useMemo(() => new Date(), []);
   const [slotDuration, currentBlock] = useLazyLoadQuery(
     (builder) =>
       builder.constant("Babe", "ExpectedBlockTime").storage("System", "Number"),
     { chainId: useRelayChainId() },
   );
   const msAgo = (currentBlock - blockNumber) * Number(slotDuration);
-  const submissionDate = subMilliseconds(new Date(), msAgo);
+  const submissionDate = subMilliseconds(now, msAgo);
 
-  if (differenceInDays(new Date(), submissionDate) >= 1) {
+  if (differenceInDays(now, submissionDate) >= 1) {
     return submissionDate.toLocaleDateString();
   }
 
-  return intlFormatDistance(submissionDate, new Date());
+  return intlFormatDistance(submissionDate, now);
 }
 
 type ReferndumDiscussionLinkProps = {

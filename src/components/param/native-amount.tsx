@@ -22,14 +22,14 @@ export type NativeAmountProps = ParamProps<bigint> & {
 
 export function NativeAmountParam(props: NativeAmountProps) {
   // Needed due to Suspense losing initial default
-  const initialDefault = useRef(props.defaultValue);
+  const initialDefaultRef = useRef(props.defaultValue);
 
   return (
     <Suspense>
       <INTERNAL_NativeAmountParam
         {...props}
         // eslint-disable-next-line react-hooks/refs
-        defaultValue={initialDefault.current}
+        defaultValue={initialDefaultRef.current}
       />
     </Suspense>
   );

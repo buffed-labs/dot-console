@@ -144,6 +144,24 @@ function AccountListItemTemplate({
   pending,
   className,
 }: AccountListItemTemplateProps) {
+  const headerTitle =
+    identityType === "on-chain"
+      ? "On-chain identity"
+      : identityType === "sub-identity"
+        ? "Sub-account"
+        : undefined;
+
+  const identityIcon =
+    identityType === "on-chain" ? (
+      <Icon size="sm">
+        <IdentityIcon fill="var(--colors-color-palette-emphasized)" />
+      </Icon>
+    ) : identityType === "sub-identity" ? (
+      <Icon size="sm">
+        <SubIdentityIcon fill="var(--colors-color-palette-emphasized)" />
+      </Icon>
+    ) : undefined;
+
   return (
     <article
       className={cx(
@@ -188,16 +206,7 @@ function AccountListItemTemplate({
         })}
       >
         <header
-          title={(() => {
-            switch (identityType) {
-              case "on-chain":
-                return "On-chain identity";
-              case "sub-identity":
-                return "Sub-account";
-              default:
-                return undefined;
-            }
-          })()}
+          title={headerTitle}
           className={css({
             display: "flex",
             alignItems: "center",
@@ -205,24 +214,7 @@ function AccountListItemTemplate({
             overflow: "hidden",
           })}
         >
-          {(() => {
-            switch (identityType) {
-              case "on-chain":
-                return (
-                  <Icon size="sm">
-                    <IdentityIcon fill="var(--colors-color-palette-emphasized)" />
-                  </Icon>
-                );
-              case "sub-identity":
-                return (
-                  <Icon size="sm">
-                    <SubIdentityIcon fill="var(--colors-color-palette-emphasized)" />
-                  </Icon>
-                );
-              default:
-                return undefined;
-            }
-          })()}
+          {identityIcon}
           <Heading
             className={css({
               overflow: "hidden",

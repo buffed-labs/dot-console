@@ -5,7 +5,7 @@ import {
 } from "@reactive-dot/react";
 import type { DenominatedNumber } from "@reactive-dot/utils";
 import CloseIcon from "@w3f/polkadot-icons/solid/Close";
-import { Suspense, useState } from "react";
+import { type ReactNode, Suspense, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { css } from "styled-system/css";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
@@ -258,62 +258,64 @@ export function SuspendableAccountIdentity({ address }: AccountInfoProps) {
           .map(([key, value]) => {
             const identityValue = getIdentityDisplayValue(value);
 
+            let identityContent: ReactNode;
+            if (identityValue === undefined) {
+              identityContent = "N/A";
+            } else {
+              switch (key) {
+                case "web":
+                  identityContent = (
+                    <Link target="_blank" href={identityValue}>
+                      {identityValue}
+                    </Link>
+                  );
+                  break;
+                case "email":
+                  identityContent = (
+                    <Link href={`mailto:${encodeURIComponent(identityValue)}`}>
+                      {identityValue}
+                    </Link>
+                  );
+                  break;
+                case "github":
+                  identityContent = (
+                    <Link
+                      target="_blank"
+                      href={`https://github.com/${encodeURIComponent(identityValue)}`}
+                    >
+                      {identityValue}
+                    </Link>
+                  );
+                  break;
+                case "matrix":
+                  identityContent = (
+                    <Link
+                      target="_blank"
+                      href={`https://riot.im/app/#/user/${encodeURIComponent(identityValue)}`}
+                    >
+                      {identityValue}
+                    </Link>
+                  );
+                  break;
+                case "twitter":
+                  identityContent = (
+                    <Link
+                      target="_blank"
+                      href={`https://x.com/${encodeURIComponent(identityValue?.replace("@", ""))}`}
+                    >
+                      {identityValue}
+                    </Link>
+                  );
+                  break;
+                default:
+                  identityContent = identityValue;
+              }
+            }
+
             return (
               <Fragment key={key}>
                 <dt className={css({ textTransform: "capitalize" })}>{key}</dt>
-                <dd>
-                  {(() => {
-                    if (identityValue === undefined) {
-                      return "N/A";
-                    }
-
-                    switch (key) {
-                      case "web":
-                        return (
-                          <Link target="_blank" href={identityValue}>
-                            {identityValue}
-                          </Link>
-                        );
-                      case "email":
-                        return (
-                          <Link
-                            href={`mailto:${encodeURIComponent(identityValue)}`}
-                          >
-                            {identityValue}
-                          </Link>
-                        );
-                      case "github":
-                        return (
-                          <Link
-                            target="_blank"
-                            href={`https://github.com/${encodeURIComponent(identityValue)}`}
-                          >
-                            {identityValue}
-                          </Link>
-                        );
-                      case "matrix":
-                        return (
-                          <Link
-                            target="_blank"
-                            href={`https://riot.im/app/#/user/${encodeURIComponent(identityValue)}`}
-                          >
-                            {identityValue}
-                          </Link>
-                        );
-                      case "twitter":
-                        return (
-                          <Link
-                            target="_blank"
-                            href={`https://x.com/${encodeURIComponent(identityValue?.replace("@", ""))}`}
-                          >
-                            {identityValue}
-                          </Link>
-                        );
-                      default:
-                        return identityValue;
-                    }
-                  })()}
-                </dd>
+                <dd>{identityContent}</dd>
               </Fragment>
             );
           })}

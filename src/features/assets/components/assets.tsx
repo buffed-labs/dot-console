@@ -83,8 +83,15 @@ function SuspendableAssetList() {
       {assets.map(([[id], asset]) => {
         return (
           <InView key={stringifyCodec(id)}>
-            {({ ref, inView }) => (
-              <QueryOptionsProvider active={inView}>
+            {({ ref, inView }) => {
+              const statusColorMap = {
+                Live: token.var("colors.success.text"),
+                Frozen: token.var("colors.warning.text"),
+                Destroying: token.var("colors.error.text"),
+              } as const;
+              const statusColor = statusColorMap[asset.status.type];
+              return (
+                <QueryOptionsProvider active={inView}>
                 <Table.Row ref={ref}>
                   <Table.Cell>
                     {typeof id === "number" ? (
@@ -150,16 +157,7 @@ function SuspendableAssetList() {
                   <Table.Cell>{asset.accounts.toLocaleString()}</Table.Cell>
                   <Table.Cell
                     style={{
-                      color: (() => {
-                        switch (asset.status.type) {
-                          case "Live":
-                            return token.var("colors.success.text");
-                          case "Frozen":
-                            return token.var("colors.warning.text");
-                          case "Destroying":
-                            return token.var("colors.error.text");
-                        }
-                      })(),
+                      color: statusColor,
                     }}
                   >
                     {asset.status.type}
@@ -170,8 +168,9 @@ function SuspendableAssetList() {
                     <AccountListItem address={asset!.owner} />
                   </Table.Cell>
                 </Table.Row>
-              </QueryOptionsProvider>
-            )}
+                </QueryOptionsProvider>
+              );
+            }}
           </InView>
         );
       })}
