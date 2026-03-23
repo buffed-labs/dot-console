@@ -14,13 +14,7 @@ import { Binary } from "@polkadot-api/substrate-bindings";
 import type { BytesArrayShape } from "@polkadot-api/view-builder";
 import Delete from "@w3f/polkadot-icons/solid/DeleteCancel";
 import type { HexString } from "polkadot-api";
-import {
-  useEffect,
-  useEffectEvent,
-  useMemo,
-  useState,
-  useTransition,
-} from "react";
+import { useEffect, useEffectEvent, useState, useTransition } from "react";
 import { css } from "styled-system/css";
 import { toaster } from "~/toaster";
 import { bytesToString } from "~/utils";
@@ -67,23 +61,21 @@ function TextBinaryParam({
       : "",
   );
 
-  const [validBinary, binary] = useMemo(
-    () =>
-      validateBinary(
-        value.match(/^0x[0-9a-f]+$/i)
-          ? Binary.fromHex(value)
-          : Binary.fromText(value),
-        bytesArray,
-      ),
-    [bytesArray, value],
+  const [validBinary, binary] = validateBinary(
+    value.match(/^0x[0-9a-f]+$/i)
+      ? Binary.fromHex(value)
+      : Binary.fromText(value),
+    bytesArray,
   );
 
-  const onChangeBinary = useEffectEvent(() => onChangeValue(validBinary));
+  const onChangeBinary = useEffectEvent((value: typeof hexBinary) =>
+    onChangeValue(typeof value === "string" ? Binary.fromHex(value) : value),
+  );
 
   const hexBinary =
     validBinary instanceof Binary ? validBinary.asHex() : validBinary;
 
-  useEffect(() => onChangeBinary(), [hexBinary]);
+  useEffect(() => onChangeBinary(hexBinary), [hexBinary]);
 
   return (
     <Field.Root
