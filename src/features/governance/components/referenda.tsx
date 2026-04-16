@@ -132,14 +132,25 @@ function LazyReferendaRow({ number }: ReferendumProps) {
 
 function ReferendumRow({ number }: ReferendumProps) {
   const offChainDataPromise = useReferendumOffChainDiscussion(number);
+  const chainId = useGovernanceChainId();
 
   const [tracks, info] = useLazyLoadQuery(
     (builder) =>
       builder
         .constant("Referenda", "Tracks")
         .storage("Referenda", "ReferendumInfoFor", [number]),
-    { chainId: useGovernanceChainId() },
+    { chainId },
   );
+
+  const ongoingTrackName = useMemo(() => {
+    if (info?.type !== "Ongoing") return undefined;
+    const name = tracks
+      .map((track) =>
+        Array.isArray(track) ? { id: track[0], info: track[1] } : track,
+      )
+      .find((track) => track.id === info.value.track)?.info.name;
+    return name ?? info.value.track.toLocaleString();
+  }, [tracks, info]);
 
   if (info === undefined) {
     throw new Error("Referendum info is not available");
@@ -147,16 +158,7 @@ function ReferendumRow({ number }: ReferendumProps) {
 
   switch (info.type) {
     case "Ongoing": {
-      const _trackName = tracks
-        .map((track) =>
-          Array.isArray(track) ? { id: track[0], info: track[1] } : track,
-        )
-        .find((track) => track.id === info.value.track)?.info.name;
-
-      const trackName =
-        _trackName === undefined
-          ? info.value.track.toLocaleString()
-          : _trackName;
+      const trackName = ongoingTrackName!;
 
       return (
         <>
@@ -325,6 +327,7 @@ function ReferendaCall({ proposal }: ReferendaCallProps) {
     throw new Error("Legacy proposals can't be resolved");
   }
 
+  const chainId = useGovernanceChainId();
   const storagePreimage = useLazyLoadQuery(
     (builder) =>
       proposal.type !== "Lookup"
@@ -332,10 +335,10 @@ function ReferendaCall({ proposal }: ReferendaCallProps) {
         : builder.storage("Preimage", "PreimageFor", [
             [proposal.value.hash, proposal.value.len],
           ]),
-    { chainId: useGovernanceChainId() },
+    { chainId },
   );
 
-  const api = useTypedApi({ chainId: useGovernanceChainId() }) as TypedApi<ChainDefinition>;
+  const api = useTypedApi({ chainId }) as TypedApi<ChainDefinition>;
 
   const preimage =
     proposal.type === "Inline"
@@ -345,7 +348,7 @@ function ReferendaCall({ proposal }: ReferendaCallProps) {
         : storagePreimage;
 
   const callPromise = useAtomValue(
-    preimage === undefined ? atom(undefined) : callDataAtom(preimage, api),
+    preimage === undefined ? undefinedAtom : callDataAtom(preimage, api),
   );
 
   if (callPromise === undefined) {
@@ -403,6 +406,8 @@ function NoCalldata() {
     <span className={css({ color: "warning.text" })}>Missing call data</span>
   );
 }
+
+const undefinedAtom = atom(undefined);
 
 const callDataAtom = atomFamily(
   (preimage: Uint8Array, api: TypedApi<ChainDefinition>) =>
