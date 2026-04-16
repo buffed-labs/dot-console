@@ -10,7 +10,7 @@ import {
   type ParamProps,
 } from "./common";
 import { useFileUpload } from "@ark-ui/react";
-import { Binary } from "@polkadot-api/substrate-bindings";
+import { Binary } from "polkadot-api";
 import type { BytesArrayShape } from "@polkadot-api/view-builder";
 import Delete from "@w3f/polkadot-icons/solid/DeleteCancel";
 import type { HexString } from "polkadot-api";
@@ -19,7 +19,7 @@ import { css } from "styled-system/css";
 import { toaster } from "~/toaster";
 import { bytesToString } from "~/utils";
 
-export type BinaryParamProps = ParamProps<Binary> & {
+export type BinaryParamProps = ParamProps<Uint8Array> & {
   bytesArray?: BytesArrayShape;
   defaultValue?: { value: HexString } | undefined;
 };
@@ -63,17 +63,17 @@ function TextBinaryParam({
 
   const [validBinary, binary] = validateBinary(
     value.match(/^0x[0-9a-f]+$/i)
-      ? Binary.fromHex(value)
+      ? Binary.fromHex(value as `0x${string}`)
       : Binary.fromText(value),
     bytesArray,
   );
 
   const onChangeBinary = useEffectEvent((value: typeof hexBinary) =>
-    onChangeValue(typeof value === "string" ? Binary.fromHex(value) : value),
+    onChangeValue(typeof value === "string" ? Binary.fromHex(value as `0x${string}`) : value),
   );
 
   const hexBinary =
-    validBinary instanceof Binary ? validBinary.asHex() : validBinary;
+    validBinary instanceof Uint8Array ? Binary.toHex(validBinary) : validBinary;
 
   useEffect(() => onChangeBinary(hexBinary), [hexBinary]);
 
@@ -88,7 +88,7 @@ function TextBinaryParam({
         onChange={(event) => setValue(event.target.value)}
       />
       <Field.ErrorText>
-        Field requires {bytesArray?.len} bytes, got {binary.asBytes().length}{" "}
+        Field requires {bytesArray?.len} bytes, got {binary.length}{" "}
         instead
       </Field.ErrorText>
     </Field.Root>
@@ -99,7 +99,7 @@ function FileUploadBinaryParam({
   bytesArray,
   onChangeValue,
 }: BinaryParamProps) {
-  const [binary, setBinary] = useState<ParamInput<Binary>>(INCOMPLETE);
+  const [binary, setBinary] = useState<ParamInput<Uint8Array>>(INCOMPLETE);
   const [isPending, startTransition] = useTransition();
 
   const fileUpload = useFileUpload({
@@ -126,7 +126,7 @@ function FileUploadBinaryParam({
 
       startTransition(async () => {
         const [validBinary] = validateBinary(
-          Binary.fromBytes(new Uint8Array(await file.arrayBuffer())),
+          new Uint8Array(await file.arrayBuffer()),
           bytesArray,
         );
 
@@ -135,7 +135,7 @@ function FileUploadBinaryParam({
     },
   });
 
-  const onChangeBinary = useEffectEvent((value: ParamInput<Binary>) =>
+  const onChangeBinary = useEffectEvent((value: ParamInput<Uint8Array>) =>
     onChangeValue(value),
   );
 
@@ -176,17 +176,15 @@ function FileUploadBinaryParam({
 }
 
 function validateBinary(
-  binary: Binary,
+  binary: Uint8Array,
   bytesArray: BytesArrayShape | undefined,
 ) {
   if (bytesArray === undefined) {
     return [binary, binary] as const;
   }
 
-  const bytes = binary.asBytes();
-
-  if (bytes.length !== bytesArray.len) {
-    return [bytes.length === 0 ? INCOMPLETE : INVALID, binary] as const;
+  if (binary.length !== bytesArray.len) {
+    return [binary.length === 0 ? INCOMPLETE : INVALID, binary] as const;
   }
 
   return [binary, binary] as const;

@@ -9,9 +9,9 @@
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "bundler",
     "jsx": "preserve",
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "styled-system/*": ["./styled-system/*"]
     }
   },
   "include": ["src", "styled-system"]

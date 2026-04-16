@@ -18,7 +18,7 @@ import { zodValidator } from "@tanstack/zod-adapter";
 import Close from "@w3f/polkadot-icons/solid/Close";
 import "dot-connect/font.css";
 import { useSetAtom } from "jotai";
-import type { BlockInfo } from "polkadot-api";
+import type { BlockInfo, ChainDefinition, TypedApi } from "polkadot-api";
 import { useEffect, useEffectEvent } from "react";
 import "react18-json-view/src/dark.css";
 import "react18-json-view/src/style.css";
@@ -135,7 +135,7 @@ function BlockTrackerInner() {
           mergeMap((blocks) =>
             Promise.all(
               blocks.map((block) =>
-                unstable_getBlockExtrinsics(client, typedApi, block.hash).then(
+                unstable_getBlockExtrinsics(client, typedApi as TypedApi<ChainDefinition>, block.hash).then(
                   (extrinsics) => ({ ...block, extrinsics }),
                 ),
               ),

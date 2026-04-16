@@ -1,5 +1,6 @@
 import { Await, useLazyLoadQuery } from "@reactive-dot/react";
 import { DenominatedNumber } from "@reactive-dot/utils";
+import { Binary } from "polkadot-api";
 import { Suspense, useMemo } from "react";
 import { css } from "styled-system/css";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
@@ -95,7 +96,7 @@ export function CoreCollective({ type }: CoreCollectiveProps) {
                     new DenominatedNumber(
                       member.salary,
                       metadata.decimals,
-                      metadata.symbol.asText(),
+                      Binary.toText(metadata.symbol),
                     ).toLocaleString()
                   }
                 </Await>

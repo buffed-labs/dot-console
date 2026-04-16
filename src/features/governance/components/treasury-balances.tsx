@@ -112,7 +112,7 @@ function AssetBalance({ assetId, balance }: AssetBalanceProps) {
         new DenominatedNumber(
           balance,
           metadata.decimals,
-          metadata.symbol.asText(),
+          Binary.toText(metadata.symbol),
         )
       }
     />
@@ -139,8 +139,8 @@ function useTreasuryAccount() {
   );
 
   const treasuryAccountBytes = new Uint8Array([
-    ...Binary.fromText("modl").asBytes(),
-    ...treasuryPalletId.asBytes(),
+    ...Binary.fromText("modl"),
+    ...Binary.fromHex(treasuryPalletId),
   ]);
 
   return AccountId(ss58Prefix).dec(

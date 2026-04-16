@@ -1,5 +1,6 @@
 import { type AssetId, getAssetId, NATIVE_ASSET_ID } from "../utils";
 import { idle } from "@reactive-dot/core";
+import { Binary } from "polkadot-api";
 import {
   ChainProvider,
   QueryOptionsProvider,
@@ -187,7 +188,7 @@ function AssetName({ id }: { id: AssetId }) {
     { chainId: useAssetHubChainId() },
   );
 
-  return metadata.name.asText();
+  return Binary.toText(metadata.name);
 }
 
 function AssetAmount({ id, amount }: { id: AssetId; amount: bigint }) {
@@ -202,7 +203,7 @@ function AssetAmount({ id, amount }: { id: AssetId; amount: bigint }) {
   return new DenominatedNumber(
     amount,
     metadata.decimals,
-    metadata.symbol.asText(),
+    Binary.toText(metadata.symbol),
   ).toLocaleString();
 }
 

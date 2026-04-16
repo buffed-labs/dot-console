@@ -18,7 +18,7 @@ export function useMetadata() {
     throw new Error("Unsupported metadata version");
   }
 
-  const { metadata } = metadataCodec.dec(latestMetadata.asBytes());
+  const { metadata } = metadataCodec.dec(latestMetadata);
 
   return unifyMetadata(metadata);
 }

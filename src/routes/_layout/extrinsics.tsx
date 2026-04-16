@@ -192,11 +192,9 @@ function CallParam({
     try {
       const callMetadata = dynamicBuilder.buildCall(pallet.name, call);
 
-      return Binary.fromBytes(
-        mergeUint8(
-          new Uint8Array(callMetadata.location),
-          callMetadata.codec.enc(args),
-        ),
+      return mergeUint8(
+        new Uint8Array(callMetadata.location),
+        callMetadata.codec.enc(args),
       );
     } catch {
       return undefined;
@@ -207,7 +205,7 @@ function CallParam({
 
   const initialSearchCallDataRef = useRef(searchCallData);
 
-  const callDataHex = callData?.asHex();
+  const callDataHex = callData ? Binary.toHex(callData) : undefined;
 
   const [defaultArgs, setDefaultArgs] = useState<Decoded>();
   const [argsRenderCount, setArgsRenderCount] = useState(0);
@@ -233,7 +231,7 @@ function CallParam({
         onChangePallet(decodedCall.pallet.value.idx);
         onChangeCall(decodedCall.call.value.name);
         setDefaultArgs(decodedCall.args.value);
-        navigate({ search: { callData: callDataInput } });
+        navigate({ search: { callData: callDataInput }, resetScroll: false });
 
         if (forceRerender) {
           setArgsRenderCount((count) => count + 1);
@@ -263,7 +261,7 @@ function CallParam({
   }, []);
 
   const onChangeCallDataHex = useEffectEvent(
-    (callDataHex: `0x${string}` | undefined) => {
+    (callDataHex: string | undefined) => {
       if (callDataHex === undefined) {
         clearCallDataInput();
       } else {

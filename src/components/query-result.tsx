@@ -63,21 +63,21 @@ function SuspendableQueryResult({ query, onDelete }: StorageQueryResultProps) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             query.pallet as any,
             query.storage,
-            queryArgs,
+            queryArgs as any,
           );
         case "storage-entries":
           return builder.storageEntries(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             query.pallet as any,
             query.storage,
-            queryArgs,
+            queryArgs as any,
           );
         case "api":
           return builder.runtimeApi(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             query.api as any,
             query.method,
-            queryArgs,
+            queryArgs as any,
           );
       }
     },

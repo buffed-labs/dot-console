@@ -6,7 +6,6 @@ import {
 } from "@reactive-dot/react";
 import { BigIntMath } from "@reactive-dot/utils";
 import ActionRightIcon from "@w3f/polkadot-icons/solid/ActionRight";
-import { Binary } from "polkadot-api";
 import {
   Fragment,
   Suspense,
@@ -292,8 +291,8 @@ function SuspendableSessionKeyValue({ account }: AccountProps) {
     return null;
   }
 
-  if (sessionKeys instanceof Binary) {
-    return sessionKeys.asHex();
+  if (typeof sessionKeys === "string") {
+    return sessionKeys;
   }
 
   return (
@@ -303,14 +302,7 @@ function SuspendableSessionKeyValue({ account }: AccountProps) {
         className={css({ cursor: "pointer" })}
       >
         {ellipsize(
-          Binary.fromBytes(
-            Object.values(sessionKeys)
-              .map((key) => key.asBytes())
-              .reduce(
-                (prev, curr) => new Uint8Array([...prev, ...curr]),
-                new Uint8Array(),
-              ),
-          ).asHex(),
+          Object.values(sessionKeys).join(""),
           6,
         )}
       </Popover.Trigger>
@@ -336,7 +328,7 @@ function SuspendableSessionKeyValue({ account }: AccountProps) {
                     fontWeight: "bold",
                   })}
                 >
-                  {key.asHex()}
+                  {key}
                 </dd>
               </Fragment>
             ))}

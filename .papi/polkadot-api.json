@@ -45,19 +45,19 @@
       "codeHash": "0x252af19a9ac83c621c4f1307ded240c6054fe5c09b40e81c073ba74a3a06d898"
     },
     "kusama": {
-      "chain": "ksmcc3",
+      "chain": "kusama",
       "metadata": ".papi/metadata/kusama.scale",
       "genesis": "0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe",
       "codeHash": "0x9bfa95446bff3c013666fd4c421cb0d8ce16b2e905a6589b58981876abf471d9"
     },
     "kusama_asset_hub": {
-      "chain": "ksmcc3_asset_hub",
+      "chain": "kusama_asset_hub",
       "metadata": ".papi/metadata/kusama_asset_hub.scale",
       "genesis": "0x48239ef607d7928874027a43a67689209727dfb3d3dc5e5b03a39bdc2eda771a",
       "codeHash": "0xe3b1cff634878a0176df177caaa6333efca2c33fc7313fdf66c3195e2ed15883"
     },
     "kusama_people": {
-      "chain": "ksmcc3_people",
+      "chain": "kusama_people",
       "metadata": ".papi/metadata/kusama_people.scale",
       "genesis": "0xc1af4cb4eb3918e5db15086c0cc5ec17fb334f728b7c65dd44bfe1e174ff8b3f",
       "codeHash": "0xfada7ce5ee54cdb3aae60c85f9dd72d03ee1538551a93327e876bc31b802841b"
@@ -81,25 +81,25 @@
       "codeHash": "0x304c8251a8f6014e1942970810bc773d0a731f5f316c96484078fffdad90461a"
     },
     "westend": {
-      "chain": "westend2",
+      "chain": "westend",
       "metadata": ".papi/metadata/westend.scale",
       "genesis": "0xe143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e",
       "codeHash": "0x2e3ec4cf2d056a808288ba8b404f469eb92eedb9161b110da7e7f60f229b126b"
     },
     "westend_asset_hub": {
-      "chain": "westend2_asset_hub",
+      "chain": "westend_asset_hub",
       "metadata": ".papi/metadata/westend_asset_hub.scale",
       "genesis": "0x67f9723393ef76214df0118c34bbbd3dbebc8ed46a10973a8c969d48fe7598c9",
       "codeHash": "0xac70e823f8800dd6bfa9eacfd0b52a6b6a7426bb97682fa7f8c5b077051bb4fa"
     },
     "westend_collectives": {
-      "chain": "westend2_collectives",
+      "chain": "westend_collectives",
       "metadata": ".papi/metadata/westend_collectives.scale",
       "genesis": "0x713daf193a6301583ff467be736da27ef0a72711b248927ba413f573d2b38e44",
       "codeHash": "0x43a244c3253ce41e55beb0b2b3696b7243291ba37b4d040a38cf23f9e1704249"
     },
     "westend_people": {
-      "chain": "westend2_people",
+      "chain": "westend_people",
       "metadata": ".papi/metadata/westend_people.scale",
       "genesis": "0x1eb6fb0ba5187434de017a70cb84d4f47142df1d571d0ef9e7e1407f2b80b93c",
       "codeHash": "0xfb32525a9e454d3da1ee9c53dd32b47e72fc319a23b36daee617439d87ae82c8"

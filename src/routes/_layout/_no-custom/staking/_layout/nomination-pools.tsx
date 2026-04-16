@@ -5,6 +5,7 @@ import {
   useNativeTokenAmountFromPlanck,
 } from "@reactive-dot/react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Binary } from "polkadot-api";
 import { Suspense } from "react";
 import { css } from "styled-system/css";
 import { Center } from "styled-system/jsx";
@@ -194,7 +195,7 @@ function SuspendableNominationPoolCard({ number }: NominationPoolProps) {
           </span>{" "}
           |{" "}
           <span className={css({ fontWeight: "normal" })}>
-            {metadata.asText()}
+            {Binary.toText(metadata)}
           </span>
         </Card.Title>
       </Card.Header>

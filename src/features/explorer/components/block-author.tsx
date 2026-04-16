@@ -9,6 +9,7 @@ import {
 } from "@polkadot-api/substrate-bindings";
 import { idle } from "@reactive-dot/core";
 import { useChainId, useLazyLoadQuery } from "@reactive-dot/react";
+import { Binary } from "polkadot-api";
 import { Suspense, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { CircularProgressIndicator } from "~/components/circular-progress-indicator";
@@ -58,11 +59,14 @@ export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
     }),
   );
 
-  const babeOrAuraDigest = digests.find(
-    (digest) =>
+  const babeOrAuraDigest = digests.find((digest) => {
+    return (
       digest.type === "PreRuntime" &&
-      ["babe", "aura"].includes(digest.value[0].asText()),
-  )?.value;
+      ["babe", "aura"].includes(
+        Binary.toText(Binary.fromHex(digest.value[0])).toLowerCase(),
+      )
+    );
+  })?.value;
 
   const digestValue = Array.isArray(babeOrAuraDigest)
     ? babeOrAuraDigest[1]
@@ -76,10 +80,10 @@ export function SuspendableBlockAuthor({ blockHash }: BlockAuthorProps) {
     }
 
     if (chainType === "babe") {
-      return babeDigestCodec.dec(digestValue.asBytes()).value?.authority_index;
+      return babeDigestCodec.dec(digestValue).value?.authority_index;
     }
 
-    return Number(auraDigestCodec.dec(digestValue.asBytes()).slotNumber);
+    return Number(auraDigestCodec.dec(digestValue).slotNumber);
   }, [chainType, digestValue]);
 
   const validators = useLazyLoadQuery(

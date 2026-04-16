@@ -1,5 +1,5 @@
-import type { IdentityData } from ".papi/descriptors/dist";
-import { Binary } from "@polkadot-api/substrate-bindings";
+import type { IdentityData } from "@polkadot-api/descriptors";
+import { Binary } from "polkadot-api";
 
 export function stringifyCodec(variable: unknown) {
   return JSON.stringify(
@@ -9,7 +9,7 @@ export function stringifyCodec(variable: unknown) {
         return value.toLocaleString();
       }
 
-      if (value instanceof Binary) {
+      if (value instanceof Uint8Array) {
         return bytesToString(value);
       }
 
@@ -20,7 +20,7 @@ export function stringifyCodec(variable: unknown) {
 }
 
 export function unbinary(data: unknown): unknown {
-  if (data instanceof Binary) {
+  if (data instanceof Uint8Array) {
     return bytesToString(data);
   }
 
@@ -43,17 +43,18 @@ export function unbinary(data: unknown): unknown {
 
 const textDecoder = new TextDecoder("utf-8", { fatal: true });
 
-export function bytesToString(value: Binary) {
-  if (value.asText() === "") {
+export function bytesToString(value: Uint8Array | string) {
+  const bytes = typeof value === "string" ? Binary.fromHex(value as `0x${string}`) : value;
+  const text = Binary.toText(bytes);
+  if (text === "") {
     return "";
   }
 
   try {
-    const bytes = value.asBytes();
-    if (bytes.slice(0, 5).every((b) => b < 32)) throw null;
+    if (bytes.slice(0, 5).every((b: number) => b < 32)) throw null;
     return textDecoder.decode(bytes);
   } catch {
-    return value.asHex();
+    return Binary.toHex(bytes);
   }
 }
 
@@ -99,7 +100,7 @@ export function getIdentityDisplayValue(
     return value.toLocaleString();
   }
 
-  return value.asText();
+  return bytesToString(value);
 }
 
 export function ellipsize(value: string, length: number) {

@@ -1,6 +1,6 @@
 import { useReferendumOffChainDiscussion } from "../hooks/use-referendum-off-chain-discussion";
 import { Tally } from "./tally";
-import type { PreimagesBounded } from ".papi/descriptors/dist";
+import type { PreimagesBounded } from "@polkadot-api/descriptors";
 import { idle } from "@reactive-dot/core";
 import {
   QueryOptionsProvider,
@@ -15,7 +15,8 @@ import {
 } from "date-fns";
 import { atom } from "jotai";
 import { useAtomValue } from "jotai-suspense";
-import type { Binary, ChainDefinition, TypedApi } from "polkadot-api";
+import type { ChainDefinition, TypedApi } from "polkadot-api";
+import { Binary } from "polkadot-api";
 import { Suspense, use, useMemo, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useInView } from "react-intersection-observer";
@@ -334,7 +335,7 @@ function ReferendaCall({ proposal }: ReferendaCallProps) {
     { chainId: useGovernanceChainId() },
   );
 
-  const api = useTypedApi({ chainId: useGovernanceChainId() });
+  const api = useTypedApi({ chainId: useGovernanceChainId() }) as TypedApi<ChainDefinition>;
 
   const preimage =
     proposal.type === "Inline"
@@ -404,7 +405,7 @@ function NoCalldata() {
 }
 
 const callDataAtom = atomFamily(
-  (preimage: Binary, api: TypedApi<ChainDefinition>) =>
+  (preimage: Uint8Array, api: TypedApi<ChainDefinition>) =>
     atom(() => api.txFromCallData(preimage).then((tx) => tx.decodedCall)),
-  (preimage, api) => [preimage.asHex(), objectId(api)].join(),
+  (preimage, api) => [Binary.toHex(preimage), objectId(api)].join(),
 );

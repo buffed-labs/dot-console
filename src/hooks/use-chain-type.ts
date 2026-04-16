@@ -1,22 +1,18 @@
 import { useTypedApi } from "@reactive-dot/react";
-import type { UnsafeApi, ChainDefinition } from "polkadot-api";
-import { use } from "react";
+import type { ChainDefinition, TypedApi } from "polkadot-api";
+import { use, useMemo } from "react";
 
 export function useChainType() {
-  const typedApi = useTypedApi();
+  const typedApi = useTypedApi() as TypedApi<ChainDefinition>;
 
-  const compatibilityToken = use(
-    (typedApi as unknown as UnsafeApi<ChainDefinition>).runtimeToken,
-  );
+  const chainTypePromise = useMemo(async () => {
+    try {
+      await typedApi.constants["Babe"]?.["EpochDuration"]?.();
+      return "babe" as const;
+    } catch {
+      return "aura" as const;
+    }
+  }, [typedApi]);
 
-  let chainType: "babe" | "aura";
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    typedApi.constants.Babe.EpochDuration(compatibilityToken as any);
-    chainType = "babe";
-  } catch {
-    chainType = "aura";
-  }
-
-  return chainType;
+  return use(chainTypePromise);
 }
